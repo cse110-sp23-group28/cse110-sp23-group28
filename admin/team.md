@@ -1,7 +1,10 @@
 # UC Sussy Developers #
+## Team 28 ##
+<sub>Browser Arousers ;)</sub>
+- [x] We're SUS
 
 ## Brand ##
-_team brand here_
+![Team Mascot](/admin/amongus.jpg)
 
 ## Values ##
 - Open and Honest Communication
@@ -32,4 +35,3 @@ _team brand here_
   -  About: https://wesleyhuhuhu.github.io/GitHub-Pages/
 - Alvaro Ramos-Sanchez, Developer, https://github.com/AlvaroRamos44
   -  About: AlvaroRamos44.github.io
-
