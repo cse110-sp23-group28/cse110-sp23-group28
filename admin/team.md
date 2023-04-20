@@ -1,6 +1,6 @@
 # UC Sussy Developers #
 ## Team 28 ##
-<sub>Browser Arousers ;)</sub>
+<sub>~~Browser Arousers ;)~~</sub>
 - [x] We're SUS
 
 ## Brand ##
