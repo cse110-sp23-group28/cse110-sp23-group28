@@ -1,4 +1,5 @@
 # UC Sussy Developers #
+Browser Arousers ;)
 
 ## Brand ##
 _team brand here_
