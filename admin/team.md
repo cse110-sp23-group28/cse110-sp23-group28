@@ -34,4 +34,4 @@
 - Wesley Hu, Developer, https://github.com/wesleyhuhuhu
   -  About: https://wesleyhuhuhu.github.io/GitHub-Pages/
 - Alvaro Ramos-Sanchez, Developer, https://github.com/AlvaroRamos44
-  -  About: AlvaroRamos44.github.io
+  -  About: [AlvaroRamos44.github.io](https://alvaroramos44.github.io/)
