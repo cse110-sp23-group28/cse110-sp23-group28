@@ -1,9 +1,9 @@
 # UC Sussy Developers #
+##Team 28##
 <sub>Browser Arousers ;)</sub>
 - [x] We're SUS
 
 ## Brand ##
-_team brand here_
 ![Team Mascot](/admin/amongus.jpg)
 
 ## Values ##
