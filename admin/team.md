@@ -2,6 +2,7 @@
 
 ## Brand ##
 _team brand here_
+![Team Mascot](/admin/amongus.jpeg)
 
 ## Values ##
 - Open and Honest Communication
