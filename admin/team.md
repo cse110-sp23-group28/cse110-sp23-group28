@@ -22,4 +22,3 @@ _team brand here_
 - Brandon Reponte, Developer, https://github.com/breponte
 - Wesley Hu, Developer, https://github.com/wesleyhuhuhu
 - Alvaro Ramos-Sanchez, Developer, https://github.com/AlvaroRamos44
-
