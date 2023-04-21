@@ -12,3 +12,7 @@
 2. We can talk about it and try to resolve the issue ourselves
 3. If this does not fix the problem, then we should bring it up to our TA and ask for their advice
 4. In the case that the rules are still not being followed after consulting the team and our TA, we should maintain communication and consider revising the rules in an effort to compromise the situation.
+
+
+
+## Signature of Agreement: ________________________________
