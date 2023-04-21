@@ -24,7 +24,7 @@
 - (Terry) Ka Wing Yan, Developer, https://github.com/TerryYan26
   -  About: https://terryyan26.github.io/CSE-110/
 - Ishan Banerjee, Developer, https://github.com/IshanBanerjee2003
-  -  About: _could not find_
+  -  About: https://github.com/IshanBanerjee2003/CSE110Lab1
 - Steve Padmanaban, Developer, https://github.com/spadmanaban25
   -  About: https://spadmanaban25.github.io/CSE110-Lab-Week1/
 - Jenny Lam, Planner, https://github.com/jenetic
