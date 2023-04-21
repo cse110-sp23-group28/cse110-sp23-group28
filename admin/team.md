@@ -4,7 +4,7 @@
 - [x] We're SUS
 
 ## Brand ##
-![Team Mascot](/admin/amongus.jpg)
+![Team Mascot](/admin/branding/amongus.jpg)
 
 ## Values ##
 - Open and Honest Communication
