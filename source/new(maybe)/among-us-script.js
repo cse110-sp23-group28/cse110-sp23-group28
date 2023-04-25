@@ -57,6 +57,8 @@ submitButton.addEventListener('click', function() {
           break;
         }
       }
+
+      canClick = false;
       if (isValidQuestion) {
         const answer = generateAnswer();
         answerText.textContent = answer;
@@ -65,57 +67,22 @@ submitButton.addEventListener('click', function() {
         showError("Sorry, I didn't understand that");
       }
     }
-    canClick = false;
-
-    setTimeout(function() {
-      submitButton.style.backgroundColor = 'var(--crewmate)';
-
-      canClick = true;
-    }, 3000);
+    
+    // setTimeout(function() {
+    //   submitButton.style.backgroundColor = 'var(--crewmate)';
+    //   canClick = true;
+    // }, 3000);
   }
 });
-// submitButton.addEventListener('click', function() {
 
-//   if (canClick) {
-//     const question = questionInput.value.toLowerCase();
-//     submitButton.style.backgroundColor = 'var(--impostor)';
 
-//     if (question == "") {
-//       document.getElementById("answer").style.color = "var(--impostor)"
-//       showError("It's empty and please type your question!");
-//     } else if (question.startsWith("Am ") 
-//     || question.startsWith("is ") 
-//     || question.startsWith("are ")
-//     || question.startsWith("do ")
-//     || question.startsWith("does ")
-//     || question.startsWith("have ")
-//     || question.startsWith("has ")
-//     || question.startsWith("can ")
-//     || question.startsWith("could ")
-//     || question.startsWith("will ")
-//     || question.startsWith("would ")
-//     || question.startsWith("may ")
-//     || question.startsWith("might ")
-//     || question.startsWith("shall ")
-//     || question.startsWith("must ")
-//     )
-//      {
-//       const answer = generateAnswer();
-//       answerText.textContent = answer;
-//     } else {
-//       document.getElementById("answer").style.color = "var(--impostor)"
-//       showError("This is not a yes/no question. Please enter a yes/no question.");
-//     }
-//     canClick = false;
-
-//     setTimeout(function() {
-//       submitButton.style.backgroundColor = 'var(--crewmate)';
-
-//       canClick = true;
-//     }, 3000);
-//   }
-// });
-
+// use enter key to submit
+questionInput.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    submitButton.click();
+  }
+});
 
 function generateAnswer() {
   const randomIndex = Math.floor(Math.random() * answers.length);
@@ -130,8 +97,8 @@ function generateAnswer() {
   return typeEffect(answer[0]);
 }
 
-function typeEffect(text, isError = false) {
-  const delay = isError ? 50 : 50; // Increase delay for error message
+function typeEffect(text) {
+  const delay = 50; //clear up redundant code
   let i = 0;
   let result = "";
   const typingInterval = setInterval(() => {
@@ -140,14 +107,18 @@ function typeEffect(text, isError = false) {
       answerText.innerHTML = result;
       i++;
     } else {
+      // stop execution when result.length == test.length
       clearInterval(typingInterval);
+      // As the execution stopped, make the button clickable immediately (improved UX)
+      submitButton.style.backgroundColor = 'var(--crewmate)';
+      canClick = true;
     }
   }, delay);
   return result;
 }
 
 function showError(message) {
-  answerText.innerHTML = typeEffect(message, true);
+  answerText.innerHTML = typeEffect(message);
   
 }
 

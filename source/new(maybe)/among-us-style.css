@@ -4,6 +4,9 @@
     --crewmate: rgb(163, 246, 246);
     --impostor: red;
 }
+*{
+  /* border: 1px red solid; */
+}
 
 html, body {
     height: 100%;
@@ -20,6 +23,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-color: black;
+    background-position: center;
     color: white;
 
     display: flex;
@@ -68,59 +72,58 @@ main {
     to { width: 100% }
   }
   
-  /* The typewriter cursor effect */
-  @keyframes blink-caret {
-    from, to { border-color: transparent }
-    
-  }
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
   
-  .container p {
-    overflow: hidden; /* Ensures the content is not revealed until the animation */
-    white-space: nowrap; /* Keeps the content on a single line */
-    animation: 
-      typing 3.5s steps(40, end),
-      blink-caret .75s step-end infinite;
-  }
-/*  @media only screen and (max-width: 768px) {
-    .container {
-      flex-direction: row;
-      justify-content: space-around;
-    }
-    
-    #question {
-      width: 80%;
-      margin: 2rem 0;
-      padding: 1rem;
-      font-size: 1.5rem;
-    }
-    
-    #submit {
-      padding: 1rem;
-      font-size: 1.5rem;
-    }
-    
-    #answer {
-      margin-top: 2rem;
-      font-size: 1.5rem;
-    }
-  }
-  
-  /* Desktop styles */
-  @media only screen and (max-width: 1024px) {
+}
 
-    #question {
-      margin: 3rem 0;
-      font-size: 2rem;
-    }
-    
-    #submit {
-      padding: 1.5rem;
-      font-size: 2rem;
-    }
-    
-    #answer {
-      margin-top: 3rem;
-      font-size: 2rem;
-    }
+.container p {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+
+
+@media only screen and (max-width: 767px), 
+screen and (max-height: 480px){
+  *{
+    /* border: 1px blue solid; */
   }
-   */
+  body{
+    background-size: 700px;
+    background-position: center top;
+  }
+  main{
+    gap: 0;
+  }
+  h1{
+    font-size: 15px;
+    margin-top: 20px;
+  }
+  #character{
+    width: 35vw;
+    max-width: 150px;
+  }
+  #question{
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  #submit{
+    width: 100%;
+  }
+  #answer{
+    position: absolute;
+    /* transform: translate(-120px); */
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+
+}
