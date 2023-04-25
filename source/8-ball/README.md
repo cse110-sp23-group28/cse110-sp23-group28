@@ -12,7 +12,7 @@ There is a input text box in the middle.
 
 The user can put in anything, and there will be text below the textbox to indicate the answer.
 
-##Theme
+## Theme Related Extras
 - background image
 - floating among us mascot
 - red and teal text
