@@ -10,6 +10,7 @@
 ## HTML
 - Add viewport meta value to prevent zooming in on small-screen devices. Prevent user from misinputs like "double click", better UX.
 - Use crewmate picture as default background. Stylistic choice. A more neutral visual for default.
+- Add alt attribute to img to pass w3 validation.
 
 ## Media
 - Convert jpg/png files into webp. Optimize image files into smaller file sizes. Better performance.
