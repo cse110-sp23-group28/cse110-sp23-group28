@@ -88,10 +88,10 @@ function generateAnswer() {
   const randomIndex = Math.floor(Math.random() * answers.length);
   answer = answers[randomIndex]
   answer[1] == "positive" ? (
-    document.body.style.backgroundImage = "url('images/crewmate-bg.png')",
+    document.body.style.backgroundImage = "url('images/crewmate-bg.webp')",
     document.getElementById("answer").style.color = "var(--crewmate)"
   ) : (
-    document.body.style.backgroundImage = "url('images/impostor-bg.jpg')",
+    document.body.style.backgroundImage = "url('images/impostor-bg.webp')",
     document.getElementById("answer").style.color = "var(--impostor)"
   )
   return typeEffect(answer[0]);
