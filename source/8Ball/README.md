@@ -2,7 +2,7 @@
 
 The theme closely matches our team branding.
 
-![Here is a pic of the site](/source/8-ball/sussy8ball.png)
+![Here is a pic of the site](/source/8Ball/images/sussy8ball.png)
 
 An 8 ball is something where you ask it a question, and it gives you a yes, no, maybe answers.
 
