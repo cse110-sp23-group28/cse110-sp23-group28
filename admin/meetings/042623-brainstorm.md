@@ -1,4 +1,4 @@
-# CSE 110 Team 28 Kickoff Meeting
+# CSE 110 Team 28 Project Brainstorming Meeting
 
 ---
 
