@@ -42,18 +42,18 @@ Frustrations: Online sources have said to be careful about such feelings of “f
 [Love Meter](https://www.prokerala.com/entertainment/love-meter/): Web app where you type in 2 people’s name and it will calculate the percentage representing how compatible they are 
 ​
 ## Statement of Purpose
-Here at UC Sussy Developers, our goal is to provide a fun and entertaining experience for Gen-Z and Millennials who are interested in exploring the future of their romantic relationships. We believe that predicting one's romantic future through an app can be an exciting and engaging activity, especially for those who enjoy web-based technology.
+_Here at UC Sussy Developers, our goal is to provide a fun and entertaining experience for Gen-Z and Millennials who are interested in exploring the future of their romantic relationships. We believe that predicting one's romantic future through an app can be an exciting and engaging activity, especially for those who enjoy web-based technology._
 
 ## Risks and Rabbit Holes
 
 ### Technical Unknowns
-Project could get complicated quickly; might become overwhelming to the user
+- Project could get complicated quickly; might become overwhelming to the user
 
-What sort of data is needed to store locally in order to deterministically calculate the output 
+- What sort of data is needed to store locally in order to deterministically calculate the output 
 
 ### Unsolved Design Problems
-Coming up with a formula to deterministically compute compatibility based on Zodiac sign
+- Coming up with a formula to deterministically compute compatibility based on Zodiac sign
 
-Coming up with how to make the app interactive, fun, and personalized experience
+- Coming up with how to make the app interactive, fun, and personalized experience
 
-How many features/inputs are necessary to make the app both mysterious and yet believable
+- How many features/inputs are necessary to make the app both mysterious and yet believable
