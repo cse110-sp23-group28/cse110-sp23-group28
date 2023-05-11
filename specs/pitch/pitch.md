@@ -2,7 +2,7 @@
 
 ## Summary
 
-​Our pitch is a web app that predicts the outcome of a relationship based on their birthdays. By analyzing their astrological compatibility using their Zodiac sign, our app will provide users with a metric of how long their relationship will last. 
+​Our pitch is a web app that predicts the outcome of a relationship based on their birthdays, names, and responses to various interactive tasks. These tasks include choosing from a random set of cards, "palm reading" or "fingerprint reading" by keysmashing the physical keyboard/touchscreen keyboard, and drawing on a canvas. By analyzing the input to these tasks and the couple's astrological compatibility using their Zodiac signs, our app will provide users with a metric of how long their relationship will last, along with a pre-generated story about their relationship's future. 
 ​
 ## Narrowing Down the Problem
 
