@@ -26,7 +26,7 @@
   -  About: https://ishanbanerjee2003.github.io/CSE110Lab1/
 - Steve Padmanaban, Developer, https://github.com/spadmanaban25
   -  About: https://spadmanaban25.github.io/CSE110-Lab-Week1/
-- Jenny Lam, Planner, https://github.com/jenetic
+- Jenny Lam, Developer, https://github.com/jenetic
   -  About: https://jenetic.github.io/lab-week-1/
 - Brandon Reponte, Developer, https://github.com/breponte
   -  About: https://breponte.github.io/CSE110/
