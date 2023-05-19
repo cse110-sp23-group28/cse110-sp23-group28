@@ -1,0 +1,15 @@
+{
+  "name": "baeometer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "javascript_syntax_template.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0"
+  }
+}
