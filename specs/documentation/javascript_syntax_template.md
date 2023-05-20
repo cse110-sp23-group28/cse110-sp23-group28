@@ -1,3 +1,4 @@
+```
 /**
  * CSE 110 SP23 Team 28, UC Sussy Developers
  * Date: XX/XX/XXXX
@@ -49,3 +50,4 @@ function convertSortedListToBST(head) {
 	}
 	return getTree(arr, 0, arr.length - 1);
 };
+```

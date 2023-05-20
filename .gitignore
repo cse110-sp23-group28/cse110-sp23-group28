@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 source/baeometer/node_modules
+=======
+source/baeometer/node_modules/
+source/baeometer/jest.config.js
+>>>>>>> main
