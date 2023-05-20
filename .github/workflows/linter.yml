@@ -25,39 +25,43 @@ jobs:
     steps:
       # Checkout repository
       - name: Checkout repository
-      uses: actions/checkout@v3   # Note: Understand v2 vs v3
+        uses: actions/checkout@v3   # Note: Understand v2 vs v3
 
       # Restrict to only .webp images (got from ChatGPT, unsure...)
       - name: Check image format
-      run: |
-        for file in $(find . -type f -name "*.webp"); do
-          if ! identify -format "%m" "$file" | grep -q "WEBP"; then
-            echo "Error: Invalid image format for file $file"
-            exit 1
-          fi
-        done
+        run: |
+          for file in $(find . -type f -name "*.webp"); do
+            if ! identify -format "%m" "$file" | grep -q "WEBP"; then
+              echo "Error: Invalid image format for file $file"
+              exit 1
+            fi
+          done
       
-      # Run ESLint
-      - name: Run ESLint
-      # initialize package.json
-      run: npm init
+      # Initialize package.json
+      - name: Initializing package.json
+        # initialize package.json
+        run: npm install
 
-      # locally install ESLint
-      run: npm install --save-dev eslint
+      # Locally install ESLint
+      - name: Installing ESLint
+        run: npm install --save-dev eslint
 
-      # initialize ESLint configurations
-      run: eslint --init
+      # Initialize ESLint configurations
+      - name: Initializing ESLint configurations
+        run: eslint --init
 
-      # install JSDoc plugin
-      run: npm install --save-dev eslint-plugin-jsdoc
+      # Install JSDoc plugin
+      - name: Install JSDoc plugin
+        run: npm install --save-dev eslint-plugin-jsdoc
 
-      # install file names plugin
-      run: npm install eslint-plugin-filenames --save-dev
+      # Install file names plugin
+      - name: Installing file names plugin
+        run: npm install eslint-plugin-filenames --save-dev
 
-      # install file header plugin
-      run: npm install eslint-plugin-header --save-dev
+      # Install file header plugin
+      - name: Installing file header plugin
+        run: npm install eslint-plugin-header --save-dev
 
-      # run ESLint on JS files in baeometer directory
-      run: npx eslint source/baeometer/*.js
-
-      
+      # Run ESLint on JS files in baeometer directory
+      - name: Running on chosen directory (baometer)
+        run: npx eslint source/baeometer/*.js
