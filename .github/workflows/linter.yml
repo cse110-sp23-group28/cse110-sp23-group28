@@ -26,6 +26,16 @@ jobs:
       # Checkout repository
       - name: Checkout repository
       uses: actions/checkout@v3   # Note: Understand v2 vs v3
+
+      # Restrict to only .webp images (got from ChatGPT, unsure...)
+      - name: Check image format
+      run: |
+        for file in $(find . -type f -name "*.webp"); do
+          if ! identify -format "%m" "$file" | grep -q "WEBP"; then
+            echo "Error: Invalid image format for file $file"
+            exit 1
+          fi
+        done
       
       # Run ESLint
       - name: Run ESLint
@@ -40,6 +50,12 @@ jobs:
 
       # install JSDoc plugin
       run: npm install --save-dev eslint-plugin-jsdoc
+
+      # install file names plugin
+      run: npm install eslint-plugin-filenames --save-dev
+
+      # install file header plugin
+      run: npm install eslint-plugin-header --save-dev
 
       # run ESLint on JS files in baeometer directory
       run: npx eslint source/baeometer/*.js
