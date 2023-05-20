@@ -24,9 +24,13 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
+      # CD into proper directory
+      - name: Change working directory
+        run: cd source/baeometer
+
       # Install required deps for action
       - name: Install Dependencies
-        run: cd source/baeometer; npm install; cd ..; cd ..
+        run: npm install
 
       # Finally, run our tests
       - name: Run Tests
