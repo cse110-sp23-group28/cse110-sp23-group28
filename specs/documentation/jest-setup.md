@@ -5,19 +5,17 @@ Jest is a JavaScript testing framework that allows for unit testing of a JavaScr
 ## How to Use Jest
 
 ```shell
-# Install dependencies
-$ npm install
+# Install jest
+$ npm install --save-dev jest
 
-## Run tests once
-$ ./node_modules/.bin/jest  
-
-## Run tests (will automatically update as you make changes)
-$ ./node_modules/.bin/jest --watchAll    
+## Run tests
+$ npm test
 ```
 Add unit tests in the `tests` directory.
 
-## How I Installed Jest (DON'T REPEAT THIS)
-[Tutorial](https://www.alanwsmith.com/posts/how-to-use-jest-to-test-vanilla-javascript-files-without-a-framework--23yct7ahlbg3)
+## Setup Guide
+[Tutorial](https://jestjs.io/docs/getting-started)
+
 ### npm
 npm is a package manager used to install Jest.
 
