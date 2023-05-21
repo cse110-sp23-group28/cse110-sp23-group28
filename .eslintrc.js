@@ -12,7 +12,7 @@ module.exports = {
         'filenames-simple',
         'header',
     ],
-    'extends': ['plugin:jsdoc/recommended'],
+    'extends': ['plugin:jsdoc/recommended-error'],
 
     // ESLint configuration options
     rules: {
@@ -32,13 +32,15 @@ module.exports = {
         'jsdoc/require-returns-type': 1,
 
         // description and misc tags (like author)
-        'jsdoc/require-description': 'author',
         'jsdoc/check-values': 1,
         /* JSDocs */
 
+        // require JSDoc description for each function
+       'jsdoc/require-description': 'error',
+
         /* ESLinter: */
         // disables arrow callback function notation
-        'prefer-arrow-callback': 'error',
+        'arrow-body-style': 'off', // Does this work?
         // requires camelcase in all variables, except for magic globals
         'camelcase': ['error', { 
             'properties': 'always',

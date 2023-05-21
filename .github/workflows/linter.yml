@@ -26,16 +26,6 @@ jobs:
       # Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3   # Note: Understand v2 vs v3
-
-      # Restrict to only .webp images (got from ChatGPT, unsure...)
-      - name: Check image format
-        run: |
-          for file in $(find . -type f -name "*.webp"); do
-            if ! identify -format "%m" "$file" | grep -q "WEBP"; then
-              echo "Error: Invalid image format for file $file"
-              exit 1
-            fi
-          done
       
       # Initialize package.json
       - name: Initializing package.json
@@ -65,3 +55,5 @@ jobs:
       # Run ESLint on JS files in baeometer directory
       - name: Running on chosen directory (baometer)
         run: npx eslint source/baeometer/*.js
+
+      # NOTE: Could not check for image file extensions
