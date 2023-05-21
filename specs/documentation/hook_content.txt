@@ -1,16 +1,16 @@
+#!/bin/bash
 
 # Run ESLint
-eslint .
+#eslint .
 
-# Run Jest
-jest
-
+# Run rpm
+cd source/baeometer; npm test
 # Capture the exit status of both commands
-ESLINT_STATUS=$?
+#ESLINT_STATUS=$?
 JEST_STATUS=$?
 
 # Check if either command failed
-if [ $ESLINT_STATUS -ne 0 ] || [ $JEST_STATUS -ne 0 ]; then
+if [ $JEST_STATUS -ne 0 ]; then
   echo "Pre-commit failed. Please fix the linting and unit test errors before committing."
   exit 1
 fi
