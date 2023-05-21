@@ -1,8 +1,15 @@
 module.exports = {
+    // define parser version
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "script",
+        "ecmaFeatures": {}
+    },
+
     // import JSDocs for format
     'plugins': [
         'jsdoc',
-        'filename',
+        'filenames-simple',
         'header',
     ],
     'extends': ['plugin:jsdoc/recommended'],
@@ -33,18 +40,18 @@ module.exports = {
         // disables arrow callback function notation
         'prefer-arrow-callback': 'error',
         // requires camelcase in all variables, except for magic globals
-        'camelcase': { 
+        'camelcase': ['error', { 
             'properties': 'always',
             'ignoreGlobals': true,
-        },
+        }],
         // only allows single and backticks
-        'quotes': ['error', 'single', 'backtick'],
+        'quotes': ['error', 'single', { allowTemplateLiterals: true }],
         // requires a limit of 100 characters per line
         'max-len': ['error', { 'code': 100 }],
         // requires comments to be above a line
         'line-comment-position': ['error', { 'position': 'above' }],
         'no-inline-comments': 'error',
-        'multiline-comment-style': ['error', separate-lines],
+        'multiline-comment-style': [0, 'separate-lines'],
         'padding-line-between-statements': [
             // requires line break between functions
             'error', { 
@@ -68,15 +75,17 @@ module.exports = {
 
         // file header convention
         'header/header': ['error', 'block', [
-                /^CSE 110 SP23 Team 28, UC Sussy Developers$/,
-                /^Date: \d{2}-\d{2}-\d{4}$/,
-                'Authors:',
-                'Description:',
-            ]
+                '',
+                ' * CSE 110 SP23 Team 28, UC Sussy Developers',
+                {'pattern': 'Date: \\d{2}/\\d{2}/\\d{4}'},
+                {'pattern': 'Authors: [\s\S]*'},
+                {'pattern': 'Description: [\s\S]*'},
+                ' ',
+            ], 2,
         ],
 
         // file name convention (lowercase separated by underscores)
-        'filenames/match-regex': ['error', 'snake_case'],
+        'filenames-simple/naming-convention': ['error', {'rule': 'snake_case'}],
         /* ESLinter */
     },
   };

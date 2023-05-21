@@ -40,11 +40,11 @@ jobs:
       # Initialize package.json
       - name: Initializing package.json
         # initialize package.json
-        run: npm install
+        run: npm init -y
 
-      # Locally install ESLint
+      # Globally install ESLint
       - name: Installing ESLint
-        run: npm install --save-dev eslint
+        run: npm install --global eslint@latest
 
       # Initialize ESLint configurations
       - name: Initializing ESLint configurations
@@ -52,11 +52,11 @@ jobs:
 
       # Install JSDoc plugin
       - name: Install JSDoc plugin
-        run: npm install --save-dev eslint-plugin-jsdoc
+        run: npm install eslint-plugin-jsdoc --save-dev
 
       # Install file names plugin
       - name: Installing file names plugin
-        run: npm install eslint-plugin-filenames --save-dev
+        run: npm install eslint-plugin-filenames-simple --save-dev
 
       # Install file header plugin
       - name: Installing file header plugin
