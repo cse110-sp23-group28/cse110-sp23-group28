@@ -1,17 +1,9 @@
 /**
  * CSE 110 SP23 Team 28, UC Sussy Developers
- * Date: 00/00/0000
+ * Date: XX/XX/XXXX
  * Authors: Name One, Name Two, Name Three
  * Description: Converts singly linked list to a height-balanced binary search tree.
  */
-
-class ListNode {
-	// Some code here, only here for style purposes
-}
-
-class TreeNode {
-	// Some code here, only here for style purposes
-}
 
 /**
  * Converts singly linked list to a height-balanced binary search tree.
@@ -34,11 +26,11 @@ function convertSortedListToBST(head) {
 
     /**
      * Inner function that does something
-     * @author Name One, Name Two
-     * @param {Array<number>} arr some text
-     * @param {TreeNode} left some text
-     * @param {TreeNode} right some text
-     * @returns {TreeNode} some text
+	 * @author Name One, Name Two
+     * @param {Array<number>} arr
+     * @param {TreeNode} left 
+     * @param {TreeNode} right 
+     * @returns 
      */
 	function getTree(arr, left, right) {
         // Inline comment
