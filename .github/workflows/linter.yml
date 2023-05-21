@@ -27,33 +27,39 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3   # Note: Understand v2 vs v3
       
-      # Initialize package.json
-      - name: Initializing package.json
-        # initialize package.json
-        run: npm init -y
+      # Run linter
+      - name: Calling Makefile as subroutine
+        run: make lint files=source/baeometer/*.js
 
-      # Globally install ESLint
-      - name: Installing ESLint
-        run: npm install --global eslint@latest
+      # Before Makefile
 
-      # Initialize ESLint configurations
-      - name: Initializing ESLint configurations
-        run: eslint --init
+      # # Initialize package.json
+      # - name: Initializing package.json
+      #   # initialize package.json
+      #   run: npm init -y
 
-      # Install JSDoc plugin
-      - name: Install JSDoc plugin
-        run: npm install eslint-plugin-jsdoc --save-dev
+      # # Globally install ESLint
+      # - name: Installing ESLint
+      #   run: npm install --global eslint@latest
 
-      # Install file names plugin
-      - name: Installing file names plugin
-        run: npm install eslint-plugin-filenames-simple --save-dev
+      # # Initialize ESLint configurations
+      # - name: Initializing ESLint configurations
+      #   run: eslint --init
 
-      # Install file header plugin
-      - name: Installing file header plugin
-        run: npm install eslint-plugin-header --save-dev
+      # # Install JSDoc plugin
+      # - name: Install JSDoc plugin
+      #   run: npm install eslint-plugin-jsdoc --save-dev
 
-      # Run ESLint on JS files in baeometer directory
-      - name: Running on chosen directory (baometer)
-        run: npx eslint source/baeometer/*.js
+      # # Install file names plugin
+      # - name: Installing file names plugin
+      #   run: npm install eslint-plugin-filenames-simple --save-dev
 
-      # NOTE: Could not check for image file extensions
+      # # Install file header plugin
+      # - name: Installing file header plugin
+      #   run: npm install eslint-plugin-header --save-dev
+
+      # # Run ESLint on JS files in baeometer directory
+      # - name: Running on chosen directory (baometer)
+      #   run: npx eslint source/baeometer/*.js
+
+      # # NOTE: Could not check for image file extensions
