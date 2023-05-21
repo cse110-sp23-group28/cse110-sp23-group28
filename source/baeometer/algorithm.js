@@ -18,7 +18,6 @@ function getZodiac(dateString) {
     let dateParts = dateString.split("-");
     let month = parseInt(dateParts[1])-1;
     let day = parseInt(dateParts[2]);
-    console.log(month)
 
     if (month === 0 && day <= 20) {
         month = 11;
