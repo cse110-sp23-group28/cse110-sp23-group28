@@ -1,0 +1,66 @@
+# Team: CSE 110 SP23 Team 28, UC Sussy Developers
+# Date: 5/19/2023
+# Authors: Brandon Reponte
+# Description: CI/CD linter file for stylisitc conventions on baeometer
+
+# naming
+name: linter
+run-name: Code is linting for stylistic conventions (CI/CD)
+
+# trigger for workflow
+on:
+  push:
+    branches:
+      - main
+
+# jobs to run in workflow
+jobs:
+  # job named eslint
+  eslint:
+    # specifices which version this job will be run in
+    runs-on: ubuntu-latest
+
+    # list of steps under eslint job
+    name: ESLint
+    steps:
+      # Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v3   # Note: Understand v2 vs v3
+      
+      # Run linter
+      - name: Calling Makefile as subroutine
+        run: cd ../../source/baeometer
+        run: make lint files=source/baeometer/*.js
+
+      # Before Makefile
+
+      # # Initialize package.json
+      # - name: Initializing package.json
+      #   # initialize package.json
+      #   run: npm init -y
+
+      # # Globally install ESLint
+      # - name: Installing ESLint
+      #   run: npm install --global eslint@latest
+
+      # # Initialize ESLint configurations
+      # - name: Initializing ESLint configurations
+      #   run: eslint --init
+
+      # # Install JSDoc plugin
+      # - name: Install JSDoc plugin
+      #   run: npm install eslint-plugin-jsdoc --save-dev
+
+      # # Install file names plugin
+      # - name: Installing file names plugin
+      #   run: npm install eslint-plugin-filenames-simple --save-dev
+
+      # # Install file header plugin
+      # - name: Installing file header plugin
+      #   run: npm install eslint-plugin-header --save-dev
+
+      # # Run ESLint on JS files in baeometer directory
+      # - name: Running on chosen directory (baometer)
+      #   run: npx eslint source/baeometer/*.js
+
+      # # NOTE: Could not check for image file extensions
