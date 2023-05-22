@@ -42,9 +42,9 @@ jobs:
       - name: Installing ESLint
         run: cd source/baeometer; npm install --global eslint@latest
 
-      # Initialize ESLint configurations
-      - name: Initializing ESLint configurations
-        run: cd source/baeometer; eslint --init
+      # # Initialize ESLint configurations
+      # - name: Initializing ESLint configurations
+      #   run: cd source/baeometer; eslint --init
 
       # Install JSDoc plugin
       - name: Install JSDoc plugin
