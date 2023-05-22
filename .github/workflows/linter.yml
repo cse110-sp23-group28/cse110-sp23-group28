@@ -29,8 +29,7 @@ jobs:
       
       # Run linter
       - name: Calling Makefile as subroutine
-        run: cd ../../source/baeometer
-        run: make lint files=source/baeometer/*.js
+        run: cd ../../source/baeometer; make lint files=source/baeometer/*.js
 
       # Before Makefile
 
