@@ -15,6 +15,12 @@ function sum(a, b) {
     return a + b
 }
 
+/**
+ * linter test
+ * @param {*} a linter test
+ * @param {*} b linter test
+ * @returns {null} linter test
+ */
 function bruh(a, b) {
     return 'String bruh';
 }
