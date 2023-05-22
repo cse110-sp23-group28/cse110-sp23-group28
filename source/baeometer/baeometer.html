@@ -33,19 +33,8 @@
 
     <!-- button to trigger JS event to read from the input fields of you & bae -->
 
-    <!-- Test Function used to test functionality of button -->
-    <!-- Can be removed when actual function is created for button -->
-    <!--
-    <script>
-        function testFunction(yourBirthday, baeBirthday) {
-            let yourBirthYear = Number(yourBirthday.substring(0, 4));
-            let baeBirthYear = Number(baeBirthday.substring(0, 4));
-            return Math.abs(yourBirthYear - baeBirthYear);
-        }
-    </script>
--->
-
-    <button id="testButton" onclick="let result = getScore(document.getElementById('yourName').value, document.getElementById('baeName').value,
+    <button id="testButton" onclick="let result = getScore(document.getElementById('yourName').value, 
+        document.getElementById('baeName').value,
         document.getElementById('yourBirthday').value, 
         document.getElementById('baeBirthday').value); 
         document.getElementById('yearResult').innerHTML = result;">Submit</button>
