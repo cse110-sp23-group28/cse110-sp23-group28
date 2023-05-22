@@ -33,14 +33,14 @@ jobs:
 
       # Before Makefile
 
-      # Initialize package.json
-      - name: Initializing package.json
-        # initialize package.json
-        run: cd source/baeometer; npm init -y
+      # # Initialize package.json
+      # - name: Initializing package.json
+      #   # initialize package.json
+      #   run: cd source/baeometer; npm init -y
 
-      # Globally install ESLint
+      # Install dependencies
       - name: Installing ESLint
-        run: cd source/baeometer; npm install --global eslint@latest
+        run: cd source/baeometer; npm install
 
       # # Initialize ESLint configurations
       # - name: Initializing ESLint configurations
