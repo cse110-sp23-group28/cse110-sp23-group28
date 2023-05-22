@@ -8,8 +8,7 @@ name: linter
 run-name: Code is linting for stylistic conventions (CI/CD)
 
 # trigger for workflow
-on:
-  push:
+on: push
 
 # jobs to run in workflow
 jobs:
@@ -27,7 +26,7 @@ jobs:
       
       # Run linter
       - name: Calling Makefile as subroutine
-        run: make lint
+        run: cd source/baeometer; make lint
 
       # Before Makefile
 
