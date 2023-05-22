@@ -15,12 +15,6 @@ function sum(a, b) {
     return a + b
 }
 
-/**
- * idk what this does tbh
- * @param {number} a a
- * @param {number} b b
- * @returns {number} nothin
- */
 function bruh(a, b) {
     return 'String bruh';
 }
