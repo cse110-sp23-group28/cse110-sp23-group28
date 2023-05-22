@@ -15,8 +15,7 @@ clean:
 # if in root directory
 lint: package.json .eslintrc.js is-eslint-installed \
 package-lock.json node_modules
-	npx eslint *.js || \
-	(echo 'Error. Try deleting package-lock.js, package.json, node_modules'; exit 1)
+	npm run lint
 
 # Initialize ESLint configurations
 .eslintrc.js:
