@@ -1,7 +1,7 @@
 {
   "scripts": {
     "test": "jest",
-    "lint": "npx eslint *.js"
+    "lint": "eslint *.js"
   },
   "devDependencies": {
     "eslint": "8.41.0",
