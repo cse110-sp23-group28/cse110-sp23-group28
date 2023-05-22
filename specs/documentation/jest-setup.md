@@ -8,7 +8,7 @@ Jest is a JavaScript testing framework that allows for unit testing of a JavaScr
 # Install jest
 $ npm install --save-dev jest
 
-## Run tests
+# Run tests
 $ npm test
 ```
 Add unit tests in the `tests` directory.
@@ -35,15 +35,15 @@ npm install jest --save-dev
 ```
 This saves Jest as a developer dependency, meaning that Jest is only a dependency to the developer when developing, but not in the final product.
 
-Jest requires a test environment, so I installed one using
-```shell
-npm install jest-environment-jsdom --save-dev
-```
+~~Jest requires a test environment, so I installed one using~~
+
+~~npm install jest-environment-jsdom --save-dev~~
+
 
 ### Setting Up Jest
 
-`jest.config.js` is a configuration file for Jest, which configures the test environment as well.
+~~`jest.config.js` is a configuration file for Jest, which configures the test environment as well.~~
 
-`jest_example.js` is an random function to demonstrate how Jest works.
+`specs/documentation/jest_example.js` is an random function to demonstrate how Jest works.
 
 `tests` holds all of the unit tests for Jest. `tests/jest_example.test.js` is an example of unit tests for `jest_example.js`.

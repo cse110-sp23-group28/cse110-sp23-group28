@@ -1,43 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="description" content="Bae-o-meter app page" />
-	    <meta name="author" content="UC Sussy Developers" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Bae-o-meter</title>
-        <!-- <link href="styles/main.css" rel="stylesheet"  type="text/css"/> -->
-        <!-- <link href="images/favicon.ico" rel="icon"> -->
-    </head>
-    <body>
-        <!-- make sure to use getElementById as the structure might change -->
 
-        <!-- div section for your name and Birthday input -->
-        <div class="nameBirthday" id="you">
-            <h2>YOU</h2>
-            <input type="text" id="yourName" placeholder="First Last"><br>
-            <label for="yourBirthday">Birthday</label><br>
-            <input type="date" id="yourBirthday" value="2001-01-01" min="1930-01-01" max="2023-5-27">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Bae-o-meter app page" />
+    <meta name="author" content="UC Sussy Developers" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bae-o-meter</title>
+    <!-- <link href="styles/main.css" rel="stylesheet"  type="text/css"/> -->
+    <!-- <link href="images/favicon.ico" rel="icon"> -->
+    <script src="algorithm.js"></script>
+</head>
+
+<body>
+    <!-- make sure to use getElementById as the structure might change -->
+
+    <!-- div section for your name and Birthday input -->
+    <div class="nameBirthday" id="you">
+        <h2>YOU</h2>
+        <input type="text" id="yourName" placeholder="First Last"><br>
+        <label for="yourBirthday">Birthday</label><br>
+        <input type="date" id="yourBirthday" value="2001-01-01" min="1930-01-01" max="2023-5-20 required">
+    </div>
+
+    <!-- div section for Bae's name and Birthday input -->
+    <div class="nameBirthday" id="bae">
+        <h2>BAE</h2>
+        <input type="text" id="baeName" placeholder="First Last"><br>
+        <label for="baeBirthday">Birthday</label><br>
+        <input type="date" id="baeBirthday" value="2001-01-01" min="1930-01-01" max="2023-5-20 required"><br><br>
+    </div>
+
+    <!-- button to trigger JS event to read from the input fields of you & bae -->
+
+    <!-- Test Function used to test functionality of button -->
+    <!-- Can be removed when actual function is created for button -->
+    <!--
+    <script>
+        function testFunction(yourBirthday, baeBirthday) {
+            let yourBirthYear = Number(yourBirthday.substring(0, 4));
+            let baeBirthYear = Number(baeBirthday.substring(0, 4));
+            return Math.abs(yourBirthYear - baeBirthYear);
+        }
+    </script>
+-->
+
+    <button id="testButton" onclick="let result = getScore(document.getElementById('yourName').value, document.getElementById('baeName').value,
+        document.getElementById('yourBirthday').value, 
+        document.getElementById('baeBirthday').value); 
+        document.getElementById('yearResult').innerHTML = result;">Submit</button>
+
+    <!-- The section that will be presenting the finial results -->
+    <section id="result">
+        <div id="textResult">
+            <h3>Your relationship will last</h3>
+            <!-- calculated result will be shown in the output element -->
+            <output id="yearResult">...</output>
         </div>
+    </section>
+</body>
 
-        <!-- div section for Bae's name and Birthday input -->
-        <div class="nameBirthday" id="bae">
-            <h2>BAE</h2>
-            <input type="text" id="baeName" placeholder="First Last"><br>
-            <label for="baeBirthday">Birthday</label><br>
-            <input type="date" id="baeBirthday" value="2001-01-01" min="1930-01-01" max="2023-5-27">
-        </div>
-
-        <!-- button to trigger JS event to read from the input fields of you & bae -->
-        <button id="testButton">TEST</button>
-
-        <!-- The section that will be presenting the finial results -->
-        <section id="result">
-            <div id="textResult">
-                <h3>Your relationship will last</h3>
-                <!-- calculated result will be shown in the output element -->
-                <output id="yearResult">...</output>
-            </div>
-        </section>
-    </body>
 </html>
