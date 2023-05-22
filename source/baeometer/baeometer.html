@@ -35,6 +35,7 @@
 
     <!-- Test Function used to test functionality of button -->
     <!-- Can be removed when actual function is created for button -->
+    <!--
     <script>
         function testFunction(yourBirthday, baeBirthday) {
             let yourBirthYear = Number(yourBirthday.substring(0, 4));
@@ -42,10 +43,12 @@
             return Math.abs(yourBirthYear - baeBirthYear);
         }
     </script>
+-->
 
-    <button id="testButton" onclick="let result = testFunction(document.getElementById('yourBirthday').value, 
+    <button id="testButton" onclick="let result = getScore(document.getElementById('yourName').value, document.getElementById('baeName').value,
+        document.getElementById('yourBirthday').value, 
         document.getElementById('baeBirthday').value); 
-        document.getElementById('yearResult').innerHTML = result + ' years';">Submit</button>
+        document.getElementById('yearResult').innerHTML = result;">Submit</button>
 
     <!-- The section that will be presenting the finial results -->
     <section id="result">
