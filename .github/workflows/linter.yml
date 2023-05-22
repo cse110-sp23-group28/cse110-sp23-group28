@@ -33,6 +33,10 @@ jobs:
 
       # Before Makefile
 
+      # cd into source directory
+      - name: CD to source/baeometer
+        run: cd source/baeometer
+
       # Initialize package.json
       - name: Initializing package.json
         # initialize package.json
