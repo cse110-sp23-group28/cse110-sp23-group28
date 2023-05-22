@@ -10,8 +10,6 @@ run-name: Code is linting for stylistic conventions (CI/CD)
 # trigger for workflow
 on:
   push:
-    branches:
-      - main
 
 # jobs to run in workflow
 jobs:
