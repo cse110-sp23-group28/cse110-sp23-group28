@@ -27,7 +27,7 @@ package-lock.json node_modules
 package.json:
 	npm init -y
 
-# ChatGPT: Install ESLint if necessary
+# Install eslint
 is-eslint-installed:
 	npm install --global eslint@latest
 

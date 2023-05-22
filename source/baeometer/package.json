@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "npx eslint *.js"
   },
   "devDependencies": {
     "eslint-plugin-filenames-simple": "^0.8.0",
