@@ -6,7 +6,7 @@ Jest is a JavaScript testing framework that allows for unit testing of a JavaScr
 
 ```shell
 # Install jest
-$ npm install --save-dev jest
+$ npm install
 
 # Run tests
 $ npm test
@@ -14,6 +14,7 @@ $ npm test
 Add unit tests in the `tests` directory.
 
 ## Setup Guide
+For developers: Ignore this. This is how we set up Jest.
 [Tutorial](https://jestjs.io/docs/getting-started)
 
 ### npm
