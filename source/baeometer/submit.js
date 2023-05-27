@@ -13,7 +13,7 @@
  * No parameters and No return values 
  */
 window.addEventListener('load', function(){
-    let submit = document.getElementById('button');
+    let submit = document.getElementById('submitButton');
     submit.addEventListener('click', runAlgorithm);
 });
 
