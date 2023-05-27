@@ -21,6 +21,7 @@ window.addEventListener('load', function(){
  * Function that runs the algorithm and displays output when
  * Button is pressed
  * @author Steve Padmanaban
+ * No parameters and No return values
  */
 function runAlgorithm() {
     let person = {name: document.getElementById('yourName').value, 
@@ -28,7 +29,7 @@ function runAlgorithm() {
 
     let partner = {name: document.getElementById('baeName').value, 
     bDay: document.getElementById('baeBirthday').value};
-    
+
     let result = getScore(person.name, partner.name, person.bDay, partner.bDay);
     document.getElementById('output').innerHTML = result; 
 }
