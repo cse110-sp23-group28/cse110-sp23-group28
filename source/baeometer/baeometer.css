@@ -11,23 +11,23 @@
     overflow: hidden;
   }
   #card2Button {
-    width: 200px;
-    height: 400px;
-    /* background: url("whatever image for card2");
+    width: 350px;
+    height: 250px;
+    background: url("./images/envelope2.png");
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: cover; */
+    background-size: cover;
     opacity: 1;
     position: relative;
     overflow: hidden;
   }
   #card3Button {
-    width: 200px;
-    height: 400px;
-    /* background: url("whatever image for card3");
+    width: 350px;
+    height: 250px;
+    background: url("./images/envelope3.png");
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: cover; */
+    background-size: cover;
     opacity: 1;
     position: relative;
     overflow: hidden;
