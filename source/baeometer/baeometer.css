@@ -32,3 +32,17 @@
     position: relative;
     overflow: hidden;
   }
+.cardSelection {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+}
+.cardchild1 {
+    grid-row: 1;
+}
+.cardchild2 {
+    grid-row: 1;
+}
+.cardchild3 {
+    grid-row: 1;
+}
