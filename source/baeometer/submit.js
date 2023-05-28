@@ -5,6 +5,7 @@
  * Description: Javascript Event Listener for Submit Button
  */
 
+
 /**
  * AddEventListener for Submit Button that passes
  * HTML form values into getScore function and 
@@ -30,7 +31,8 @@ function runAlgorithm() {
     let partner = {name: document.getElementById('baeName').value, 
     bDay: document.getElementById('baeBirthday').value};
 
-    let result = getScore(person.name, partner.name, person.bDay, partner.bDay);
+    let score = getScore(person.name, partner.name, person.bDay, partner.bDay);
+    let result = convertScoreToTime(score);
     document.getElementById('output').innerHTML = result; 
 }
 
