@@ -1,6 +1,6 @@
 #card1Button {
-    width: 350px;
-    height: 250px;
+    width: 25vw;
+    height: 16vw;
     background: url("./images/envelope1.png");
     
     background-repeat: no-repeat;
@@ -11,8 +11,8 @@
     overflow: hidden;
   }
   #card2Button {
-    width: 350px;
-    height: 250px;
+    width: 25vw;
+    height: 16vw;
     background: url("./images/envelope2.png");
     background-repeat: no-repeat;
     background-position: center center;
@@ -22,8 +22,8 @@
     overflow: hidden;
   }
   #card3Button {
-    width: 350px;
-    height: 250px;
+    width: 25vw;
+    height: 16vw;
     background: url("./images/envelope3.png");
     background-repeat: no-repeat;
     background-position: center center;
@@ -33,6 +33,7 @@
     overflow: hidden;
   }
 .cardSelection {
+    padding: 8vw;
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 10px;
