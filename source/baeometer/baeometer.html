@@ -10,6 +10,7 @@
     <!-- <link href="styles/main.css" rel="stylesheet"  type="text/css"/> -->
     <!-- <link href="images/favicon.ico" rel="icon"> -->
     <script src="algorithm.js"></script>
+    <script src="submit.js"></script>
 </head>
 
 <body>
@@ -33,18 +34,14 @@
 
     <!-- button to trigger JS event to read from the input fields of you & bae -->
 
-    <button id="testButton" onclick="let result = getScore(document.getElementById('yourName').value, 
-        document.getElementById('baeName').value,
-        document.getElementById('yourBirthday').value, 
-        document.getElementById('baeBirthday').value); 
-        document.getElementById('yearResult').innerHTML = result;">Submit</button>
+    <button id="submitButton">Submit</button>
 
     <!-- The section that will be presenting the finial results -->
     <section id="result">
         <div id="textResult">
             <h3>Your relationship will last</h3>
             <!-- calculated result will be shown in the output element -->
-            <output id="yearResult">...</output>
+            <output id="output">...</output>
         </div>
     </section>
 </body>
