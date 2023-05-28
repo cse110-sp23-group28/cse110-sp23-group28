@@ -93,7 +93,7 @@ function convertScoreToTime(score) {
         { scoreRange: [0.6, 0.7], timeRange: '2 years' },
         { scoreRange: [0.7, 0.8], timeRange: '3 years' },
         { scoreRange: [0.8, 0.9], timeRange: '5 years' },
-        // Not possible for a score to be above 1
+        // Score can be 1 but it's not possible for a score to be above 1
         { scoreRange: [0.9, 1.01], timeRange: 'Forever' }
     ];
 
