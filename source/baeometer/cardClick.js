@@ -1,23 +1,21 @@
-const card1 = document.getElementById('card1Button');
-const card2 = document.getElementById('card2Button');
-const card3 = document.getElementById('card3Button');
+/**
+ 
+CSE 110 SP23 Team 28, UC Sussy Developers
+Date: 05/27/2023
+Authors: Wesley Hu and Jackie Piepkorn
+Description: System alert when one of the cards is clicked
+*/
+//get card button elements
+var card1 = document.getElementById('card1Button');
+var card2 = document.getElementById('card2Button');
+var card3 = document.getElementById('card3Button');
 
-var clicked1 = false;
-var clicked2 = false;
-var clicked3 = false;
+//event listeners for when each card is clicked
+card1.addEventListener('click', changeBackgroundColor);
+card2.addEventListener('click', changeBackgroundColor);
+card3.addEventListener('click', changeBackgroundColor);
 
-card1.addEventListener('click', function() {
-    clicked1 = true;
-});
-
-card1.addEventListener('click', function() {
-    clicked2 = true;
-});
-
-card1.addEventListener('click', function() {
-    clicked3 = true;
-});
-
-function changeBackgroundColor(color) {
-
+//test function
+function testEvent() {
+    window.alert("hi");
 }
