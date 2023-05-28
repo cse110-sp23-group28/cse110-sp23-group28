@@ -26,8 +26,8 @@ jobs:
 
       # Install required deps for action
       - name: Install Dependencies
-        run: cd source/baeometer; npm install
+        run: cd source; npm install
 
       # Finally, run our tests
       - name: Run Tests
-        run: cd source/baeometer; npm test
+        run: cd source; npm test

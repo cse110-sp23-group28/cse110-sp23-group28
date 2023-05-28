@@ -7,7 +7,7 @@ Add a new file called "pre-commit" (no file extension) in this repository's `.gi
 set -eo pipefail
 
 # cd into proper directory with scripts
-cd source/baeometer
+cd source
 
 # Run ESLint
 npm run lint
