@@ -21,7 +21,7 @@ function sum(a, b) {
  * @param {*} b linter test
  * @returns {null} linter test
  */
-function hi(a, b) {
+function bruh(a, b) {
     return 'String bruh';
 }
 
