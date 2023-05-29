@@ -67,13 +67,43 @@ function sumAscii(str) {
  */  
 function getScore(name1, name2, bday1, bday2) {
 
-    const zodiac1 = getZodiac(bday1);
-    const zodiac2 = getZodiac(bday2);
+    // Map zodiacs to indices to look up compatibility in matrix
+    const ZODIAC_INDICES = {
+        'Aries': 0,
+        'Taurus': 1,
+        'Gemini': 2,
+        'Cancer': 3,
+        'Leo': 4,
+        'Virgo': 5,
+        'Libra': 6,
+        'Scorpio': 7,
+        'Sagittarius': 8,
+        'Capricorn': 9,
+        'Aquarius': 10
+    }
 
-    const score = Math.min(
-        (sumAscii(zodiac1) + sumAscii(name2))/(sumAscii(zodiac2) + sumAscii(name1)), 
-        (sumAscii(zodiac2) + sumAscii(name1))/(sumAscii(zodiac1) + sumAscii(name2))
-        );
+    // Zodiac compatibility scores
+    const ZODIAC_COMPATIBILITIES = [
+        [1.0, 0.7, 0.5, 0.3, 0.9, 0.7, 0.6, 0.4, 0.9, 0.8, 0.5, 0.6],
+        [0.7, 1.0, 0.8, 0.6, 0.7, 0.9, 0.8, 0.3, 0.6, 0.9, 0.8, 0.4],
+        [0.5, 0.8, 1.0, 0.7, 0.5, 0.6, 0.9, 0.7, 0.5, 0.8, 0.9, 0.7],
+        [0.3, 0.6, 0.7, 1.0, 0.4, 0.5, 0.7, 0.8, 0.4, 0.7, 0.8, 0.9],
+        [0.9, 0.7, 0.5, 0.4, 1.0, 0.8, 0.7, 0.5, 0.9, 0.7, 0.6, 0.5],
+        [0.7, 0.9, 0.6, 0.5, 0.8, 1.0, 0.8, 0.4, 0.7, 0.9, 0.8, 0.3],
+        [0.6, 0.8, 0.9, 0.7, 0.7, 0.8, 1.0, 0.6, 0.6, 0.8, 0.9, 0.7],
+        [0.4, 0.3, 0.7, 0.8, 0.5, 0.4, 1.0, 0.9, 0.3, 0.6, 0.7, 0.8],
+        [0.9, 0.6, 0.5, 0.4, 0.9, 0.7, 0.6, 0.3, 1.0, 0.9, 0.6, 0.5],
+        [0.8, 0.9, 0.8, 0.7, 0.7, 0.9, 0.8, 0.6, 0.9, 1.0, 0.8, 0.4],
+        [0.5, 0.8, 0.9, 0.8, 0.6, 0.8, 0.9, 0.7, 0.6, 0.8, 1.0, 0.7],
+        [0.6, 0.4, 0.7, 0.9, 0.5, 0.3, 0.8, 0.8, 0.5, 0.4, 0.7, 1.0]
+    ]
+
+    // Get zodiacs from birthdays, then convert to zodiac index to map to matrix
+    const zodiac1Index = ZODIAC_INDICES[getZodiac(bday1)];
+    const zodiac2Index = ZODIAC_INDICES[getZodiac(bday2)];
+
+    const score = ZODIAC_COMPATIBILITIES[zodiac1Index][zodiac2Index];
+
     return score;
 }
 
