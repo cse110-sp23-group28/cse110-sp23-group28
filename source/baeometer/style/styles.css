@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+  
+}
+body {
+  font-size: 14px;
+  background-image: url('../img/backgroud.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+}
+.menu {
+
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  top: 10px;
+  right: 0;
+}
+
+.menu li {
+  margin-left: 50px;
+}
+
+
+.BAE-O-METER {
+  position: absolute;
+  
+  margin-left: calc(47.5% - 361px/2 + 11.5px);
+  margin-top: calc(22.5% - 317px/2 + 11.5px);
+  
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 61px;
+  /* identical to box height */
+  
+  
+  color: #FFFFFF;
+}
+.Predicts {
+  position: absolute;
+  width: 380px;
+  height: 48px;
+  margin-left: 37.37%;
+  margin-top: 19.5%;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 30px;
+  text-align: center;
+  color: #FFFFFF;
+}
+.startbtn {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 163px;
+  height: 54px;
+  left: calc(50% - 163px/2 - 0.5px);
+  top: 618px;
+  
+  background: rgba(230, 1, 250, 0.43);
+  border: 1px solid #CC77E0;
+  border-radius: 12px;
+}
+.start{
+color: #FFFFFF;
+}
+.name {
+  color: #fff;
+}
+
+.content {
+
+position: absolute;
+width: 147px;
+height: 72px;
+left: 928px;
+top: 430px;
+
+font-family: 'Inter';
+font-style: italic;
+font-weight: 400;
+font-size: 10px;
+line-height: 12px;
+
+color: #FFFFFF;
+
+}
+
