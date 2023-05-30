@@ -11,7 +11,7 @@ clean:
 	rm -r node_modules
 
 # if all dependencies present, run command:
-# `make lint files=source/baeometer/*.js`
+# `make lint files=source/scripts/*.js`
 # if in root directory
 lint: package.json .eslintrc.js is-eslint-installed \
 package-lock.json node_modules

@@ -5,7 +5,7 @@
  * Description: Unit tests for algorithm functions
  */
 
-const functions = require('../algorithm.js');
+const functions = require('../scripts/algorithm.js');
 
 test('getZodiac outputs correct zodiac 1', () => {
     const res = functions.getZodiac("2000-1-19");
