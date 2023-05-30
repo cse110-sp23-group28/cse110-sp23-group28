@@ -16,7 +16,6 @@
 
 //test function
 function testEvent() {
-    
     window.alert('hi');
 }
 
