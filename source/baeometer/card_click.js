@@ -18,6 +18,7 @@
  * Puts a system alert when a card is clicked
  * @author Jackie Piepkorn, Wesley Hu
  */
+
 function testEvent() {
     window.alert('hi');
 }
