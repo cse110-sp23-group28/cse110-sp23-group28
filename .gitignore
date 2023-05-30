@@ -1,3 +1,4 @@
-source/baeometer/node_modules/
-source/baeometer/jest.config.js
+source/node_modules/
+source/jest.config.js
 .DS_Store
+node_modules/
