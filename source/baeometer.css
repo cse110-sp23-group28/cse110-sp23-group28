@@ -1,7 +1,7 @@
 #card1Button {
     width: 25vw;
     height: 16vw;
-    background: url("./images/envelope1.png");
+    background: url("img/envelope1.png");
     
     background-repeat: no-repeat;
     background-position: center center;
@@ -13,7 +13,7 @@
   #card2Button {
     width: 25vw;
     height: 16vw;
-    background: url("./images/envelope2.png");
+    background: url("./img/envelope2.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -24,7 +24,7 @@
   #card3Button {
     width: 25vw;
     height: 16vw;
-    background: url("./images/envelope3.png");
+    background: url("./img/envelope3.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
