@@ -16,7 +16,8 @@
 
 //test function
 function testEvent() {
-    window.alert("hi");
+    
+    window.alert('hi');
 }
 
 window.addEventListener('load', function(){
