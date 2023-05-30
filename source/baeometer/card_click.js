@@ -14,7 +14,10 @@
 // card2.addEventListener('click', changeBackgroundColor);
 // card3.addEventListener('click', changeBackgroundColor);
 
-//test function
+/**
+ * Puts a system alert when a card is clicked
+ * @author Jackie Piepkorn, Wesley Hu
+ */
 function testEvent() {
     window.alert('hi');
 }
