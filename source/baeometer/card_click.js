@@ -11,6 +11,15 @@
  */
 function testEvent() {
     window.alert('hi');
+    //get card button elements
+    // var card1 = document.getElementById('card1Button');
+    // var card2 = document.getElementById('card2Button');
+    // var card3 = document.getElementById('card3Button');
+
+    //event listeners for when each card is clicked
+    // card1.addEventListener('click', changeBackgroundColor);
+    // card2.addEventListener('click', changeBackgroundColor);
+    // card3.addEventListener('click', changeBackgroundColor);
 }
 
 window.addEventListener('load', function(){
