@@ -9,8 +9,10 @@
     <title>Bae-o-meter</title>
     <!-- <link href="styles/main.css" rel="stylesheet"  type="text/css"/> -->
     <!-- <link href="images/favicon.ico" rel="icon"> -->
-    <script src="algorithm.js"></script>
-    <script src="submit.js"></script>
+    <script src="scripts/algorithm.js"></script>
+    <script src="scripts/submit.js"></script>
+    <script src="./card_click.js"></script>
+    <link href="./baeometer.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -33,6 +35,30 @@
     </div>
 
     <!-- button to trigger JS event to read from the input fields of you & bae -->
+
+    <br><br>
+    <!-- div section for 3 card selection -->
+    <div class="cardSelection" id="cards">
+        <div class="cardchild1" id="card1">
+            <button id="card1Button">
+                
+            </button>
+        </div>
+        <br>
+        <div class="cardchild2" id="card2">
+            <button id="card2Button">
+                
+            </button>
+        </div>
+        <br>
+        <div class="cardchild3" id="card3">
+            <button id="card3Button">
+                
+            </button>
+        </div>
+    </div>
+
+    <br><br>
 
     <button id="submitButton">Submit</button>
 

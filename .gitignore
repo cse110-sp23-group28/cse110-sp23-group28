@@ -1,4 +1,6 @@
 source/node_modules/
+node_modules
+source/baeometer/node_modules/
 source/jest.config.js
 .DS_Store
 .vscode/
