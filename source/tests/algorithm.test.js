@@ -17,6 +17,11 @@ test('getZodiac outputs correct zodiac 2', () => {
     expect(res).toBe("Scorpio");
 });
 
+test('getZodiac outputs correct zodiac 2', () => {
+    const res = functions.getZodiac("2001-5-8");
+    expect(res).toBe("Taurus");
+});
+
 test('sumAscii outputs correct sum 1', () => {
     const res = functions.sumAscii("this is a test");
     expect(res).toBe(1301);
@@ -32,6 +37,12 @@ test('getScore outputs score btwn 0 and 1', () => {
     expect(res).toBeGreaterThanOrEqual(0);
     expect(res).toBeLessThanOrEqual(1);
 });
+
+test('dates match to compability', () => {
+    const res = functions.getScore("test","test","2001-11-29", "2001-2-25");
+    expect(res).toBe(0.5);
+})
+
 
 test('score to time maps correctly', () => {
 
