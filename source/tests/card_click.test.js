@@ -1,4 +1,4 @@
-const url = 'http://127.0.0.1:5501/source/baeometer.html';
+const url = 'https://cse110-sp23-group28.github.io/cse110-sp23-group28/source/baeometer.html';
 
 
 describe('page with dialog', () => {
