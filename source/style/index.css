@@ -2,14 +2,47 @@
   box-sizing: border-box;
   
 }
+.container {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+}
+
+.Main { 
+  grid-area: 2 / 2 / 5 / 5; 
+  margin-left: 20%;
+}
+
+.content { 
+  grid-area: 3 / 4 / 4 / 5; 
+}
+
+.Btn { 
+  grid-area: 4 / 3 / 5 / 4; 
+  margin-top: 20%;
+}
+
+.menu { 
+  grid-area: 1 / 5 / 2 / 6; 
+}
+
+
+html, body , .container {
+  height: 100%;
+  margin: 0;
+}
+
 body {
   font-size: 14px;
-  background-image: url('../img/backgroud.jpg');
+  background-image: url('../img/background1.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-position: center center;
 }
+.menu-con { grid-area: 1 / 5 / 2 / 6; }
+
 .menu {
 
   margin: 20px;
@@ -24,66 +57,56 @@ body {
   margin-left: 50px;
 }
 
-
+.Bae { 
+  grid-area: 2 / 3 / 4 / 5; 
+  margin-top: 13%;
+  margin-left: -8%;
+}
 .BAE-O-METER {
-  position: absolute;
-  
-  margin-left: calc(47.5% - 361px/2 + 11.5px);
-  margin-top: calc(22.5% - 317px/2 + 11.5px);
   
   font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 50px;
-  line-height: 61px;
-  /* identical to box height */
-  
-  
-  color: #FFFFFF;
+  background: linear-gradient(90deg, white 0%, #F9B1B1 50%, #DB8FFF 100%),
+              linear-gradient(0deg, #FFFFFF, #FFFFFF);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-.Predicts {
-  position: absolute;
-  width: 380px;
-  height: 48px;
-  margin-left: 37.37%;
-  margin-top: 19.5%;
 
+
+
+
+ .Predicts {
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 500;
   font-size: 25px;
-  line-height: 30px;
-  text-align: center;
+  line-height: 10px;
   color: #FFFFFF;
 }
 .startbtn {
   box-sizing: border-box;
-
-  position: absolute;
   width: 163px;
-  height: 54px;
-  left: calc(50% - 163px/2 - 0.5px);
-  top: 618px;
-  
   background: rgba(230, 1, 250, 0.43);
   border: 1px solid #CC77E0;
   border-radius: 12px;
 }
 .start{
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+line-height: 30px;
 color: #FFFFFF;
 }
 .name {
   color: #fff;
 }
 
-.content {
+.content1 {
 
 position: absolute;
 width: 147px;
-height: 72px;
-left: 928px;
-top: 430px;
-
 font-family: 'Inter';
 font-style: italic;
 font-weight: 400;
@@ -93,4 +116,46 @@ line-height: 12px;
 color: #FFFFFF;
 
 }
-
+   /* responsive design */
+   @media screen and (max-width: 900px) {
+    .heart{
+      margin-left: -55%;
+      margin-top: -10%;
+    }
+    .menu{
+      display: none;
+    }
+    .Bae{
+      grid-area: 2 / 3 / 4 / 6; 
+      margin-left: -23%;
+      margin-top: 30%;
+      
+    }
+    .BAE-O-METER{
+      
+    
+      font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    }
+    .Predicts{
+      font-size: 20px;
+      line-height: 10px;
+      text-align: center;
+      margin-top:0%;
+      margin-left: -10%;
+    }
+    .content{
+      margin-top: 135%;
+      margin-left:-40% ;
+    }
+    
+    
+    .Btn{
+      grid-area: 4 / 1 / 6 / 6;
+      margin-left: 20%;
+      margin-top: 40%;
+    }
+    
+    
+    }
