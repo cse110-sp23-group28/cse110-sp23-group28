@@ -47,3 +47,8 @@
 .cardchild3 {
     grid-row: 1;
 }
+#drawCanvas {
+  width: 400;
+  height: 200;
+  border: 1px solid #000
+}
