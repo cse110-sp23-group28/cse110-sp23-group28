@@ -87,6 +87,7 @@ function getScore(name1, name2, bday1, bday2, canvasData) {
 
     // The number of pixels user inputs into canvas
     const canvasPixels = getCanvasPixels(mockCanvasData);
+    console.log(canvasPixels);  // should be 40000
 
     const score = Math.min(
         (sumAscii(zodiac1) + sumAscii(name2))/(sumAscii(zodiac2) + sumAscii(name1)), 
