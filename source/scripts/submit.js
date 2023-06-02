@@ -33,7 +33,9 @@ function runAlgorithm() {
 
     let score = getScore(person.name, partner.name, person.bDay, partner.bDay);
     let result = convertScoreToTime(score);
-    document.getElementById('output').innerHTML = result; 
+    let outputs = document.getElementsByClassName('outputs');
+    outputs[0].value = result;
+    outputs[1].value = result;
 }
 
 
