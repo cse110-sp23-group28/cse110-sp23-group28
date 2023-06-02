@@ -1,4 +1,4 @@
-const url = 'http://127.0.0.1:5501/source/baeometer.html';
+const url = 'http://192.168.1.101:5500/source/baeometer.html';
 
 
 describe('page with dialog', () => {
