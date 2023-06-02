@@ -50,7 +50,7 @@ window.addEventListener('load', function () {
             canvasContext.beginPath();
             canvasContext.moveTo(xOffset, yOffset);
         }
-            
+        
     }
 
     function clearScreen() {
