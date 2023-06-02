@@ -9,8 +9,11 @@
     <title>Bae-o-meter</title>
     <!-- <link href="styles/main.css" rel="stylesheet"  type="text/css"/> -->
     <!-- <link href="images/favicon.ico" rel="icon"> -->
-    <script src="algorithm.js"></script>
-    <script src="submit.js"></script>
+    <script src="scripts/algorithm.js"></script>
+    <script src="scripts/submit.js"></script>
+    <script src="scripts/draw.js"></script>
+    <script src="./card_click.js"></script>
+    <link href="./baeometer.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -31,8 +34,35 @@
         <label for="baeBirthday">Birthday</label><br>
         <input type="date" id="baeBirthday" value="2001-01-01" min="1930-01-01" max="2023-5-20 required"><br><br>
     </div>
+    <br><br>
+    
+    <!-- HTML Canvas Section -->
+    <canvas id = "drawCanvas"></canvas> <br>
+    <button id="clearScreen">Clear</button>
 
-    <!-- button to trigger JS event to read from the input fields of you & bae -->
+    <br><br>
+    <!-- div section for 3 card selection -->
+    <div class="cardSelection" id="cards">
+        <div class="cardchild1" id="card1">
+            <button id="card1Button">
+                
+            </button>
+        </div>
+        <br>
+        <div class="cardchild2" id="card2">
+            <button id="card2Button">
+                
+            </button>
+        </div>
+        <br>
+        <div class="cardchild3" id="card3">
+            <button id="card3Button">
+                
+            </button>
+        </div>
+    </div>
+
+    <br><br>
 
     <button id="submitButton">Submit</button>
 
