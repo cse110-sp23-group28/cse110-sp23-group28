@@ -49,6 +49,7 @@
 }
 #drawCanvas {
   border: 1px solid #000;
+  touch-action: none;
 }
 #clearScreen {
   width: 100px;

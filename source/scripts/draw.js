@@ -23,16 +23,34 @@ window.addEventListener('load', function () {
 
     let isDrawing = false;
 
+    /**
+     * AddEventListener for accessing Canvas
+     * to enable freehand drawing on it
+     * @author Steve Padmanaban
+     * @param {event} event Event
+     */
     function startDraw(event) {
         isDrawing = true;
         whileDraw(event);
     }
 
+    /**
+     * AddEventListener for accessing Canvas
+     * to enable freehand drawing on it
+     * @author Steve Padmanaban
+     * No parameters and No return values 
+     */
     function finishDraw() {
         isDrawing = false;
         canvasContext.beginPath();
     }
 
+    /**
+     * AddEventListener for accessing Canvas
+     * to enable freehand drawing on it
+     * @author Steve Padmanaban
+     * @param {event} event Event
+     */
     function whileDraw(event) {
         if (!isDrawing) {
             return;
@@ -50,9 +68,15 @@ window.addEventListener('load', function () {
             canvasContext.beginPath();
             canvasContext.moveTo(xOffset, yOffset);
         }
-        
+
     }
 
+    /**
+     * AddEventListener for accessing Canvas
+     * to enable freehand drawing on it
+     * @author Steve Padmanaban
+     * No parameters and No return values 
+     */
     function clearScreen() {
         canvasContext.clearRect(0, 0, canvas.width, canvas.height);
     }
@@ -60,5 +84,9 @@ window.addEventListener('load', function () {
     canvas.addEventListener('mousedown', startDraw);
     canvas.addEventListener('mouseup', finishDraw);
     canvas.addEventListener('mousemove', whileDraw);
+    canvas.addEventListener('touchstart', startDraw);
+    canvas.addEventListener('touchstend', finishDraw);
+    canvas.addEventListener('touchmove', whileDraw);
+
     clearButton.addEventListener('click', clearScreen);
 });

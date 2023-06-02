@@ -6,6 +6,7 @@
  */
 
 
+
 /**
  * AddEventListener for Submit Button that passes
  * HTML form values into getScore function and 
@@ -31,9 +32,14 @@ function runAlgorithm() {
     let partner = {name: document.getElementById('baeName').value, 
     bDay: document.getElementById('baeBirthday').value};
 
-    let score = getScore(person.name, partner.name, person.bDay, partner.bDay);
+    let canvas = document.getElementById('drawCanvas');
+    let canvasContext = canvas.getContext('2d');
+    let imageData = canvasContext.getImageData(8, 157.28125, 700, 350);
+    let pixelCount = getCanvasPixels(imageData);
+
+    console.log(`Pixel Count: ${pixelCount}`);
+
+    let score = getScore(person.name, partner.name, person.bDay, partner.bDay, pixelCount);
     let result = convertScoreToTime(score);
     document.getElementById('output').innerHTML = result; 
 }
-
-
