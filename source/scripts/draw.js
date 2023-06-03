@@ -105,4 +105,4 @@ window.addEventListener('resize', function () {
     const canvas = document.querySelector('#drawCanvas');
     canvas.width = window.innerWidth * 0.50;
     canvas.height = canvas.width;
-})
+});

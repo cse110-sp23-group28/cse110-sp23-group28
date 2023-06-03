@@ -1,7 +1,7 @@
 /**
  * CSE 110 SP23 Team 28, UC Sussy Developers
  * Date: 05/19/2023
- * Authors: Jenny Lam, Brandon Reponte, Alvaro Ramos
+ * Authors: Jenny Lam
  * Description: Unit tests for algorithm functions
  */
 
