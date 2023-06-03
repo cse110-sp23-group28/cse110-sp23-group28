@@ -24,7 +24,7 @@ window.addEventListener('load', function () {
     /**
      * Interpret a click/touch and convert into drawing mode
      * @author Steve Padmanaban
-     * @param {Event} event - mouse click or screen touch
+     * @param {object} event - Event for mouse click or screen touch
      */
     function startDraw(event) {
         event.preventDefault();
@@ -36,7 +36,7 @@ window.addEventListener('load', function () {
     /**
      * Follow the mouse/touch, drawing until mouse up or touch end
      * @author Steve Padmanaban, Brandon Reponte
-     * @param {Event} event - mouse click or screen touch
+     * @param {object} event - Event for mouse click or screen touch
      */
     function whileDraw(event) {
         // check if click/touch began on canvas
