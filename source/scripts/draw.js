@@ -71,6 +71,8 @@ window.addEventListener('load', function () {
     function finishDraw() {
         isDrawing = false;
         // prevents pen from picking up where it left off last click/touch
+        const imageData = canvasContext.getImageData(0, 0, canvas.width, canvas.height);
+        console.log(getCanvasPixels(imageData));
         canvasContext.beginPath();
     }
 

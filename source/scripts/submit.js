@@ -34,7 +34,8 @@ function runAlgorithm() {
 
     let canvas = document.getElementById('drawCanvas');
     let canvasContext = canvas.getContext('2d');
-    let imageData = canvasContext.getImageData(8, 157.28125, 700, 350);
+    // MAGIC NUMBERS?
+    let imageData = canvasContext.getImageData(8, 157.28125, 700, 350); 
     let pixelCount = getCanvasPixels(imageData);
 
     console.log(`Pixel Count: ${pixelCount}`);

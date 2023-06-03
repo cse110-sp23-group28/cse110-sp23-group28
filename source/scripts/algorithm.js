@@ -164,6 +164,7 @@ function convertScoreToTime(score) {
 // Export for Jest unit testing
 if (typeof module !== 'undefined') {
     module.exports.sumAscii = sumAscii;
+    module.exports.getCanvasPixels = getCanvasPixels;
     module.exports.getScore = getScore;
     module.exports.getCanvasPixels = getCanvasPixels;
     module.exports.getZodiac = getZodiac;
