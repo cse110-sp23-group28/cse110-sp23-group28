@@ -120,18 +120,6 @@ function getScore(name1, name2, bday1, bday2, canvasData) {
         [0.6, 0.4, 0.7, 0.9, 0.5, 0.3, 0.8, 0.8, 0.5, 0.4, 0.7, 1.0]
     ]
 
-    // Note: dummy value for canvasData
-    let mockCanvasData = {
-        width: 200,
-        height: 200,
-        // 4 bytes per pixel (RGBA)
-        data: new Uint8ClampedArray(200 * 200 * 4) 
-    }
-
-    // The number of pixels user inputs into canvas
-    const canvasPixels = getCanvasPixels(mockCanvasData);
-    console.log(canvasPixels);  // should be 40000
-
     // Get zodiacs from birthdays, then convert to zodiac index to map to matrix
     const zodiac1Index = ZODIAC_INDICES[getZodiac(bday1)];
     const zodiac2Index = ZODIAC_INDICES[getZodiac(bday2)];
