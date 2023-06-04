@@ -32,7 +32,7 @@ function runAlgorithm() {
     let partner = {name: document.getElementById('baeName').value, 
     bDay: document.getElementById('baeBirthday').value};
 
-    let canvas = document.getElementById('drawCanvas');
+    let canvas = document.getElementById('canvasArea');
     let canvasContext = canvas.getContext('2d');
     // MAGIC NUMBERS?
     let imageData = canvasContext.getImageData(8, 157.28125, 700, 350); 

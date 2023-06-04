@@ -30,6 +30,7 @@
     display: flex;
     justify-content: space-between;
 }
+
 .backBtn{
     color: white;
     font-size: 16px;
