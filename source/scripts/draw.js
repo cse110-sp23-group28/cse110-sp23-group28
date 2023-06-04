@@ -11,7 +11,7 @@
  */
 window.addEventListener('load', function () {
     // access Canvas elements
-    const canvas = document.querySelector('#drawCanvas');
+    const canvas = document.querySelector('#canvasArea');
     const canvasContext = canvas.getContext('2d');
     const clearButton = document.getElementById('clearScreen');
 
@@ -104,7 +104,7 @@ window.addEventListener('load', function () {
  * @author Brandon Reponte
  */
 window.addEventListener('resize', function () {
-    const canvas = document.querySelector('#drawCanvas');
+    const canvas = document.querySelector('#canvasArea');
     canvas.width = window.innerWidth * 0.50;
     canvas.height = canvas.width;
 });

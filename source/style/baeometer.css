@@ -1,0 +1,467 @@
+:root {
+    --section-transition: ease 0.1s;
+    --canvas-width-big: 569px;
+    --canvas-width-small: 278px;
+    --canvas-height-big: 400px;
+    --canvas-height-small: 220px;
+    --back-gradient: linear-gradient(180deg, #AE50B0 0%, #2C1854 100%);
+    --purple-trans: #9747ff6e;
+    --purple-border: #9747ff;
+    --pink:#e601fa6e;
+    --pink-border: #CC77E0;
+}
+
+*{
+    /* border: 1px red solid; */
+    box-sizing: border-box;
+}
+
+/* Buttons  */
+
+#clearScreen {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+.btns{
+    color: white;
+    width: var(--canvas-width-big);
+    display: flex;
+    justify-content: space-between;
+}
+
+.backBtn{
+    color: white;
+    font-size: 16px;
+    padding:8px 26px 8px 25px;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid var(--pink-border);
+    border-radius: 10px;
+    transition: 0.2s;
+
+    display: inline-flex;
+    align-items: center;
+}
+.backBtn:hover{
+    background-color: rgba(255, 255, 255, 0);
+    background-color: var(--pink);
+}
+.backBtn svg{
+    margin-right: 10px;
+}
+
+.nextBtn{
+    color: white;
+    font-size: 16px;
+    padding:8px 25px 8px 26px;
+    background-color: var(--pink);
+    border: 1px solid var(--pink-border);
+    border-radius: 10px;
+    transition: 0.2s;
+
+    display: inline-flex;
+    align-items: center;
+}
+.nextBtn:hover{
+    background-color: var(--purple-trans);
+    border: 1px solid var(--purple-border);
+
+}
+.nextBtn svg{    
+    margin-left: 10px;
+}
+
+
+body{
+    /* prevent scrolling */
+    overflow-y: hidden;
+    overflow-x: hidden;
+
+    margin: 0;
+    
+    height: 100dvh;
+    width: 100dvw;
+    background: var(--back-gradient);
+    /* height: 100dvh;
+    width: 100dvw; */
+
+    color: whitesmoke;
+    font-family: sans-serif;
+}
+body.auto{
+    height: auto;
+    width: auto;
+}
+
+
+/* Name and Birthday section*/
+#inputNameBirthday{
+    /* centering */
+    position: absolute;
+    top: 50%;  
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+
+    display: flex;
+    /* align-items: center; */
+    gap:4.5rem;
+
+    opacity: 1;
+    transition: var(--section-transition);
+    
+}
+#inputNameBirthday.fadeOut{
+    opacity: 0;
+}
+
+.nameBirthday{
+    height: 150px;
+    width: 150px;
+}
+
+#testBtn{
+    cursor: pointer;
+    /* center the button */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 141px;
+    width: 141px;
+    box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 10rem;
+    background: rgba(151, 71, 255, 0.43);
+    transition: ease 0.2s;
+}
+#testBtn:hover{
+    box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, 0.1);
+}
+#testBtn svg{
+    margin-top: 10px;
+}
+
+/* drawing canvas section*/
+canvas{
+    background: rgb(246, 246, 246);
+    border: 1px solid #000;
+    touch-action: none;
+}
+#drawCanvas{
+    display: none;
+    opacity: 0;
+    transition: var(--section-transition);
+}
+
+#drawCanvas.fadeIn{
+    opacity: 1;
+}
+
+#canvasContainer{
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#canvasContent{
+    display: grid;
+    grid-template-columns: minmax(50px, 268px) auto minmax(50px, 268px);
+    grid-template-rows: auto auto;
+    gap: 2rem;
+    align-items: end;
+}
+#canvasContent canvas{
+    grid-area: 1 / 2 / 2 / 3;
+
+    width: var(--canvas-width-big);
+    height: var(--canvas-height-big);
+    box-shadow: 0px 4px 60px 10px rgba(0, 0, 0, 0.21);
+    border-radius: 20px;
+}
+#canvasTips{
+    grid-area: 1 / 3 / 2 / 4;
+}
+#canvasBtns{
+    grid-area: 2 / 2 / 3 / 3;
+}
+#canvasTips p{
+    margin-right: 8px;
+}
+
+
+
+/* card selection section */
+#chooseCards{
+    display: none;
+    opacity: 0;
+    transition: var(--section-transition);
+    
+    /* display set to flex by JS, as next button (canvas section) is clicked */
+    /* justify-content: center;
+    align-items: center;
+    height: 100dvh; */
+}
+#chooseCards.fadeIn{
+    opacity: 1;
+}
+
+#cardsContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;;
+}
+#cardsContent{
+    display: grid;
+    grid-template-rows:var(--canvas-height-big) auto;
+    gap: 2rem;
+    
+}
+#cardsTipsContainer{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+#cards{
+    /* background-color: #c4c4c4;
+    height: 200px;
+    width: 800px; */
+}
+#cardsBtns{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#cardsTips p{
+    display: inline;
+}
+
+/* result */
+#result a{
+    color: white;
+}
+/* PC */
+#result{
+    display: none;
+    opacity: 0;
+    transition: var(--section-transition);
+    
+}
+#result.fadeIn{
+    opacity: 1;
+}
+
+#resultPC{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+}
+#resultMobile{
+    display: none;
+}
+#resultContentPC{
+    display: flex;
+    align-items: center;
+    gap: 8rem;
+}
+#textResultContainerPC{
+    position: relative;
+}
+#heart{
+    position: absolute;
+    z-index: -1;
+    transform: translate(-110px, -40px);
+}
+#textResultPC{
+    width: 400px;
+    border: 1px solid #9747FF;
+    border-radius: 20px;
+    padding: 20px;
+    /* margin-bottom: 30px;
+    margin-top: 30px; */
+}
+
+
+/* Mobile */
+#resultMobile{
+    width: 100%;
+    max-width: var(--canvas-width-big);
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+#thermometerTextContainer{
+    display: flex;
+    align-items: flex-end;
+}
+#thermometerTextContainer > svg{
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 8dvh;
+}
+#heartMobile{
+    position: absolute;
+    overflow: visible;
+    z-index: -1;
+    transform: translate(-25px, -92px);
+}
+#resultMobile > p{
+    border: 1px solid #9747FF;
+    background-color: var(--purple-trans);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 15px;
+}
+
+
+/* Responsive design */
+/* Small Screen */
+@media only screen and (max-width: 767px), 
+screen and (max-height: 480px) {
+    /* Buttons  */
+    .btns{
+        width: var(--canvas-width-small);
+    }
+
+    /* Name and Birthday section*/
+    #inputNameBirthday{
+        gap:1.5rem;
+    }
+    #testBtn{
+        transform: scale(0.9);
+    }
+    
+    /* drawing canvas section*/
+    #canvasContent{
+        grid-template-columns: minmax(50px, 268px) auto minmax(50px, 268px);
+        grid-template-rows: auto auto;
+        gap: 1rem;
+        
+    }
+    #canvasContent canvas{
+        width: var(--canvas-width-small);
+        height: var(--canvas-height-small);
+        box-shadow: 0px 4px 60px 10px rgba(0, 0, 0, 0.21);
+        border-radius: 10px;
+    }
+
+    /* card selection section */
+    #cardsContent{
+        grid-template-rows:220px auto;
+        gap: 1rem;
+    }
+    #cardsTipsContainer {
+        gap: 1rem;
+    }
+    #cards{
+        height: 100%;
+        /* width: 480px; */
+    }
+
+    /* result */
+    #textResultPC{
+        width: 300px;
+        border: 1px solid #9747FF;
+        border-radius: 20px;
+        padding: 14px;
+        background-color: var(--purple-trans);
+    }
+    #heart{
+        position: absolute;
+        z-index: -1;
+        transform: translate(-110px, -70px) scale(0.75);
+    }
+    #resultContentPC > svg{
+        height: 280px;
+        position: fixed;
+        top: 50%;
+        left: 75%;
+        transform: translate(-50%, -50%);
+    }
+    
+    #resultPC{
+        display: block;
+    }
+    
+    #resultContentPC{
+        display: block
+    }
+    #textResultContainerPC{
+        position: relative;
+        margin-top: 10vh;
+        margin-left: 18vw;
+
+    }
+    
+
+}
+
+
+/* Portrait mode */
+@media (orientation: portrait) {
+    #resultPC{
+        display: none;
+    }
+    #resultMobile{
+        display: block;
+    }
+
+    /* Name and Birthday section*/
+    #inputNameBirthday{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* drawing canvas section*/
+    #canvasContent {
+        display: block;
+    }
+    #canvasBtns{
+        margin-top: 50px;
+    }
+
+
+    /* card selection section */
+    #cardsContent {
+        display: block;
+    }
+    #cardsTipsContainer {
+        display: block;
+    }
+    #cards{
+        margin-top: 20px;
+        /* height: 390px; */
+        width: 140px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #cardsBtns{
+        margin-top: 25px;
+    }
+    #cardsTips p{
+        display: block;
+    }
+    
+    @media only screen and (max-width: 767px) {
+        /* drawing canvas section*/
+        #canvasTips p {
+            margin-right: 0;
+        }
+        #canvasContent{
+            width: var(--canvas-width-small);
+        }
+
+        /* card selection section */
+        #cardsContent {
+            width: var(--canvas-width-small);
+        }
+        #thermometerTextContainer > svg{
+            margin-top: 35px;
+        }
+    }
+
+}

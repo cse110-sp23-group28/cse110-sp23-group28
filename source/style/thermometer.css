@@ -1,0 +1,32 @@
+/* Thermometer */
+.progress-bar {
+    position: absolute;
+    height: 20px;
+    width: 400px;
+    background: white;
+    border-radius: 25px;
+    border: 2px solid white;
+    /*  background-color: blue); */
+    /* box-shadow: 0 0 32px blue; */
+}
+.progress-fill {
+    position: absolute;
+    height: 20px;
+    width: 0%;
+    animation: progress-forward 3s infinite;
+    background: rgb(34, 193, 195);
+    background: linear-gradient(
+      90deg,
+      rgba(34, 193, 195, 1) 0%,
+      rgba(45, 63, 253, 1) 100%
+    );
+    border-radius: 15px;
+}
+@keyframes progress-forward {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+};

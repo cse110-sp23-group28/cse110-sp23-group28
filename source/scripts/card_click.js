@@ -11,22 +11,21 @@
  */
 function testEvent() {
     window.alert('hi');
-    //get card button elements
-    // var card1 = document.getElementById('card1Button');
-    // var card2 = document.getElementById('card2Button');
-    // var card3 = document.getElementById('card3Button');
-
-    //event listeners for when each card is clicked
-    // card1.addEventListener('click', changeBackgroundColor);
-    // card2.addEventListener('click', changeBackgroundColor);
-    // card3.addEventListener('click', changeBackgroundColor);
 }
 
-window.addEventListener('load', function(){
+/*
+ * Event listener to start functions once DOM is loaded
+ */
+window.addEventListener('DOMContentLoaded', listenForCardClicks);
+
+/**
+ * Function to get card elements and add event listeners
+ */
+function listenForCardClicks() {
     let card1 = document.getElementById('card1Button');
     let card2 = document.getElementById('card2Button');
     let card3 = document.getElementById('card3Button');
     card1.addEventListener('click', testEvent);
     card2.addEventListener('click', testEvent);
     card3.addEventListener('click', testEvent);
-})
+}
