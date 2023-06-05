@@ -10,6 +10,7 @@
   cursor: pointer;
   border: 0;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  
   transition: ease 0.2s;
 }
 
@@ -26,7 +27,9 @@
   opacity: 1;
   position: relative;
   
+  animation: fade-in 0.5s;
 }
+
 #card2Button {
   background: url("../img/envelope2.webp");
   background-repeat: no-repeat;
@@ -34,7 +37,7 @@
   background-size: cover;
   opacity: 1;
   position: relative;
-  
+  animation: fade-in 0.7s;
 }
 #card3Button {
   background: url("../img/envelope3.webp");
@@ -43,7 +46,16 @@
   background-size: cover;
   opacity: 1;
   position: relative;
-  
+  animation: fade-in 0.9s;
+}
+
+@keyframes fade-in {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
 }
 .cardSelection {
   /* padding: 8vw; */
