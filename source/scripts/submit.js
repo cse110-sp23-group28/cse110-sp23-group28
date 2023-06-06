@@ -32,15 +32,8 @@ function runAlgorithm() {
     let partner = {name: document.getElementById('baeName').value, 
     bDay: document.getElementById('baeBirthday').value};
 
-    let canvas = document.getElementById('canvasArea');
-    let canvasContext = canvas.getContext('2d');
-    // MAGIC NUMBERS?
-    let imageData = canvasContext.getImageData(8, 157.28125, 700, 350); 
-    let pixelCount = getCanvasPixels(imageData);
-
-    console.log(`Pixel Count: ${pixelCount}`);
-
-    let score = getScore(person.name, partner.name, person.bDay, partner.bDay, pixelCount);
+    let score = getScore(person.name, partner.name, person.bDay, partner.bDay);
+    document.querySelector(':root').style.setProperty('--result-score', score);
     let result = convertScoreToTime(score);
     let outputs = document.getElementsByClassName('outputs');
     outputs[0].value = result;
