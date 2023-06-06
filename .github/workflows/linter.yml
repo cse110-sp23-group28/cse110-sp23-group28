@@ -1,7 +1,7 @@
 # Team: CSE 110 SP23 Team 28, UC Sussy Developers
 # Date: 5/19/2023
-# Authors: Brandon Reponte
-# Description: CI/CD linter file for stylisitc conventions on baeometer
+# Authors: Brandon Reponte, Cody Rupp
+# Description: CI/CD linter workflow for stylisitc conventions on baeometer
 
 # naming
 name: linter
@@ -27,36 +27,3 @@ jobs:
       # Run linter
       - name: Calling Makefile as subroutine
         run: cd source; make lint
-
-      # Before Makefile
-
-      # # Initialize package.json
-      # - name: Initializing package.json
-      #   # initialize package.json
-      #   run: npm init -y
-
-      # # Globally install ESLint
-      # - name: Installing ESLint
-      #   run: npm install --global eslint@latest
-
-      # # Initialize ESLint configurations
-      # - name: Initializing ESLint configurations
-      #   run: eslint --init
-
-      # # Install JSDoc plugin
-      # - name: Install JSDoc plugin
-      #   run: npm install eslint-plugin-jsdoc --save-dev
-
-      # # Install file names plugin
-      # - name: Installing file names plugin
-      #   run: npm install eslint-plugin-filenames-simple --save-dev
-
-      # # Install file header plugin
-      # - name: Installing file header plugin
-      #   run: npm install eslint-plugin-header --save-dev
-
-      # # Run ESLint on JS files in baeometer directory
-      # - name: Running on chosen directory (baometer)
-      #   run: npx eslint source/scripts/*.js
-
-      # # NOTE: Could not check for image file extensions
