@@ -12,11 +12,15 @@
  * No parameters and No return values 
  */
 window.addEventListener('load', function(){   
+    // root of document
+    const root = this.document.querySelector(':root');
     // Body section
     const body = document.querySelector('body');
     // Name and birthday input section
     const inputNameBirthday = document.getElementById('inputNameBirthday');
     const testBtn = document.getElementById('testBtn');
+    const you = this.document.getElementById('you');
+    const bae = this.document.getElementById('bae');
     // Drawing canvas section
     const drawCanvas = document.getElementById('drawCanvas');
     const canvasBackBtn = document.querySelector('#canvasBtns .backBtn');
@@ -25,9 +29,15 @@ window.addEventListener('load', function(){
     const chooseCards = document.getElementById('chooseCards');
     const cardsBackBtn = document.querySelector('#cardsBtns .backBtn');
     const cardsNextBtn = document.querySelector('#cardsBtns .nextBtn');
+    const card1Button = this.document.getElementById('card1Button');
+    const card2Button = this.document.getElementById('card2Button');
+    const card3Button = this.document.getElementById('card3Button');
     // Result section
     const result = document.getElementById('result');
 
+    //ThermometerProgress
+    const thermometerProgress = document.getElementById('progressFill');
+    const thermometer = document.getElementById('progressThermometer');
 
     let btnClicked = false;
     // false == back; true == next
@@ -36,10 +46,12 @@ window.addEventListener('load', function(){
     // TEST button
     // On click, fade-out name and birthday input section
     // fade in canvas section
-    
-
+    // Increase thermometer progress bar
     testBtn.addEventListener('click', function(){
         inputNameBirthday.classList.toggle('fadeOut');
+        thermometerProgress.classList.toggle('canvas');
+        you.classList.toggle('fade');
+        bae.classList.toggle('fade');
         btnClicked = true;
     });
     inputNameBirthday.addEventListener('transitionend', function(){
@@ -55,9 +67,13 @@ window.addEventListener('load', function(){
     // Back Button (canvas section)
     // On clicked, fade-out canvas section
     // fade in name and birthday input section
+    // Decrease thermometer progress bar
     canvasBackBtn.addEventListener('click', function(){
         body.classList.toggle('auto');
         drawCanvas.classList.toggle('fadeIn');
+        thermometerProgress.classList.toggle('canvas');
+        you.classList.toggle('fade');
+        bae.classList.toggle('fade');
         btnClicked = true;
         backOrNext = false;
     });
@@ -73,8 +89,13 @@ window.addEventListener('load', function(){
     // Next Button (canvas page)
     // On clicked, fade-out canvas page
     // fade in cards selection page
+    // Increase thermometer progress bar
     canvasNextBtn.addEventListener('click', function(){
         drawCanvas.classList.toggle('fadeIn');
+        thermometerProgress.classList.toggle('cards');
+        // card1Button.classList.toggle('fade');
+        // card2Button.classList.toggle('fade');
+        // card3Button.classList.toggle('fade');
         btnClicked = true;
         backOrNext = true;
     });
@@ -90,8 +111,10 @@ window.addEventListener('load', function(){
     // Back Button (Cards section)
     // On clicked, fade-out cards section
     // fade in canvas section
+    // Decrease thermometer progress bar
     cardsBackBtn.addEventListener('click', function(){
         chooseCards.classList.toggle('fadeIn');
+        thermometerProgress.classList.toggle('cards');
         btnClicked = true;
         backOrNext = false;
     });
@@ -106,9 +129,12 @@ window.addEventListener('load', function(){
 
     // Next Button (Cards page)
     // On clicked, fade-out cards page
-    // fade in result section
+    // fade in result section (slower than the previous ones)
     cardsNextBtn.addEventListener('click', function(){
+        // root.style.setProperty("--section-transition", 'ease 5s');
         chooseCards.classList.toggle('fadeIn');
+        thermometerProgress.classList.toggle('result');
+        thermometer.classList.toggle('result');
         btnClicked = true;
         backOrNext = true;
 
