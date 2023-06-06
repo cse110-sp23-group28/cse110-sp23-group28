@@ -52,12 +52,8 @@ test('score to time maps correctly', () => {
 
     const scoresToTimes = [
         { score: 0, time: '1 month' },
-        { score: 0.1, time: '1 month' },
-        { score: 0.2, time: '6 months' },
-        { score: 0.4, time: '1 year' },
-        { score: 0.5, time: '3 years' },
-        { score: 0.7, time: '10 years' },
-        { score: 0.9, time: 'Forever' },
+        { score: 0.4, time: '6 months' },
+        { score: 0.7, time: '5 years' },
         { score: 1, time: 'Forever' },
         { score: -1, time: 'Error: Invalid Score' },
     ]

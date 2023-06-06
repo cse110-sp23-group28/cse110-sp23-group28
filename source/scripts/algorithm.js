@@ -180,14 +180,14 @@ function getScore(name1, name2, bday1, bday2) {
 function convertScoreToTime(score) {
 
     const TIME_RANGES = [
-        { scoreRange: [0, 0.2], timeRange: '1 month' },
-        { scoreRange: [0.2, 0.4], timeRange: '6 months' },
-        { scoreRange: [0.4, 0.5], timeRange: '1 year' },
-        { scoreRange: [0.5, 0.6], timeRange: '3 years' },
-        { scoreRange: [0.6, 0.7], timeRange: '5 years' },
-        { scoreRange: [0.7, 0.8], timeRange: '10 years' },
+        { scoreRange: [0, 0.4], timeRange: '1 month' },
+        { scoreRange: [0.4, 0.5], timeRange: '6 months' },
+        { scoreRange: [0.5, 0.57], timeRange: '1 year' },
+        { scoreRange: [0.57, 0.64], timeRange: '3 years' },
+        { scoreRange: [0.64, 0.72], timeRange: '5 years' },
+        { scoreRange: [0.72, 0.83], timeRange: '10 years' },
         // Score can be 1 but it's not possible for a score to be above 1
-        { scoreRange: [0.8, 1.01], timeRange: 'Forever' },
+        { scoreRange: [0.83, 1.01], timeRange: 'Forever' },
     ];
 
     // Return the corresponding time range for the given score by checking all time ranges
