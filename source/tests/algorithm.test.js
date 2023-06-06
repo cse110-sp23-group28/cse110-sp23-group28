@@ -38,11 +38,15 @@ test('getScore outputs score btwn 0 and 1', () => {
     expect(res).toBeLessThanOrEqual(1);
 });
 
-test('dates match to compability', () => {
-    const res = functions.getScore("test","test","2001-11-29", "2001-2-25");
-    expect(res).toBe(0.5);
-})
+test('name returns right destiny number', () => {
+    const res = functions.calculateDestinyNumber("JANICE");
+    expect(res).toBe(6);
+});
 
+test('name returns right destiny number (lowercase)', () => {
+    const res = functions.calculateDestinyNumber("janice");
+    expect(res).toBe(6);
+});
 
 test('score to time maps correctly', () => {
 
