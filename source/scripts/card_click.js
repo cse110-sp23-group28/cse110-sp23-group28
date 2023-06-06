@@ -5,12 +5,38 @@
  * Description: System alert when one of the cards is clicked
  */
 
+var cardClicked1 = false;
+var cardClicked2 = false;
+var cardClicked3 = false;
+
 /**
- * Puts a system alert when a card is clicked
- * @author Jackie Piepkorn, Wesley Hu
+ * Changes booleans if card is clicked
+ * @author Jackie Piepkorn
  */
-function testEvent() {
-    window.alert('hi');
+function card1Clicked() {
+    cardClicked1 = true;
+    cardClicked2 = false;
+    cardClicked3 = false;
+}
+
+/**
+ * Changes booleans if card is clicked
+ * @author Jackie Piepkorn
+ */
+function card2Clicked() {
+    cardClicked2 = true;
+    cardClicked1 = false;
+    cardClicked3 = false;
+}
+
+/**
+ * Changes booleans if card is clicked
+ * @author Jackie Piepkorn
+ */
+function card3Clicked() {
+    cardClicked3 = true;
+    cardClicked1 = false;
+    cardClicked2 = false;
 }
 
 /*
@@ -25,7 +51,7 @@ function listenForCardClicks() {
     let card1 = document.getElementById('card1Button');
     let card2 = document.getElementById('card2Button');
     let card3 = document.getElementById('card3Button');
-    card1.addEventListener('click', testEvent);
-    card2.addEventListener('click', testEvent);
-    card3.addEventListener('click', testEvent);
+    card1.addEventListener('click', card1Clicked);
+    card2.addEventListener('click', card2Clicked);
+    card3.addEventListener('click', card3Clicked);
 }
