@@ -1,49 +1,84 @@
-#card1Button {
-    width: 25vw;
-    height: 16vw;
-    background: url("../img/envelope1.png");
-    
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: relative;
-    overflow: hidden;
-  }
-  #card2Button {
-    width: 25vw;
-    height: 16vw;
-    background: url("../img/envelope2.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: relative;
-    overflow: hidden;
-  }
-  #card3Button {
-    width: 25vw;
-    height: 16vw;
-    background: url("../img/envelope3.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: relative;
-    overflow: hidden;
-  }
-.cardSelection {
-    padding: 8vw;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 10px;
+/* Envelope Cards */
+.cardButtons{
+  aspect-ratio: 322 / 220;
+  max-width: 270px;
+  width: 25vw;
+  min-width: 140px;
+
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 0;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  
+  transition: ease 0.2s;
 }
-.cardchild1 {
-    grid-row: 1;
+
+.cardButtons:hover{
+  transform: translateY(-4px);
+  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+}
+
+#card1Button {
+  background: url("../img/envelope1.webp");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: relative;
+  
+  animation: fade-in 0.5s;
+}
+
+#card2Button {
+  background: url("../img/envelope2.webp");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: relative;
+  animation: fade-in 0.7s;
+}
+#card3Button {
+  background: url("../img/envelope3.webp");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: relative;
+  animation: fade-in 0.9s;
+}
+
+@keyframes fade-in {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+.cardSelection {
+  /* padding: 8vw; */
+  /* display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 1fr;
+  gap: 10px; */
+  display: flex;
+  gap: 10px;
+}
+/* .cardchild1 {
+  grid-row: 1;
 }
 .cardchild2 {
-    grid-row: 1;
+  grid-row: 1;
 }
 .cardchild3 {
-    grid-row: 1;
+  grid-row: 1;
+} */
+
+@media (orientation: portrait) {
+  .cardSelection {
+    flex-direction: column;
+    gap: 0;
+  }
 }

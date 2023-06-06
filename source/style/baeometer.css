@@ -1,0 +1,608 @@
+:root {
+    --section-transition: ease 0.25s;
+    --canvas-width-big: 569px;
+    --canvas-width-small: 278px;
+    --canvas-height-big: 400px;
+    --canvas-height-small: 220px;
+    --back-gradient: linear-gradient(180deg, #AE50B0 0%, #2C1854 100%);
+    --purple-trans: #9747ff6e;
+    --purple-border: #9747ff;
+    --pink:#e601fa6e;
+    --pink-border: #CC77E0;
+    --back-blur: 17.5px;
+}
+
+/* Global */
+*{
+    /* border: 1px red solid; */
+    box-sizing: border-box;
+}
+body{
+    /* prevent scrolling */
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin: 0;
+    
+    height: 100vh;
+    width: 100dvw;
+    background: var(--back-gradient);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+    color: whitesmoke;
+    font-family: sans-serif;
+}
+body.auto{
+    height: auto;
+    width: auto;
+}
+/* Buttons  */
+.btns{
+    color: white;
+    width: var(--canvas-width-big);
+    display: flex;
+    justify-content: space-between;
+    
+}
+.backBtn{
+    color: white;
+    font-size: 16px;
+    padding:8px 26px 8px 25px;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid var(--pink-border);
+    border-radius: 10px;
+    transition: 0.2s;
+
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+.backBtn:hover{
+    background-color: rgba(255, 255, 255, 0);
+    background-color: var(--pink);
+}
+.backBtn svg{
+    margin-right: 10px;
+}
+.nextBtn{
+    color: white;
+    font-size: 16px;
+    padding:8px 25px 8px 26px;
+    background-color: var(--pink);
+    border: 1px solid var(--pink-border);
+    border-radius: 10px;
+    transition: 0.2s;
+
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+.nextBtn:hover{
+    background-color: var(--purple-trans);
+    border: 1px solid var(--purple-border);
+
+}
+.nextBtn svg{    
+    margin-left: 10px;
+}
+
+/* Name and Birthday section*/
+#inputNameBirthday{
+    /* centering */
+    position: absolute;
+    top: 50%;  
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+
+    display: flex;
+    gap:10rem;
+    align-items: center;
+
+    opacity: 1;
+    transition: var(--section-transition);
+}
+#inputNameBirthday.fadeOut{
+    opacity: 0;
+}
+
+.nameBirthday{
+    height: 190px;
+    width: 150px;
+    transform: translateX(0%);
+    transition: 0.7s ease-in-out;
+}
+.nameBirthday h2{
+    font-size: 68px;
+    margin-bottom: 0;
+    margin-top: 0;
+    /* text-align: justify;
+    text-justify: inter-word;
+    width: 100%; */
+}
+#you.fade{
+    transform: translateX(-150%);
+}
+#bae.fade{
+    transform: translateX(150%);
+}
+.inputName{
+    color: white;
+    font-size: 22px;
+    width: 100%;
+    padding: 9px 20px 3px 3px;
+    margin-bottom: 12px;
+    border: none;
+    border-bottom: 2px solid white;
+    background: none;
+}
+.inputName::placeholder{
+    color: #d9d9d9;
+    font-size: 22px;
+    font-weight: 300;
+}
+#inputNameBirthday label{
+    color: #d9d9d9;
+    font-weight: 300;
+}
+.inputDate{
+    color: white;
+    color-scheme: dark;
+    width: 100%;
+    background: none;
+    border: 1px solid white;
+    padding: 8px 17px 8px 17px;
+    border-radius: 10px;
+    margin-top: 5px;
+    cursor: text;
+}
+.inputDate::-webkit-calendar-picker-indicator{
+    cursor: pointer;
+}
+#testBtn{
+    cursor: pointer;
+    /* center the button */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 141px;
+    width: 141px;
+    z-index: 1;
+    box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 10rem;
+    background: var(--purple-trans);
+    transition: ease 0.2s;
+    backdrop-filter: blur(var(--back-blur));
+    -webkit-backdrop-filter: blur(var(--back-blur));
+}
+#testBtn:hover{
+    box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, 0.1);
+}
+#testBtn svg{
+    margin-top: 10px;
+}
+
+/* drawing canvas section*/
+canvas{
+    background: rgb(246, 246, 246);
+    animation: fade-canvas 0.6s;
+}
+@keyframes fade-canvas {
+    0% {
+      transform: translateY(10%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
+}
+#drawCanvas{
+    display: none;
+    opacity: 0;
+    transition: var(--section-transition);
+}
+
+#drawCanvas.fadeIn{
+    opacity: 1;
+}
+
+#canvasContainer{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#canvasContent{
+    display: grid;
+    grid-template-columns: minmax(50px, 268px) auto minmax(50px, 268px);
+    grid-template-rows: auto auto;
+    gap: 2rem;
+    align-items: end;
+}
+#canvasContent canvas{
+    grid-area: 1 / 2 / 2 / 3;
+
+    width: var(--canvas-width-big);
+    height: var(--canvas-height-big);
+    box-shadow: 0px 4px 60px 10px rgba(0, 0, 0, 0.21);
+    border-radius: 20px;
+}
+#canvasTips{
+    grid-area: 1 / 3 / 2 / 4;
+}
+#canvasBtns{
+    grid-area: 2 / 2 / 3 / 3;
+}
+#canvasTips p{
+    margin-right: 8px;
+}
+#canvasTips p{
+    margin-top: 6px;
+    font-size: 18px;
+}
+
+
+/* card selection section */
+#chooseCards{
+    display: none;
+    opacity: 0;
+    transition: var(--section-transition);
+    
+    /* display set to flex by JS, as next button (canvas section) is clicked */
+    /* justify-content: center;
+    align-items: center;
+    height: 100vh; */
+}
+#chooseCards.fadeIn{
+    opacity: 1;
+}
+
+#cardsContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#cardsContent{
+    display: grid;
+    grid-template-rows:var(--canvas-height-big) auto;
+    gap: 2rem;
+    
+}
+#cardsTipsContainer{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 3.5rem;
+}
+#cardsBtns{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#cardsTips p{
+    font-size: 18px;
+    display: inline;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.53);
+}
+
+/* result */
+/*play again button*/
+
+#result a{
+    margin-left: auto;
+    color: white;
+    background-color: var(--pink);
+    border: 1px solid var(--pink-border);
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;    
+    box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, 0.25);
+    transition: 0.2s;
+
+    font-size: 17px;
+    font-weight: 500;
+}
+#result a:hover{
+    background-color: var(--purple-trans);
+    border: 1px solid var(--purple-border);
+    box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, 0.1);
+    
+}
+/* PC */
+#result{
+    display: none;
+    opacity: 0;
+    transition-delay: 1s;
+    transition: 4s;
+    
+}
+#result.fadeIn{
+    opacity: 1;
+}
+#resultMobile{
+    display: none;
+}
+#resultContentPC{
+    display: flex;
+    align-items: center;
+    gap: 12rem;
+}
+
+#resultPC{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#resultPC h3{
+    font-size: 33px;
+    margin-top: 5px;
+    margin-bottom: 8px;
+}
+
+#textResultContainerPC{
+    position: relative;
+}
+#heart{
+    position: absolute;
+    z-index: -1;
+    transform: translate(-110px, -40px);
+}
+#textResultPC{
+    width: 450px;
+    border: 0.8px solid rgba(255, 255, 255, 0.5);
+    /* background-color: var(--purple-trans); */
+    backdrop-filter: blur(var(--back-blur));
+    -webkit-backdrop-filter: blur(var(--back-blur));
+    border-radius: 20px;
+    padding: 20px;
+    /* margin-bottom: 30px;
+    margin-top: 30px; */
+}
+#textResultPC h4{
+    font-size: 22px;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+#textResultPC output{
+    font-size: 48px;
+    font-weight: 600;
+}
+#textResultPC .resultStory{
+    margin-top: 5px;
+    font-weight: 200;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* Mobile */
+#resultMobile{
+    width: 100%;
+    max-width: var(--canvas-width-big);
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+#thermometerTextContainer{
+    display: flex;
+    align-items: flex-end;
+}
+
+#textResultMobile h3{
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+#textResultMobile h4{
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+#textResultMobile output{
+    font-size: 30px;
+    font-weight: 600;
+}
+#thermometerTextContainer{
+    margin-bottom: 22px;
+}
+#heartMobile{
+    position: absolute;
+    overflow: visible;
+    z-index: -1;
+    transform: translate(-25px, -145px);
+}
+#resultMobile .resultStory{
+    border: 1px solid var(--purple-border);
+    background-color: var(--purple-trans);
+    backdrop-filter: blur(var(--back-blur));
+    -webkit-backdrop-filter: blur(var(--back-blur));
+    border-radius: 20px;
+    padding: 20px;
+    margin: 15px;
+    font-weight: 200;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+
+
+/* Responsive design */
+/* Small Screen */
+@media only screen and (max-width: 767px), 
+screen and (max-height: 480px) {
+    /* Buttons  */
+    .btns{
+        width: var(--canvas-width-small);
+    }
+
+    /* Name and Birthday section*/
+    #inputNameBirthday{
+        gap:2.5rem;
+    }
+    #testBtn{
+        transform: scale(0.9);
+    }
+    .nameBirthday {
+        height: 160px;
+        width: 120px;
+    }
+    .nameBirthday h2{
+        font-size: 50px;
+        letter-spacing: 6px;
+    }
+    .inputName{
+        color: white;
+        font-size: 18px;
+        padding: 9px 0px 3px 3px;
+        margin-bottom: 8px;
+    }
+    .inputName::placeholder{
+        color: #d9d9d9;
+        font-size: 18px;
+        font-weight: 300;
+    }
+    #inputNameBirthday label{
+        font-size: 14px;
+    }
+    .inputDate{
+        color: white;
+        color-scheme: dark;
+        width: 100%;
+        background: none;
+        border: 1px solid white;
+        padding: 8px 7px 8px 7px;
+        border-radius: 10px;
+        margin-top: 3px;
+        cursor: text;
+    }
+
+    /* drawing canvas section*/
+    #canvasContent{
+        grid-template-columns: minmax(50px, 268px) auto minmax(50px, 268px);
+        grid-template-rows: auto auto;
+        gap: 1rem;
+        
+    }
+    #canvasContent canvas{
+        width: var(--canvas-width-small);
+        height: var(--canvas-height-small);
+        box-shadow: 0px 4px 60px 10px rgba(0, 0, 0, 0.21);
+        border-radius: 10px;
+    }
+
+    /* card selection section */
+    #cardsContent{
+        grid-template-rows:220px auto;
+        gap: 1rem;
+    }
+    #cardsTipsContainer {
+        gap: 1rem;
+    }
+    #cards{
+        height: 100%;
+        /* width: 480px; */
+    }
+    
+}
+/* Small Screen for Result Section */
+@media only screen and (max-width: 767px), 
+screen and (max-height: 640px) {
+    /* result */
+    /* work with thermometer.css */
+    #textResultPC{
+        width: 350px;
+    }
+    #heart{
+        position: absolute;
+        z-index: -1;
+        transform: translate(-110px, -70px) scale(0.75);
+    }
+    #resultPC{
+        display: block;
+    }
+    #resultContentPC{
+        display: block
+    }
+    #textResultContainerPC{
+        position: relative;
+        margin-top: 10vh;
+        margin-left: 14vw;
+    }
+}
+
+
+
+/* Portrait mode */
+@media (orientation: portrait) {
+    #resultPC{
+        display: none;
+    }
+    #resultMobile{
+        display: block;
+    }
+
+    /* Name and Birthday section*/
+    #inputNameBirthday{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #you.fade{
+        transform: translateY(-150%);
+    }
+    #bae.fade{
+        transform: translateY(150%);
+    }
+
+    /* drawing canvas section*/
+    #canvasContent {
+        display: block;
+    }
+    #canvasBtns{
+        margin-top: 50px;
+    }
+
+    /* card selection section */
+    #cardsContent {
+        display: block;
+    }
+    #cardsTipsContainer {
+        display: block;
+    }
+    #cards{
+        margin-top: 20px;
+        /* height: 390px; */
+        width: 25vw;
+        min-width: 140px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #cardsBtns{
+        margin-top: 25px;
+    }
+    #cardsTips p{
+        display: block;
+        margin-top: 6px;
+    }
+    
+    @media only screen and (max-width: 767px) {
+        /* drawing canvas section*/
+        #canvasTips p {
+            margin-right: 0;
+        }
+        #canvasContent{
+            width: var(--canvas-width-small);
+        }
+
+        /* card selection section */
+        #cardsContent {
+            width: var(--canvas-width-small);
+        }
+    }
+
+}
