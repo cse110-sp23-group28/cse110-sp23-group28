@@ -1,0 +1,135 @@
+:root{
+  --result-score: 0.6;
+  --fill-gradient: linear-gradient(180deg, #F74B4B 0%, #AC6EEF 100%);
+}
+/* Progress Thermometer */
+#progressThermometer {
+  position: fixed;
+  z-index: -1;
+  top: 50%;  
+  left: 50%; 
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  align-items: flex-end;
+  height: 100vh;
+  width: 38px;
+  background: rgba(255, 255, 255, 0.28);
+  border-radius: 25px;
+  border: 6px solid rgba(255, 255, 255, 0.77);
+  /*  background-color: blue); */
+  /* box-shadow: 0 0 32px blue; */
+  transition: 1s;
+}
+#progressFill {
+  /* position: absolute; */
+  height: 0%;
+  width: 26px;
+  /* animation: progress-forward 3s infinite; */
+  background: linear-gradient(180deg, #F74B4B 0%, #AC6EEF 100%);;
+  border-radius: 15px;
+  transition: 1s;
+}
+
+#progressFill.canvas{
+  height: 33%;
+}
+#progressFill.cards{
+  height: 66%;
+}
+#progressFill.result{
+  height: 100%;
+}
+#progressThermometer.result{
+  opacity: 0;
+}
+
+/* Portrait Mode */
+@media (orientation: portrait) {
+  #progressThermometer {
+    height: 100vw;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+}
+
+
+
+
+/* Result Thermometer */
+/* PC */
+#resultThermometerPC{
+  max-height: 600px;
+  height: 95vh;
+  width: 38px;
+  background: rgba(255, 255, 255, 0.28);
+  border-radius: 25px;
+  border: 6px solid rgba(255, 255, 255, 0.77);
+
+  display: flex;
+  align-items: flex-end;
+}
+#resultFillPC{
+  height: 0%;
+  width: 26px;
+  animation: progress-forward 3s 1 normal forwards;
+  animation-delay: 1s;
+  background: var(--fill-gradient);
+  border-radius: 15px;
+  transition: 1s;
+}
+
+/* Mobile */
+#resultThermometerMobile{
+  height: 510px;
+  width: 36px;
+  background: rgba(255, 255, 255, 0.28);
+  border-radius: 25px;
+  border: 6px solid rgba(255, 255, 255, 0.77);
+
+  display: flex;
+  align-items: flex-end;
+
+  margin-left: 55px;
+  margin-right: 40px;
+  margin-top: 8vh;
+}
+#resultFillMobile{
+  height: 0%;
+  width: 24px;
+  animation: progress-forward 3s 1 normal forwards;
+  
+  background: var(--fill-gradient);
+  border-radius: 15px;
+  animation-delay: 1.2s;
+  transition: 1s;
+}
+
+@keyframes progress-forward {
+  0% {
+    height: calc(0% * var(--result-score));
+  }
+  25% {
+    height: calc(50% * var(--result-score));;
+  }
+  50% {
+    height: calc(75% * var(--result-score));;
+  }
+  75% {
+    height: calc(90% * var(--result-score));;
+  }
+  100% {
+    height: calc(100% * var(--result-score));;
+  }
+}
+
+@media only screen and (max-width: 767px), 
+screen and (max-height: 640px) {
+  #resultThermometerPC{
+    position: fixed;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+
+  }
+
+}

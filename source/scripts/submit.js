@@ -32,8 +32,11 @@ function runAlgorithm() {
     bDay: document.getElementById('baeBirthday').value};
 
     let score = getScore(person.name, partner.name, person.bDay, partner.bDay);
+    document.querySelector(':root').style.setProperty('--result-score', score);
     let result = convertScoreToTime(score);
-    document.getElementById('output').innerHTML = result; 
+    let outputs = document.getElementsByClassName('outputs');
+    outputs[0].value = result;
+    outputs[1].value = result;
 }
 
 

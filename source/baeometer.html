@@ -9,67 +9,196 @@
     <title>Bae-o-meter</title>
     <!-- <link href="styles/main.css" rel="stylesheet"  type="text/css"/> -->
     <!-- <link href="images/favicon.ico" rel="icon"> -->
+    <link href="style/cards.css" rel="stylesheet" />
+    <link href="style/baeometer.css" rel="stylesheet" />
+    <link href="style/thermometer.css" rel="stylesheet" />
     <script src="scripts/algorithm.js"></script>
     <script src="scripts/submit.js"></script>
-    <script src="./card_click.js"></script>
-    <link href="./baeometer.css" rel="stylesheet" />
+    <script src="scripts/card_click.js"></script>
+    <script src="scripts/change_page.js"></script>
 </head>
 
 <body>
+    <noscript><strong>Turn on your browser JavaScript to predict your relationship ;&#41</strong></noscript>
+    <div id="progressThermometer">
+        <div id="progressFill"></div>
+    </div>
     <!-- make sure to use getElementById as the structure might change -->
-
-    <!-- div section for your name and Birthday input -->
-    <div class="nameBirthday" id="you">
-        <h2>YOU</h2>
-        <input type="text" id="yourName" placeholder="First Last"><br>
-        <label for="yourBirthday">Birthday</label><br>
-        <input type="date" id="yourBirthday" value="2001-01-01" min="1930-01-01" max="2023-5-20 required">
-    </div>
-
-    <!-- div section for Bae's name and Birthday input -->
-    <div class="nameBirthday" id="bae">
-        <h2>BAE</h2>
-        <input type="text" id="baeName" placeholder="First Last"><br>
-        <label for="baeBirthday">Birthday</label><br>
-        <input type="date" id="baeBirthday" value="2001-01-01" min="1930-01-01" max="2023-5-20 required"><br><br>
-    </div>
-
-    <!-- button to trigger JS event to read from the input fields of you & bae -->
-
-    <br><br>
-    <!-- div section for 3 card selection -->
-    <div class="cardSelection" id="cards">
-        <div class="cardchild1" id="card1">
-            <button id="card1Button">
-                
-            </button>
+    <!-- section that lets users to input their name and birthday -->
+    <section id="inputNameBirthday">
+        <!-- div section for your name and Birthday input -->
+        <div class="nameBirthday" id="you">
+            <h2>YOU</h2>
+            <input type="text" id="yourName" class="inputName" placeholder="Input Name"><br>
+            <label for="yourBirthday">Birthday</label><br>
+            <input type="date" id="yourBirthday" class="inputDate" value="2001-01-01" min="1930-01-01" max="2022-12-31">
         </div>
-        <br>
-        <div class="cardchild2" id="card2">
-            <button id="card2Button">
-                
-            </button>
+        <div id="testBtn">
+            <svg width="92" height="84" viewBox="0 0 92 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M45.5724 83.5L38.9816 77.4944C15.5728 56.2474 0.118427 42.1888 0.118427 25.0365C0.118427 10.9779 11.1183 0.0131836 25.1181 0.0131836C33.0271 0.0131836 40.6179 3.69843 45.5724 9.47654C50.5269 3.69843 58.1177 0.0131836 66.0266 0.0131836C80.0265 0.0131836 91.0263 10.9779 91.0263 25.0365C91.0263 42.1888 75.572 56.2474 52.1632 77.4944L45.5724 83.5Z" fill="url(#paint0_linear_264_120)"/>
+                <path d="M15.8523 29.5881V26.5455H30.1875V29.5881H24.8438V44H21.196V29.5881H15.8523ZM32.5483 44V26.5455H44.3097V29.5881H36.2386V33.7472H43.7045V36.7898H36.2386V40.9574H44.3438V44H32.5483ZM56.7124 31.5653C56.6442 30.8778 56.3516 30.3437 55.8345 29.9631C55.3175 29.5824 54.6158 29.392 53.7294 29.392C53.1271 29.392 52.6186 29.4773 52.2038 29.6477C51.7891 29.8125 51.4709 30.0426 51.2493 30.3381C51.0334 30.6335 50.9254 30.9688 50.9254 31.3438C50.9141 31.6562 50.9794 31.929 51.1214 32.1619C51.2692 32.3949 51.4709 32.5966 51.7266 32.767C51.9822 32.9318 52.2777 33.0767 52.6129 33.2017C52.9482 33.321 53.3061 33.4233 53.6868 33.5085L55.255 33.8835C56.0163 34.054 56.7152 34.2812 57.3516 34.5653C57.9879 34.8494 58.5391 35.1989 59.005 35.6136C59.4709 36.0284 59.8317 36.517 60.0874 37.0795C60.3487 37.642 60.4822 38.2869 60.4879 39.0142C60.4822 40.0824 60.2095 41.0085 59.6697 41.7926C59.1357 42.571 58.3629 43.1761 57.3516 43.608C56.3459 44.0341 55.1328 44.2472 53.7124 44.2472C52.3033 44.2472 51.076 44.0312 50.0305 43.5994C48.9908 43.1676 48.1783 42.5284 47.593 41.6818C47.0135 40.8295 46.7095 39.7756 46.6811 38.5199H50.2521C50.2919 39.1051 50.4595 39.5937 50.755 39.9858C51.0561 40.3722 51.4567 40.6648 51.9567 40.8636C52.4624 41.0568 53.0334 41.1534 53.6697 41.1534C54.2947 41.1534 54.8374 41.0625 55.2976 40.8807C55.7635 40.6989 56.1243 40.446 56.38 40.1222C56.6357 39.7983 56.7635 39.4261 56.7635 39.0057C56.7635 38.6136 56.647 38.2841 56.4141 38.017C56.1868 37.75 55.8516 37.5227 55.4084 37.3352C54.9709 37.1477 54.4339 36.9773 53.7976 36.8239L51.897 36.3466C50.4254 35.9886 49.2635 35.429 48.4112 34.6676C47.5589 33.9062 47.1357 32.8807 47.1413 31.5909C47.1357 30.5341 47.4169 29.6108 47.9851 28.821C48.5589 28.0312 49.3459 27.4148 50.3459 26.9716C51.3459 26.5284 52.4822 26.3068 53.755 26.3068C55.0504 26.3068 56.1811 26.5284 57.147 26.9716C58.1186 27.4148 58.8743 28.0312 59.4141 28.821C59.9538 29.6108 60.2322 30.5256 60.2493 31.5653H56.7124ZM62.3054 29.5881V26.5455H76.6406V29.5881H71.2969V44H67.6491V29.5881H62.3054Z" fill="white"/>
+                <defs>
+                <linearGradient id="paint0_linear_264_120" x1="45.8816" y1="-20.3947" x2="45.5724" y2="83.5" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#F9B1B1" offset="0"/>
+                <stop offset="1" stop-color="#BD00FF" stop-opacity="0.43"/>
+                </linearGradient>
+                </defs>
+            </svg>
         </div>
-        <br>
-        <div class="cardchild3" id="card3">
-            <button id="card3Button">
-                
-            </button>
-        </div>
-    </div>
+        <!-- div section for Bae's name and Birthday input -->
+        <div class="nameBirthday" id="bae">
+            <h2>BAE</h2>
+            <input type="text" id="baeName" class="inputName" placeholder="Input Name"><br>
+            <label for="baeBirthday">Birthday</label><br>
+            <input type="date" id="baeBirthday"class="inputDate" value="2001-01-01" min="1930-01-01" max="2022-12-31"><br><br>
+        </div>    
+    </section>
+    
 
-    <br><br>
+    <!-- section that lets users to draw on the canvas -->
+    <section id="drawCanvas">
+        <section id="canvasContainer">
+            <div id="canvasContent">
+                <div id="canvasTips">
+                    <svg width="38" height="38" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 10.9091C27.4719 10.9091 30.8017 12.2883 33.2567 14.7433C35.7117 17.1984 37.0909 20.5281 37.0909 24C37.0909 28.8436 34.4509 33.0764 30.5455 35.3455V39.2727C30.5455 39.8514 30.3156 40.4063 29.9064 40.8155C29.4972 41.2247 28.9423 41.4545 28.3636 41.4545H19.6364C19.0577 41.4545 18.5028 41.2247 18.0936 40.8155C17.6844 40.4063 17.4545 39.8514 17.4545 39.2727V35.3455C13.5491 33.0764 10.9091 28.8436 10.9091 24C10.9091 20.5281 12.2883 17.1984 14.7433 14.7433C17.1984 12.2883 20.5281 10.9091 24 10.9091ZM28.3636 43.6364V45.8182C28.3636 46.3968 28.1338 46.9518 27.7246 47.361C27.3154 47.7701 26.7605 48 26.1818 48H21.8182C21.2395 48 20.6846 47.7701 20.2754 47.361C19.8662 46.9518 19.6364 46.3968 19.6364 45.8182V43.6364H28.3636ZM41.4545 21.8182H48V26.1818H41.4545V21.8182ZM0 21.8182H6.54545V26.1818H0V21.8182ZM26.1818 0V6.54545H21.8182V0H26.1818ZM8.55273 5.45455L13.2 10.1236L10.1018 13.2L5.45455 8.57454L8.55273 5.45455ZM34.8 10.1018L39.4255 5.45455L42.5455 8.57454L37.8982 13.2L34.8 10.1018Z" fill="#FFB648"/>
+                    </svg>                    
+                    <p><strong>Draw on the envelope to channel your love.</strong> </p>
+                </div>
+                <canvas></canvas>           
+                <!-- <div id="placeholder"></div> -->
+                <div id="canvasBtns" class="btns">
+                    <button class="backBtn">
+                        <svg width="8" height="13" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11 15.87L4.20108 9L11 2.115L8.90688 0L0 9L8.90688 18L11 15.87Z" fill="white"/>
+                        </svg>                            
+                        Back
+                    </button>
+                    <button class="nextBtn">
+                        Next
+                        <svg width="8" height="13" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 15.87L6.79892 9L0 2.115L2.09312 0L11 9L2.09312 18L0 15.87Z" fill="white"/>
+                        </svg>                            
+                    </button>
+                </div>     
+            </div>  
+        </section>
+    </section>
 
-    <button id="submitButton">Submit</button>
+    <!-- section that lets users to choose one card out of three -->
+    <section id="chooseCards">
+        <section id="cardsContainer">
+            <div id="cardsContent">
+                <div id="cardsTipsContainer">
+                    <div id="cardsTips">
+                        <svg width="38" height="38" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 10.9091C27.4719 10.9091 30.8017 12.2883 33.2567 14.7433C35.7117 17.1984 37.0909 20.5281 37.0909 24C37.0909 28.8436 34.4509 33.0764 30.5455 35.3455V39.2727C30.5455 39.8514 30.3156 40.4063 29.9064 40.8155C29.4972 41.2247 28.9423 41.4545 28.3636 41.4545H19.6364C19.0577 41.4545 18.5028 41.2247 18.0936 40.8155C17.6844 40.4063 17.4545 39.8514 17.4545 39.2727V35.3455C13.5491 33.0764 10.9091 28.8436 10.9091 24C10.9091 20.5281 12.2883 17.1984 14.7433 14.7433C17.1984 12.2883 20.5281 10.9091 24 10.9091ZM28.3636 43.6364V45.8182C28.3636 46.3968 28.1338 46.9518 27.7246 47.361C27.3154 47.7701 26.7605 48 26.1818 48H21.8182C21.2395 48 20.6846 47.7701 20.2754 47.361C19.8662 46.9518 19.6364 46.3968 19.6364 45.8182V43.6364H28.3636ZM41.4545 21.8182H48V26.1818H41.4545V21.8182ZM0 21.8182H6.54545V26.1818H0V21.8182ZM26.1818 0V6.54545H21.8182V0H26.1818ZM8.55273 5.45455L13.2 10.1236L10.1018 13.2L5.45455 8.57454L8.55273 5.45455ZM34.8 10.1018L39.4255 5.45455L42.5455 8.57454L37.8982 13.2L34.8 10.1018Z" fill="#FFB648"/>
+                        </svg>                    
+                        <p><strong>Choose one letter out of the three to get your results.</strong></p>
+                    </div>
+                    <div class="cardSelection" id="cards">
+                        <div class="cardchild1" id="card1">
+                            <button id="card1Button" class="cardButtons">
+                                
+                            </button>
+                        </div>
+                        <br>
+                        <div class="cardchild2" id="card2">
+                            <button id="card2Button" class="cardButtons">
+                                
+                            </button>
+                        </div>
+                        <br>
+                        <div class="cardchild3" id="card3">
+                            <button id="card3Button" class="cardButtons">
+                                
+                            </button>
+                        </div>
+                    </div>    
+                </div>                
+                <div id="cardsBtns" class="btns">
+                    <button class="backBtn">
+                        <svg width="8" height="13" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11 15.87L4.20108 9L11 2.115L8.90688 0L0 9L8.90688 18L11 15.87Z" fill="white"/>
+                        </svg>  
+                        Back
+                    </button>
+                    <!-- button to trigger JS event to read from the input fields of you & bae -->
+                    <button class="nextBtn" id="submitButton">
+                        Next 
+                        <svg width="8" height="13" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 15.87L6.79892 9L0 2.115L2.09312 0L11 9L2.09312 18L0 15.87Z" fill="white"/>
+                        </svg>  
+                    </button>        
+                </div>
+            </div>
+            
+        </section>   
+    </section>
 
+
+    
     <!-- The section that will be presenting the finial results -->
     <section id="result">
-        <div id="textResult">
-            <h3>Your relationship will last</h3>
-            <!-- calculated result will be shown in the output element -->
-            <output id="output">...</output>
-        </div>
+        <section id="resultPC">
+            <div id="resultContentPC">                
+                <div id="textResultContainerPC">
+                    <svg id="heart" width="270" height="248" viewBox="0 0 338 310" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M144.832 287.33L144.831 287.33C101.303 247.874 65.212 215.128 39.9964 184.29C14.7864 153.458 0.5 124.596 0.5 92.9155C0.5 40.9908 41.1734 0.5 92.95 0.5C122.205 0.5 150.291 14.1162 168.621 35.4647L169 35.9065L169.379 35.4647C187.709 14.1162 215.795 0.5 245.05 0.5C296.827 0.5 337.5 40.9908 337.5 92.9155C337.5 124.596 323.214 153.458 298.004 184.29C272.788 215.128 236.697 247.874 193.169 287.33L193.168 287.33L169 309.324L144.832 287.33Z" fill="url(#paint0_linear_311_72)" stroke="#D098EA"/>
+                        <defs>
+                        <linearGradient id="paint0_linear_311_72" x1="168.293" y1="-47.5814" x2="169.028" y2="310" gradientUnits="userSpaceOnUse">
+                        <stop offset="0.130208" stop-color="#F9B1B1"/>
+                        <stop offset="1" stop-color="#BD00FF" stop-opacity="0.48"/>
+                        </linearGradient>
+                        </defs>
+                    </svg>
+                    <h3>YOU & BAE</h3>
+                    <div id="textResultPC">
+                        <h4>Your relationship will last</h4>
+                        <!-- calculated result will be shown in the output element -->
+                        <output id="outputPC" class="outputs">...</output>
+                        <p class="resultStory">
+                            You envision your love story flourishing on solid ground, but unforeseen circumstances will challenge the bond you hold dear. For six months, you will immerse yourself in the warmth of your bae’s embrace, cherishing the laughter that graces your days. Each stolen kiss will carry the promise of a lasting connection. However, life's complexities will reveal themselves, introducing hurdles to navigate. Whispers of uncertainty may reach your ears, prompting introspection and reflection. As you both confront the challenges, a delicate balance will be struck, seeking mutual understanding and growth. Eventually, a realization will dawn upon you both, gently guiding your paths in separate directions. Tears may be shed as you bid farewell, acknowledging the beautiful moments shared while accepting the need for individual journeys. The six-month chapter will conclude, leaving cherished memories and valuable lessons, as you embrace the possibilities of new beginnings.</p>
+                        <a href="./index.html">Test Again</a>  
+                    </div>
+                    <br>
+                </div>
+                <div id="resultThermometerPC">
+                    <div id="resultFillPC"></div>
+                </div>
+            </div>
+        </section>
+        <section id="resultMobile">
+            <div id="thermometerTextContainer">
+                <div id="resultThermometerMobile">
+                    <div id="resultFillMobile"></div>
+                </div>                             
+                <div id="textResultMobile">
+                    <h3>YOU <br>& BAE</h3>
+                    <h4>Your relationship will last</h4>
+                    <output id="outputMobile" class="outputs">...</output>                    
+                </div>    
+            </div>
+            <svg id="heartMobile" width="221" height="310" viewBox="0 0 221 310" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M27.8315 287.33L27.8308 287.33C-15.6965 247.874 -51.788 215.128 -77.0036 184.29C-102.214 153.458 -116.5 124.596 -116.5 92.9155C-116.5 40.9908 -75.8266 0.5 -24.05 0.5C5.20491 0.5 33.2911 14.1162 51.6206 35.4647L52 35.9065L52.3794 35.4647C70.7089 14.1162 98.7951 0.5 128.05 0.5C179.827 0.5 220.5 40.9908 220.5 92.9155C220.5 124.596 206.214 153.458 181.004 184.29C155.788 215.128 119.697 247.874 76.1692 287.33L76.1685 287.33L52 309.324L27.8315 287.33Z" fill="url(#paint0_linear_215_151)" stroke="#D098EA"/>
+                <defs>
+                <linearGradient id="paint0_linear_215_151" x1="51.2929" y1="-47.5814" x2="52.0279" y2="310" gradientUnits="userSpaceOnUse">
+                <stop offset="0.130208" stop-color="#F9B1B1"/>
+                <stop offset="1" stop-color="#BD00FF" stop-opacity="0.48"/>
+                </linearGradient>
+                </defs>
+            </svg>
+                 
+            <p class="resultStory">                                   
+                Your love story spans a year, filled with joyous moments and deep connection. For twelve magical months, you will revel in your bae’s embrace, their laughter lighting up your days. Each shared adventure will strengthen your bond, promising a lasting union. However, as time passed, paths will diverge and circumstances will change. With compassion and understanding, you both will choose to part ways, acknowledging that it was the best decision for both. Though the breakup will bring pain, you’ll cherish the memories of love and growth shared. The one-year chapter will close, marking the end of a remarkable journey. As you embrace new beginnings, gratitude will remain for the lessons learned and the beautiful moments experienced. The future will await, brimming with infinite possibilities and the potential for new love to bloom
+                <br><br>
+                <a href="./index.html">Test Again</a>  
+            </p>    
+
+            
+        </section>        
     </section>
+
 </body>
 
 </html>
