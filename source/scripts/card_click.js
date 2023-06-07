@@ -5,6 +5,7 @@
  * Description: System alert when one of the cards is clicked
  */
 
+//local variables
 var cardClicked1 = false;
 var cardClicked2 = false;
 var cardClicked3 = false;
@@ -59,6 +60,7 @@ function listenForCardClicks() {
     card2.addEventListener('click', card2Clicked);
     card3.addEventListener('click', card3Clicked);
 }
+
 /**
  * Function to change the style of the cards when selected
  * @author Wesley Hu
