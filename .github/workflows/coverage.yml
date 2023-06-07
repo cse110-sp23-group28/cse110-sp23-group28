@@ -1,0 +1,9 @@
+name: coverage
+on: push
+jobs:
+    coveralls:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Coveralls GitHub Action
+              uses: coverallsapp/github-action@v2
+
