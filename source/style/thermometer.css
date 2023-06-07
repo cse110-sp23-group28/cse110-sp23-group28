@@ -13,6 +13,8 @@
   display: flex;
   align-items: flex-end;
   height: 100vh;
+  height: 100svh;
+  height: 100dvh;
   width: 38px;
   background: rgba(255, 255, 255, 0.28);
   border-radius: 25px;
@@ -60,6 +62,8 @@
 #resultThermometerPC{
   max-height: 600px;
   height: 95vh;
+  height: 95svh;
+  height: 95dvh;
   width: 38px;
   background: rgba(255, 255, 255, 0.28);
   border-radius: 25px;

@@ -21,6 +21,8 @@ window.addEventListener('load', function(){
     const testBtn = document.getElementById('testBtn');
     const you = this.document.getElementById('you');
     const bae = this.document.getElementById('bae');
+    const yourName = this.document.getElementById('yourName');
+    const baeName = this.document.getElementById('baeName');
     // Drawing canvas section
     const drawCanvas = document.getElementById('drawCanvas');
     const canvasBackBtn = document.querySelector('#canvasBtns .backBtn');
@@ -48,11 +50,15 @@ window.addEventListener('load', function(){
     // fade in canvas section
     // Increase thermometer progress bar
     testBtn.addEventListener('click', function(){
-        inputNameBirthday.classList.toggle('fadeOut');
-        thermometerProgress.classList.toggle('canvas');
-        you.classList.toggle('fade');
-        bae.classList.toggle('fade');
-        btnClicked = true;
+        if(yourName.value != '' && baeName.value != ''){
+            inputNameBirthday.classList.toggle('fadeOut');
+            thermometerProgress.classList.toggle('canvas');
+            you.classList.toggle('fade');
+            bae.classList.toggle('fade');
+            btnClicked = true;    
+        }else{
+            alert('Please fill out both yours and your bae\'s name! 😀');
+        }
     });
     inputNameBirthday.addEventListener('transitionend', function(){
         if(btnClicked){

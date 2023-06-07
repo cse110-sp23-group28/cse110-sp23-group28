@@ -39,6 +39,7 @@ function runAlgorithm() {
 
     let score = getScore(person.name, partner.name, person.bDay, partner.bDay, pixelCount);
     document.querySelector(':root').style.setProperty('--result-score', score);
+    document.querySelector(':root').style.setProperty('--result-score', score);
     let result = convertScoreToTime(score);
     let outputs = document.getElementsByClassName('outputs');
     outputs[0].value = result;

@@ -1,16 +1,4 @@
-:root {
-    --section-transition: ease 0.25s;
-    --canvas-width-big: 569px;
-    --canvas-width-small: 278px;
-    --canvas-height-big: 400px;
-    --canvas-height-small: 220px;
-    --back-gradient: linear-gradient(180deg, #AE50B0 0%, #2C1854 100%);
-    --purple-trans: #9747ff6e;
-    --purple-border: #9747ff;
-    --pink:#e601fa6e;
-    --pink-border: #CC77E0;
-    --back-blur: 17.5px;
-}
+@import url(global.css);
 
 /* Global */
 *{
@@ -24,6 +12,8 @@ body{
     margin: 0;
     
     height: 100vh;
+    height: 100svh;
+    height: 100dvh;
     width: 100dvw;
     background: var(--back-gradient);
     background-repeat: no-repeat;
@@ -31,7 +21,7 @@ body{
     background-attachment: fixed;
 
     color: whitesmoke;
-    font-family: sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 body.auto{
     height: auto;
@@ -115,7 +105,7 @@ body.auto{
 }
 
 .nameBirthday{
-    height: 190px;
+    height: 215px;
     width: 150px;
     transform: translateX(0%);
     transition: 0.7s ease-in-out;
@@ -124,9 +114,10 @@ body.auto{
     font-size: 68px;
     margin-bottom: 0;
     margin-top: 0;
-    /* text-align: justify;
-    text-justify: inter-word;
-    width: 100%; */
+    cursor: pointer;
+    color: white;
+    font-family: 'IBM_Plex_Mono', sans-serif;
+    letter-spacing: .75rem;
 }
 #you.fade{
     transform: translateX(-150%);
@@ -149,9 +140,11 @@ body.auto{
     font-size: 22px;
     font-weight: 300;
 }
+
 #inputNameBirthday label{
     color: #d9d9d9;
     font-weight: 300;
+    cursor: pointer;
 }
 .inputDate{
     color: white;
@@ -216,6 +209,8 @@ canvas{
 
 #canvasContainer{
     height: 100vh;
+    height: 100svh;
+    height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -244,23 +239,20 @@ canvas{
 }
 #canvasTips p{
     margin-right: 8px;
+    margin-top: 6px;
+    font-size: 18px;
+    font-weight: 500;
 }
 #canvasTips p{
     margin-top: 6px;
     font-size: 18px;
 }
 
-
 /* card selection section */
 #chooseCards{
     display: none;
     opacity: 0;
     transition: var(--section-transition);
-    
-    /* display set to flex by JS, as next button (canvas section) is clicked */
-    /* justify-content: center;
-    align-items: center;
-    height: 100vh; */
 }
 #chooseCards.fadeIn{
     opacity: 1;
@@ -271,6 +263,8 @@ canvas{
     justify-content: center;
     align-items: center;
     height: 100vh;
+    height: 100svh;
+    height: 100dvh;
 }
 #cardsContent{
     display: grid;
@@ -292,13 +286,13 @@ canvas{
 
 #cardsTips p{
     font-size: 18px;
+    font-weight: 500;
     display: inline;
     text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.53);
 }
 
 /* result */
 /*play again button*/
-
 #result a{
     margin-left: auto;
     color: white;
@@ -346,6 +340,8 @@ canvas{
     justify-content: center;
     align-items: center;
     height: 100vh;
+    height: 100svh;
+    height: 100dvh;
 }
 
 #resultPC h3{
@@ -375,17 +371,17 @@ canvas{
 }
 #textResultPC h4{
     font-size: 22px;
-    font-weight: 400;
+    font-weight: 600;
     margin-top: 0;
     margin-bottom: 5px;
 }
 #textResultPC output{
     font-size: 48px;
-    font-weight: 600;
+    font-weight: 700;
 }
 #textResultPC .resultStory{
     margin-top: 5px;
-    font-weight: 200;
+    font-weight: 300;
     font-size: 15px;
     line-height: 1.5;
 }
@@ -461,12 +457,12 @@ screen and (max-height: 480px) {
     }
     .nameBirthday h2{
         font-size: 50px;
-        letter-spacing: 6px;
+        letter-spacing: 0.9rem;
     }
     .inputName{
         color: white;
         font-size: 18px;
-        padding: 9px 0px 3px 3px;
+        padding: 0px 0px 3px 3px;
         margin-bottom: 8px;
     }
     .inputName::placeholder{

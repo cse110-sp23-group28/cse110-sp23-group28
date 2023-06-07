@@ -100,32 +100,47 @@ function getScore(name1, name2, bday1, bday2, pixelCount) {
         'Scorpio': 7,
         'Sagittarius': 8,
         'Capricorn': 9,
-        'Aquarius': 10
+        'Aquarius': 10,
+        'Pisces': 11
     }
 
     // Zodiac compatibility scores
     const ZODIAC_COMPATIBILITIES = [
-        [1.0, 0.7, 0.5, 0.3, 0.9, 0.7, 0.6, 0.4, 0.9, 0.8, 0.5, 0.6],
-        [0.7, 1.0, 0.8, 0.6, 0.7, 0.9, 0.8, 0.3, 0.6, 0.9, 0.8, 0.4],
-        [0.5, 0.8, 1.0, 0.7, 0.5, 0.6, 0.9, 0.7, 0.5, 0.8, 0.9, 0.7],
-        [0.3, 0.6, 0.7, 1.0, 0.4, 0.5, 0.7, 0.8, 0.4, 0.7, 0.8, 0.9],
-        [0.9, 0.7, 0.5, 0.4, 1.0, 0.8, 0.7, 0.5, 0.9, 0.7, 0.6, 0.5],
-        [0.7, 0.9, 0.6, 0.5, 0.8, 1.0, 0.8, 0.4, 0.7, 0.9, 0.8, 0.3],
-        [0.6, 0.8, 0.9, 0.7, 0.7, 0.8, 1.0, 0.6, 0.6, 0.8, 0.9, 0.7],
-        [0.4, 0.3, 0.7, 0.8, 0.5, 0.4, 1.0, 0.9, 0.3, 0.6, 0.7, 0.8],
-        [0.9, 0.6, 0.5, 0.4, 0.9, 0.7, 0.6, 0.3, 1.0, 0.9, 0.6, 0.5],
-        [0.8, 0.9, 0.8, 0.7, 0.7, 0.9, 0.8, 0.6, 0.9, 1.0, 0.8, 0.4],
-        [0.5, 0.8, 0.9, 0.8, 0.6, 0.8, 0.9, 0.7, 0.6, 0.8, 1.0, 0.7],
-        [0.6, 0.4, 0.7, 0.9, 0.5, 0.3, 0.8, 0.8, 0.5, 0.4, 0.7, 1.0]
+        [0.75, 0.63, 0.74, 0.47, 0.83, 0.42, 0.62, 0.99, 0.87, 0.38, 0.99, 0.29],
+        [0.63, 0.86, 0.23, 0.91, 0.29, 0.73, 0.33, 0.89, 0.31, 0.89, 0.11, 0.88],
+        [0.74, 0.23, 0.83, 0.21, 0.82, 0.4, 0.78, 0.15, 0.92, 0.15, 0.85, 0.1],
+        [0.47, 0.91, 0.21, 0.85, 0.29, 0.77, 0.28, 0.79, 0.27, 0.84, 0.31, 0.72],
+        [0.83, 0.29, 0.82, 0.29, 0.78, 0.35, 0.75, 0.29, 0.75, 0.27, 0.89, 0.14],
+        [0.42, 0.73, 0.4, 0.77, 0.35, 0.65, 0.3, 0.76, 0.32, 0.77, 0.3, 0.86],
+        [0.62, 0.33, 0.78, 0.28, 0.75, 0.3, 0.68, 0.29, 0.71, 0.34, 0.68, 0.29],
+        [0.99, 0.89, 0.15, 0.79, 0.29, 0.76, 0.29, 0.66, 0.3, 0.64, 0.3, 0.8],
+        [0.87, 0.31, 0.92, 0.27, 0.75, 0.32, 0.71, 0.3, 0.74, 0.38, 0.83, 0.5],
+        [0.38, 0.89, 0.15, 0.84, 0.27, 0.77, 0.34, 0.64, 0.38, 0.62, 0.37, 0.76],
+        [0.99, 0.11, 0.85, 0.31, 0.89, 0.3, 0.68, 0.3, 0.83, 0.37, 0.74, 0.38],
+        [0.29, 0.88, 0.1, 0.72, 0.14, 0.86, 0.29, 0.8, 0.5, 0.76, 0.74, 0.73]
     ]
 
     // Get zodiacs from birthdays, then convert to zodiac index to map to matrix
     const zodiac1Index = ZODIAC_INDICES[getZodiac(bday1)];
     const zodiac2Index = ZODIAC_INDICES[getZodiac(bday2)];
 
-    const score = ZODIAC_COMPATIBILITIES[zodiac1Index][zodiac2Index];
+    // Get individual compatibility scores
+    const nameScore = 0.5;
+    const zodiacScore = ZODIAC_COMPATIBILITIES[zodiac1Index][zodiac2Index];
+    const canvasScore = 0.5;
 
-    return score;
+    // Compute weighted average of the 3 scores
+    const ZODIAC_WEIGHT = 0.6;
+    const NAME_WEIGHT = 0.3;
+    const CANVAS_WEIGHT = 0.1;
+
+    const weightedScore = 
+        (ZODIAC_WEIGHT * zodiacScore) + 
+        (NAME_WEIGHT * nameScore) + 
+        (CANVAS_WEIGHT * canvasScore)
+        ;
+
+    return weightedScore;
 }
 
 /**
@@ -137,15 +152,14 @@ function getScore(name1, name2, bday1, bday2, pixelCount) {
 function convertScoreToTime(score) {
 
     const TIME_RANGES = [
-        { scoreRange: [0, 0.2], timeRange: '1 month' },
-        { scoreRange: [0.2, 0.4], timeRange: '6 months' },
-        { scoreRange: [0.4, 0.5], timeRange: '1 year' },
-        { scoreRange: [0.5, 0.6], timeRange: '1.5 years' },
-        { scoreRange: [0.6, 0.7], timeRange: '2 years' },
-        { scoreRange: [0.7, 0.8], timeRange: '3 years' },
-        { scoreRange: [0.8, 0.9], timeRange: '5 years' },
+        { scoreRange: [0, 0.4], timeRange: '1 month' },
+        { scoreRange: [0.4, 0.5], timeRange: '6 months' },
+        { scoreRange: [0.5, 0.57], timeRange: '1 year' },
+        { scoreRange: [0.57, 0.64], timeRange: '3 years' },
+        { scoreRange: [0.64, 0.72], timeRange: '5 years' },
+        { scoreRange: [0.72, 0.83], timeRange: '10 years' },
         // Score can be 1 but it's not possible for a score to be above 1
-        { scoreRange: [0.9, 1.01], timeRange: 'Forever' }
+        { scoreRange: [0.83, 1.01], timeRange: 'Forever' },
     ];
 
     // Return the corresponding time range for the given score by checking all time ranges
