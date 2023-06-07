@@ -83,8 +83,7 @@ function getCanvasPixels(canvasData) {
  * @param {string} name2 The name of the second person
  * @param {string} bday1 The birthday of the first person (YYYY-MM-DD)
  * @param {string} bday2 The birthday of the second person (YYYY-MM-DD)
- * @param {object} canvasData The data of the entire context of the canvas element
- * @param {Array<number>} canvasData.data The array holding the RGBA data of canvas element
+ * @param {number} pixelCount The number of pixels read by the Canvas
  * @returns {number} score
  */  
 function getScore(name1, name2, bday1, bday2, pixelCount) {
