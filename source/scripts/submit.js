@@ -37,7 +37,7 @@ function runAlgorithm() {
     let outputs = document.getElementsByClassName('outputs');
     outputs[0].value = result;
     outputs[1].value = result;
-    console.log(outputs[1].value);
+    console.log(outputs[0].value);
     runStory(outputs);
 }
 
@@ -62,80 +62,81 @@ function runStory(outputs) {
       .then(response => response.json())
       .then(data => {
         //one month
-        if(outputs[0].value == '1' && outputs[1].value == 'month' && card == 1){
+        if(outputs[0].value == '1 month' && card == 1){
             let outputsStory = document.getElementsByClassName('outputsStory');
             outputsStory[0].innerHTML = data.stories[0].description;
         }
-        else if(outputs[0].value == '1' && outputs[1].value == 'month' && card == 2){
+        else if(outputs[0].value == '1 month' && card == 2){
             let outputsStory = document.getElementsByClassName('outputsStory');
             outputsStory[0].innerHTML = data.stories[1].description;
         }
-        else if(outputs[0].value == '1' && outputs[1].value == 'month' && card == 3){
+        else if(outputs[0].value == '1 month' && card == 3){
             let outputsStory = document.getElementsByClassName('outputsStory');
             outputsStory[0].innerHTML = data.stories[2].description;
         }
         //six months
-        else if(outputs[0].value == '6' && outputs[1].value == 'months' && card == 1){
+        else if(outputs[0].value == '6 months' && card == 1){
             let outputsStory = document.getElementsByClassName('outputsStory');
             outputsStory[0].innerHTML = data.stories[3].description;
         }
-        else if(outputs[0].value == '6' && outputs[1].value == 'months' && card == 3){
+        else if(outputs[0].value == '6 months' && card == 3){
             let outputsStory = document.getElementsByClassName('outputsStory');
             outputsStory[0].innerHTML = data.stories[4].description;
         }
-        else if(outputs[0].value == '6' && outputs[1].value == 'months' && card == 2){
+        else if(outputs[0].value == '6 months' && card == 2){
             let outputsStory = document.getElementsByClassName('outputsStory');
             outputsStory[0].innerHTML = data.stories[5].description;
         }
         //1 year
-        else if(outputs[0].value == '1' && outputs[1].value == 'year' && card == 2){
+        else if(outputs[0].value == '1 year' && card == 2){
             let outputsStory = document.getElementsByClassName('outputsStory');
             outputsStory[0].innerHTML = data.stories[6].description;
         }
-        else if(outputs[0].value == '1' && outputs[1].value == 'year' && card == 3){
+        else if(outputs[0].value == '1 year' && card == 3){
             let outputsStory = document.getElementsByClassName('outputsStory');
             outputsStory[0].innerHTML = data.stories[7].description;
         }
-        else if(outputs[0].value == '1' && outputs[1].value == 'year' && card == 1){
+        else if(outputs[0].value == '1 year' && card == 1){
             let outputsStory = document.getElementsByClassName('outputsStory');
             outputsStory[0].innerHTML = data.stories[8].description;
         }
         //3 years
-        else if(outputs[0].value == '3' && outputs[1].value == 'years' && card == 3){
+        else if(outputs[0].value == '3 years' && card == 3){
             let outputsStory = document.getElementsByClassName('outputsStory');
             outputsStory[0].innerHTML = data.stories[9].description;
         }
-        else if(outputs[0].value == '3' && outputs[1].value == 'years' && card == 2){
+        else if(outputs[0].value == '3 years' && card == 2){
             let outputsStory = document.getElementsByClassName('outputsStory');
             outputsStory[0].innerHTML = data.stories[10].description;
         }
-        else if(outputs[0].value == '3' && outputs[1].value == 'years' && card == 1){
+        else if(outputs[0].value == '3 years' && card == 1){
             let outputsStory = document.getElementsByClassName('outputsStory');
             outputsStory[0].innerHTML = data.stories[11].description;
         }
         //5 years
-        else if(outputs[0].value == '5' && outputs[1].value == 'years' && card == 1){
+        else if(outputs[0].value == '5 years' && card == 1){
             let outputsStory = document.getElementsByClassName('outputsStory');
             outputsStory[0].innerHTML = data.stories[12].description;
         }
-        else if(outputs[0].value == '5' && outputs[1].value == 'years' && card == 2){
+        else if(outputs[0].value == '5 years' && card == 2){
             let outputsStory = document.getElementsByClassName('outputsStory');
             outputsStory[0].innerHTML = data.stories[13].description;
         }
-        else if(outputs[0].value == '5' && outputs[1].value == 'years' && card == 3){
+        else if(outputs[0].value == '5 years' && card == 3){
+            window.alert("hi");
             let outputsStory = document.getElementsByClassName('outputsStory');
             outputsStory[0].innerHTML = data.stories[14].description;
         }
         //10 years
-        else if(outputs[0].value == '10' && outputs[1].value == 'years' && card == 2){
+        else if(outputs[0].value == '10 years' && card == 2){
             let outputsStory = document.getElementsByClassName('outputsStory');
             outputsStory[0].innerHTML = data.stories[15].description;
         }
-        else if(outputs[0].value == '10' && outputs[1].value == 'years' && card == 1){
+        else if(outputs[0].value == '10 years' && card == 1){
             let outputsStory = document.getElementsByClassName('outputsStory');
             outputsStory[0].innerHTML = data.stories[16].description;
         }
-        else if(outputs[0].value == '10' && outputs[1].value == 'years' && card == 3){
+        else if(outputs[0].value == '10 years' && card == 3){
             let outputsStory = document.getElementsByClassName('outputsStory');
             outputsStory[0].innerHTML = data.stories[17].description;
         }
