@@ -49,6 +49,7 @@ window.addEventListener('DOMContentLoaded', listenForCardClicks);
 
 /**
  * Function to get card elements and add event listeners
+ * @author Wesley Hu
  */
 function listenForCardClicks() {
     var card1 = document.getElementById('card1Button');
@@ -58,7 +59,10 @@ function listenForCardClicks() {
     card2.addEventListener('click', card2Clicked);
     card3.addEventListener('click', card3Clicked);
 }
-
+/**
+ * Function to change the style of the cards when selected
+ * @author Wesley Hu
+ */
 function changeStyle() {
     var card1 = document.getElementById('card1Button');
     var card2 = document.getElementById('card2Button');
