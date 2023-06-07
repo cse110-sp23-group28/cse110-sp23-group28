@@ -1,6 +1,6 @@
-[![Coverage Status](https://coveralls.io/repos/github/cse110-sp23-group28/cse110-sp23-group28/badge.svg?branch=main)](https://coveralls.io/github/cse110-sp23-group28/cse110-sp23-group28?branch=main)
-
+![Coverage Status](https://coveralls.io/repos/github/cse110-sp23-group28/cse110-sp23-group28/badge.svg?branch=main)
 ![main branch status](https://img.shields.io/github/checks-status/cse110-sp23-group28/cse110-sp23-group28/main)
+![version](https://img.shields.io/github/v/release/cse110-sp23-group28/cse110-sp23-group28?include_prereleases)
 
 # UC Sussy Developers presents: The Bae-O-Meter
 
