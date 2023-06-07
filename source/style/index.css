@@ -13,7 +13,7 @@
   
 }
 
-.container::before {
+body::before {
   content: "";
   position: absolute;
   top: 0;
@@ -132,7 +132,7 @@ body {
   display: block;
 }
 
-.startbtn {
+/* .startbtn {
   box-sizing: border-box;
   width: 163px;
   background: rgba(230, 1, 250, 0.43);
@@ -141,9 +141,9 @@ body {
   transition: 0.2s;
   text-decoration: none;
   
-}
+} */
 
-.startbtn:hover {
+/* .startbtn:hover {
   background-color: var(--purple-trans);
   border: 1px solid var(--purple-border);
 }
@@ -158,8 +158,8 @@ body {
   text-align: center;
   transform: translate(-50%, -50%);
   animation: ring 1.5s infinite;
-}
-@keyframes ring {
+} */
+/* @keyframes ring {
   0% {
     width: 30px;
     height: 30px;
@@ -170,17 +170,17 @@ body {
     height: 300px;
     opacity: 0;
   }
-}
+} */
 
-.start {
+/* .start {
   color: #ffffff;
   text-decoration: none;
   text-align: center;
-}
+} */
 
-.name {
+/* .name {
   color: #fff;
-}
+} */
 
 .content1 {
   position: absolute;
