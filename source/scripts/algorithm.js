@@ -1,8 +1,8 @@
 /**
  * CSE 110 SP23 Team 28, UC Sussy Developers
  * Date: 05/19/2023
- * Authors: Jenny Lam
- * Description: Algorithm to compute fortune
+ * Authors: Jenny Lam, Brandon Reponte, Alvaro Ramos
+ * Description: Algorithms that process user input into a fortune of time
  */
 
 /**
@@ -57,15 +57,36 @@ function sumAscii(str) {
 }
 
 /**
+ * Returns number of inputted pixels from canvas by reading the alpha value of each pixel
+ * @author Brandon Reponte, Alvaro Ramos
+ * @param {object} canvasData The data of the entire context of the canvas element
+ * @param {Array<number>} canvasData.data The array holding the RGBA data of canvas element
+ * @returns {number} The number of pixels user inputs into canvas
+ */
+function getCanvasPixels(canvasData) {
+    let pixelCount = 0;
+    // iterate over the pixels of the canvas
+    // data is a 1D array in which each pixel is 4 indices (R,G,B,A)
+    for (let i = 0; i < canvasData.data.length; i += 4) {
+        // if pixel is opaque (default black pixel), increment pixelCount
+        if (canvasData.data[i+3]) {
+            pixelCount++;
+        }
+    }
+    return pixelCount;
+}
+
+/**
  * Returns score from 0-1 given names and birthdays
  * @author Jenny Lam
  * @param {string} name1 The name of the first person
  * @param {string} name2 The name of the second person
  * @param {string} bday1 The birthday of the first person (YYYY-MM-DD)
  * @param {string} bday2 The birthday of the second person (YYYY-MM-DD)
+ * @param {number} pixelCount The number of pixels read by the Canvas
  * @returns {number} score
  */  
-function getScore(name1, name2, bday1, bday2) {
+function getScore(name1, name2, bday1, bday2, pixelCount) {
 
     // Map zodiacs to indices to look up compatibility in matrix
     const ZODIAC_INDICES = {
@@ -99,6 +120,9 @@ function getScore(name1, name2, bday1, bday2) {
         [0.29, 0.88, 0.1, 0.72, 0.14, 0.86, 0.29, 0.8, 0.5, 0.76, 0.74, 0.73]
     ]
 
+    // Mods the pixel count for improved randomization
+    const RANDOM_PIXEL_FACTOR = 101;
+
     // Get zodiacs from birthdays, then convert to zodiac index to map to matrix
     const zodiac1Index = ZODIAC_INDICES[getZodiac(bday1)];
     const zodiac2Index = ZODIAC_INDICES[getZodiac(bday2)];
@@ -106,7 +130,7 @@ function getScore(name1, name2, bday1, bday2) {
     // Get individual compatibility scores
     const nameScore = 0.5;
     const zodiacScore = ZODIAC_COMPATIBILITIES[zodiac1Index][zodiac2Index];
-    const canvasScore = 0.5;
+    const canvasScore = (pixelCount % RANDOM_PIXEL_FACTOR) / RANDOM_PIXEL_FACTOR;
 
     // Compute weighted average of the 3 scores
     const ZODIAC_WEIGHT = 0.6;
@@ -156,7 +180,9 @@ function convertScoreToTime(score) {
 // Export for Jest unit testing
 if (typeof module !== 'undefined') {
     module.exports.sumAscii = sumAscii;
+    module.exports.getCanvasPixels = getCanvasPixels;
     module.exports.getScore = getScore;
+    module.exports.getCanvasPixels = getCanvasPixels;
     module.exports.getZodiac = getZodiac;
     module.exports.convertScoreToTime = convertScoreToTime;
 }

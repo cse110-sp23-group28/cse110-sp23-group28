@@ -6,6 +6,7 @@
  */
 
 
+
 /**
  * AddEventListener for Submit Button that passes
  * HTML form values into getScore and chooseStory functions and 
@@ -31,7 +32,13 @@ function runAlgorithm() {
     let partner = {name: document.getElementById('baeName').value, 
     bDay: document.getElementById('baeBirthday').value};
 
-    let score = getScore(person.name, partner.name, person.bDay, partner.bDay);
+    let getCanvas = document.getElementById('canvasArea');
+    let canvasContext = getCanvas.getContext('2d');
+    let canvasData = canvasContext.getImageData(0, 0, getCanvas.width, getCanvas.height);
+    let pixelCount = getCanvasPixels(canvasData);
+
+    let score = getScore(person.name, partner.name, person.bDay, partner.bDay, pixelCount);
+    document.querySelector(':root').style.setProperty('--result-score', score);
     document.querySelector(':root').style.setProperty('--result-score', score);
     let result = convertScoreToTime(score);
     let outputs = document.getElementsByClassName('outputs');

@@ -1,5 +1,6 @@
 @import url(global.css);
 
+/* Global */
 *{
     /* border: 1px red solid; */
     box-sizing: border-box;
@@ -27,6 +28,13 @@ body.auto{
     width: auto;
 }
 /* Buttons  */
+
+#clearScreen {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+  }
+
 .btns{
     color: white;
     width: var(--canvas-width-big);
@@ -34,6 +42,7 @@ body.auto{
     justify-content: space-between;
     
 }
+
 .backBtn{
     color: white;
     font-size: 16px;
@@ -234,7 +243,10 @@ canvas{
     font-size: 18px;
     font-weight: 500;
 }
-
+#canvasTips p{
+    margin-top: 6px;
+    font-size: 18px;
+}
 
 /* card selection section */
 #chooseCards{
