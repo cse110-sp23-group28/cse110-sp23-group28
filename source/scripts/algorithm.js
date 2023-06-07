@@ -143,9 +143,6 @@ function getScore(name1, name2, bday1, bday2, pixelCount) {
         (CANVAS_WEIGHT * canvasScore)
         ;
 
-    console.log(pixelCount);
-    console.log(canvasScore);
-
     return weightedScore;
 }
 
