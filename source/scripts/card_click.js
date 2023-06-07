@@ -17,7 +17,6 @@ function card1Clicked() {
     cardClicked1 = true;
     cardClicked2 = false;
     cardClicked3 = false;
-    console.log(1);
     changeStyle();
 }
 
@@ -29,7 +28,6 @@ function card2Clicked() {
     cardClicked2 = true;
     cardClicked1 = false;
     cardClicked3 = false;
-    console.log(2);
     changeStyle();
 }
 
@@ -41,7 +39,6 @@ function card3Clicked() {
     cardClicked3 = true;
     cardClicked1 = false;
     cardClicked2 = false;
-    console.log(3);
     changeStyle();
 }
 
