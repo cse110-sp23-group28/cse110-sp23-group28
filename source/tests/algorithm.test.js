@@ -38,16 +38,6 @@ test('getScore outputs score btwn 0 and 1', () => {
     expect(res).toBeLessThanOrEqual(1);
 });
 
-test('name returns right destiny number', () => {
-    const res = functions.calculateDestinyNumber("JANICE");
-    expect(res).toBe(6);
-});
-
-test('name returns right destiny number (lowercase)', () => {
-    const res = functions.calculateDestinyNumber("janice");
-    expect(res).toBe(6);
-});
-
 test('score to time maps correctly', () => {
 
     const scoresToTimes = [

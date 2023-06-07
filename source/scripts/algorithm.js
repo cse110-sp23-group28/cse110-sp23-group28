@@ -56,38 +56,6 @@ function sumAscii(str) {
     return sum;
 }
 
-
-/**
- * Calculates Destiny number (1-9) from name
- * @author Ishan Banerjee
- * @param {string} name of person
- * @returns {number} Destiny number from 1 to 9
- */
-function calculateDestinyNumber(name) {
-    // Convert the name to uppercase and remove any spaces
-  const formattedName = name.toUpperCase().replace(/\s/g, '');
-  // Assign numerical values to each letter
-  const letterValues = {
-    A: 1, B: 2, C: 3, D: 4, E: 5, F: 6, G: 7, H: 8, I: 9,
-    J: 1, K: 2, L: 3, M: 4, N: 5, O: 6, P: 7, Q: 8, R: 9,
-    S: 1, T: 2, U: 3, V: 4, W: 5, X: 6, Y: 7, Z: 8
-  };
-  // Calculate the destiny number
-  let destinyNumber = 0;
-  for (let i = 0; i < formattedName.length; i++) {
-    const letter = formattedName[i];
-    if (letter in letterValues) {
-      destinyNumber += letterValues[letter];
-    }
-  }
-  // Reduce the destiny number to a single digit (if necessary)
-  while (destinyNumber > 9) {
-    const digits = destinyNumber.toString().split('');
-    destinyNumber = digits.reduce((sum, digit) => sum + parseInt(digit, 10), 0);
-  }
-  return destinyNumber;
-}
-
 /**
  * Returns score from 0-1 given names and birthdays
  * @author Jenny Lam
@@ -131,29 +99,12 @@ function getScore(name1, name2, bday1, bday2) {
         [0.29, 0.88, 0.1, 0.72, 0.14, 0.86, 0.29, 0.8, 0.5, 0.76, 0.74, 0.73]
     ]
 
-     // Destiny number compatibility scores (1-9)
-    const NUMBER_COMPATIBILITIES = [
-        [1, 0.25, 0.75, 0.25, 1, 0.25, 1, 0.5, 0.75],  
-        [0.25, 1, 0.75, 1, 0.25, 0.75, 0.25, 1, 0.5],
-        [0.75, 0.75, 1, 0.25, 0.75, 1, 0.25, 0.25, 1], 
-        [0.25, 1, 0.25, 1, 0.25, 0.75, 0.75, 1, 0.25], 
-        [1, 0.25, 0.75, 0.25, 1, 0.25, 1, 0.5, 0.75], 
-        [0.25, 0.75, 1, 0.75, 0.25, 1, 0.25, 0.75, 1],  
-        [1, 0.25, 0.25, 0.75, 1, 0.25, 1, 0.25, 0.5],  
-        [0.5, 1, 0.25, 1, 0.5, 0.75, 0.25, 1, 0.25],  
-        [0.75, 0.5, 1, 0.25, 0.75, 1, 0.5, 0.25, 1]  
-      ];
-
     // Get zodiacs from birthdays, then convert to zodiac index to map to matrix
     const zodiac1Index = ZODIAC_INDICES[getZodiac(bday1)];
     const zodiac2Index = ZODIAC_INDICES[getZodiac(bday2)];
 
-    // Get destiny numbers
-    const name1Index = calculateDestinyNumber(name1)-1
-    const name2Index = calculateDestinyNumber(name2)-1
-
     // Get individual compatibility scores
-    const nameScore = NUMBER_COMPATIBILITIES[name1Index][name2Index];
+    const nameScore = 0.5;
     const zodiacScore = ZODIAC_COMPATIBILITIES[zodiac1Index][zodiac2Index];
     const canvasScore = 0.5;
 
@@ -207,6 +158,5 @@ if (typeof module !== 'undefined') {
     module.exports.sumAscii = sumAscii;
     module.exports.getScore = getScore;
     module.exports.getZodiac = getZodiac;
-    module.exports.calculateDestinyNumber = calculateDestinyNumber;
     module.exports.convertScoreToTime = convertScoreToTime;
 }
