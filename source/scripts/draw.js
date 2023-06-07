@@ -10,14 +10,22 @@
  * @author Steve Padmanaban, Brandon Reponte, Alvaro Ramos
  */
 window.addEventListener('load', function () {
+    //const CANVAS_WIDTH_BIG = 569;
+    //const CANVAS_WIDTH_SMALL = 278;
+    //const CANVAS_HEIGHT_BIG = 400;
+    //const CANVAS_HEIGHT_SMALL = 220;
+
     // access Canvas elements
     const canvas = document.querySelector('#canvasArea');
     const canvasContext = canvas.getContext('2d');
     const clearButton = document.getElementById('clearScreen');
 
     // set Canvas as a square that is half of the screen width
-    canvas.width = window.innerWidth * 0.50;
-    canvas.height = canvas.width;
+    let cssWidth = getComputedStyle(document.body).getPropertyValue('--canvas-width-big');
+    let cssHeight = getComputedStyle(document.body).getPropertyValue('--canvas-height-big');
+
+    canvas.width = cssWidth.slice(0, cssWidth.length - 2);
+    canvas.height = cssHeight.slice(0, cssHeight.length - 2);
 
     let isDrawing = false;
 
@@ -72,7 +80,6 @@ window.addEventListener('load', function () {
         isDrawing = false;
         // prevents pen from picking up where it left off last click/touch
         const imageData = canvasContext.getImageData(0, 0, canvas.width, canvas.height);
-        console.log(getCanvasPixels(imageData));
         canvasContext.beginPath();
     }
 
@@ -84,6 +91,34 @@ window.addEventListener('load', function () {
     function clearScreen() {
         canvasContext.clearRect(0, 0, canvas.width, canvas.height);
     }
+
+    /**
+     * Change canvas size for based on window size
+     * @author Alvaro Ramos-Sanchez
+     * @param {object} smallWindow - MediaQueryList storing information about css media query
+     * No parameters and No return values
+     */
+    function handleWindowChange(smallWindow) {
+        // if document matches media query list in smallWindow change the canvas size
+        if (smallWindow.matches){
+            canvas.width = 278;
+            canvas.height = 220;
+
+        }
+        else {
+            canvas.width = 569;
+            canvas.height = 400;
+        }
+
+    }
+
+    // object storing information about media query for small window
+    const smlWn = window.matchMedia('screen and (max-width: 767px),screen and (max-height: 480px)');
+
+    // Initial check for small window at runtime
+    handleWindowChange(smlWn);
+    // Event listener to check for small window
+    smlWn.addEventListener('change', handleWindowChange);
 
     // desktop events
     canvas.addEventListener('mousedown', startDraw);
@@ -97,14 +132,5 @@ window.addEventListener('load', function () {
 
     // clear canvas
     clearButton.addEventListener('click', clearScreen);
-});
 
-/**
- * AddEventListener for resizing Canvas proportional to the new screenview size
- * @author Brandon Reponte
- */
-window.addEventListener('resize', function () {
-    const canvas = document.querySelector('#canvasArea');
-    canvas.width = window.innerWidth * 0.50;
-    canvas.height = canvas.width;
 });

@@ -87,7 +87,7 @@ function getCanvasPixels(canvasData) {
  * @param {Array<number>} canvasData.data The array holding the RGBA data of canvas element
  * @returns {number} score
  */  
-function getScore(name1, name2, bday1, bday2, canvasData) {
+function getScore(name1, name2, bday1, bday2, pixelCount) {
 
     // Map zodiacs to indices to look up compatibility in matrix
     const ZODIAC_INDICES = {
