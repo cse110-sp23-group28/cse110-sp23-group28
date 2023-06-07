@@ -23,8 +23,6 @@ window.addEventListener('load', function () {
      * @param {object} event - Event for mouse click or screen touch
      */
     function startDraw(event) {
-        event.preventDefault();
-
         isDrawing = true;
         whileDraw(event);
     }
@@ -56,7 +54,6 @@ window.addEventListener('load', function () {
             canvasContext.beginPath();
             canvasContext.moveTo(xOffset, yOffset);
         }
-
     }
 
     /**
@@ -108,12 +105,12 @@ window.addEventListener('load', function () {
 
     // desktop events
     canvas.addEventListener('mousedown', startDraw);
-    canvas.addEventListener('mouseup', finishDraw);
+    window.addEventListener('mouseup', finishDraw);
     canvas.addEventListener('mousemove', whileDraw);
 
     // mobile events
     canvas.addEventListener('touchstart', startDraw);
-    canvas.addEventListener('touchend', finishDraw);
+    window.addEventListener('touchend', finishDraw);
     canvas.addEventListener('touchmove', whileDraw);
 
     // clear canvas

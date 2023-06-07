@@ -120,6 +120,9 @@ function getScore(name1, name2, bday1, bday2, pixelCount) {
         [0.29, 0.88, 0.1, 0.72, 0.14, 0.86, 0.29, 0.8, 0.5, 0.76, 0.74, 0.73]
     ]
 
+    // Mods the pixel count for improved randomization
+    const RANDOM_PIXEL_FACTOR = 101;
+
     // Get zodiacs from birthdays, then convert to zodiac index to map to matrix
     const zodiac1Index = ZODIAC_INDICES[getZodiac(bday1)];
     const zodiac2Index = ZODIAC_INDICES[getZodiac(bday2)];
@@ -127,7 +130,7 @@ function getScore(name1, name2, bday1, bday2, pixelCount) {
     // Get individual compatibility scores
     const nameScore = 0.5;
     const zodiacScore = ZODIAC_COMPATIBILITIES[zodiac1Index][zodiac2Index];
-    const canvasScore = 0.5;
+    const canvasScore = (pixelCount % RANDOM_PIXEL_FACTOR) / RANDOM_PIXEL_FACTOR;
 
     // Compute weighted average of the 3 scores
     const ZODIAC_WEIGHT = 0.6;
@@ -139,6 +142,9 @@ function getScore(name1, name2, bday1, bday2, pixelCount) {
         (NAME_WEIGHT * nameScore) + 
         (CANVAS_WEIGHT * canvasScore)
         ;
+
+    console.log(pixelCount);
+    console.log(canvasScore);
 
     return weightedScore;
 }

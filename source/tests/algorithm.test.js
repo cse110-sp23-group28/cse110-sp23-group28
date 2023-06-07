@@ -37,7 +37,7 @@ test('sumAscii outputs correct sum 2', () => {
 
 // getScore test 1
 test('getScore outputs score btwn 0 and 1', () => {
-    const res = functions.getScore("name1", "name2", "2003-04-11", "2003-09-17");
+    const res = functions.getScore("name1", "name2", "2003-04-11", "2003-09-17", 1000);
     expect(res).toBeGreaterThanOrEqual(0);
     expect(res).toBeLessThanOrEqual(1);
 });
