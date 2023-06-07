@@ -363,7 +363,7 @@ canvas{
     margin-top: 0;
     margin-bottom: 5px;
 }
-#textResultPC output{
+#textResultPC .outputs{
     font-size: 48px;
     font-weight: 700;
 }
