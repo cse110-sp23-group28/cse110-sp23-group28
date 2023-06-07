@@ -64,27 +64,27 @@ function changeStyle() {
     var card2 = document.getElementById('card2Button');
     var card3 = document.getElementById('card3Button');
     if (cardClicked1) {
-        card1.style.transform = "translateY(-8px)";
-        card1.style.boxShadow = "0px 10px 20px 2px rgba(0, 0, 0, 0.25)";
-        card2.style.transform = "";
-        card2.style.boxShadow = "";
-        card3.style.transform = "";
-        card3.style.boxShadow = "";
+        card1.style.transform = 'translateY(-8px)';
+        card1.style.boxShadow = '0px 10px 20px 2px rgba(0, 0, 0, 0.25)';
+        card2.style.transform = '';
+        card2.style.boxShadow = '';
+        card3.style.transform = '';
+        card3.style.boxShadow = '';
     }
     if (cardClicked2) {
-        card2.style.transform = "translateY(-8px)";
-        card2.style.boxShadow = "0px 10px 20px 2px rgba(0, 0, 0, 0.25)";
-        card1.style.transform = "";
-        card1.style.boxShadow = "";
-        card3.style.transform = "";
-        card3.style.boxShadow = "";
+        card2.style.transform = 'translateY(-8px)';
+        card2.style.boxShadow = '0px 10px 20px 2px rgba(0, 0, 0, 0.25)';
+        card1.style.transform = '';
+        card1.style.boxShadow = '';
+        card3.style.transform = '';
+        card3.style.boxShadow = '';
     }
     if (cardClicked3) {
-        card3.style.transform = "translateY(-8px)";
-        card3.style.boxShadow = "0px 10px 20px 2px rgba(0, 0, 0, 0.25)";
-        card1.style.transform = "";
-        card1.style.boxShadow = "";
-        card2.style.transform = "";
-        card2.style.boxShadow = "";
+        card3.style.transform = 'translateY(-8px)';
+        card3.style.boxShadow = '0px 10px 20px 2px rgba(0, 0, 0, 0.25)';
+        card1.style.transform = '';
+        card1.style.boxShadow = '';
+        card2.style.transform = '';
+        card2.style.boxShadow = '';
     }
 }
