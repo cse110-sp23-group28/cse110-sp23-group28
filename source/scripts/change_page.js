@@ -34,6 +34,10 @@ window.addEventListener('load', function(){
     const card1Button = this.document.getElementById('card1Button');
     const card2Button = this.document.getElementById('card2Button');
     const card3Button = this.document.getElementById('card3Button');
+    const cardClick1 = document.getElementById('card1Button');
+    const cardClick2 = document.getElementById('card2Button');
+    const cardClick3 = document.getElementById('card3Button');
+    let cardClicked = false;
     // Result section
     const result = document.getElementById('result');
 
@@ -133,11 +137,28 @@ window.addEventListener('load', function(){
         }       
     });
 
-    // Next Button (Cards page)
+    // Next Button (Cards section)
     // On clicked, fade-out cards page
     // fade in result section (slower than the previous ones)
+    cardClick1.addEventListener('click', function(){
+        cardClicked = true;
+        //can add code to make button style clickable
+    })
+    cardClick2.addEventListener('click', function(){
+        cardClicked = true;
+        //can add code to make button style clickable
+    })
+    cardClick3.addEventListener('click', function(){
+        cardClicked = true;
+        //can add code to make button style clickable
+    })
     cardsNextBtn.addEventListener('click', function(){
-        // root.style.setProperty("--section-transition", 'ease 5s');
+        //Checks a card has been selected first
+        if (cardClicked === false){
+            //do nothing if card is clicked
+        }
+        else {
+            // root.style.setProperty("--section-transition", 'ease 5s');
         chooseCards.classList.toggle('fadeIn');
         thermometerProgress.classList.toggle('result');
         thermometer.classList.toggle('result');
@@ -145,6 +166,7 @@ window.addEventListener('load', function(){
         backOrNext = true;
 
         body.style.overflowY = 'scroll';
+        }
     });
     chooseCards.addEventListener('transitionend', function(){
         if(btnClicked && backOrNext){
