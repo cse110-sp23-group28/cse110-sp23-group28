@@ -7,35 +7,44 @@
 
 const functions = require('../scripts/algorithm.js');
 
-// Zodiac test 1
+// Zodiac tests
 test('getZodiac outputs correct zodiac 1', () => {
     const res = functions.getZodiac("2000-1-19");
     expect(res).toBe("Capricorn");
 });
 
-// Zodiac test 2
 test('getZodiac outputs correct zodiac 2', () => {
     const res = functions.getZodiac("2000-11-18");
     expect(res).toBe("Scorpio");
 });
 
-test('getZodiac outputs correct zodiac 2', () => {
+test('getZodiac outputs correct zodiac 3', () => {
     const res = functions.getZodiac("2001-5-8");
     expect(res).toBe("Taurus");
 });
 
-test('sumAscii outputs correct sum 1', () => {
-    const res = functions.sumAscii("this is a test");
-    expect(res).toBe(1301);
+// Destiny number tests
+test('name returns right destiny number', () => {
+    const res = functions.calculateDestinyNumber("JANICE");
+    expect(res).toBe(6);
 });
 
-// ASCII test 2
-test('sumAscii outputs correct sum 2', () => {
-    const res = functions.sumAscii("");
+test('name returns right destiny number (lowercase)', () => {
+    const res = functions.calculateDestinyNumber("janice");
+    expect(res).toBe(6);
+});
+
+test('name returns right destiny number (has non-letter chars)', () => {
+    const res = functions.calculateDestinyNumber("janice01!!");
+    expect(res).toBe(6);
+});
+
+test('name returns right destiny number (100% non-letter chars)', () => {
+    const res = functions.calculateDestinyNumber("9824*()&");
     expect(res).toBe(0);
 });
 
-// getScore test 1
+// getScore tests
 test('getScore outputs score btwn 0 and 1', () => {
     const res = functions.getScore("name1", "name2", "2003-04-11", "2003-09-17", 1000);
     expect(res).toBeGreaterThanOrEqual(0);
