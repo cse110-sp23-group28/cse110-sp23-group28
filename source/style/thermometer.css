@@ -108,6 +108,7 @@
   transition: 1s;
 }
 
+
 @keyframes progress-forward {
   0% {
     height: calc(0% * var(--result-score));
