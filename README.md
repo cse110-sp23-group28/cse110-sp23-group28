@@ -1,6 +1,6 @@
 # Bae-O-Meter | _Team 28_
 ![version](https://img.shields.io/github/v/release/cse110-sp23-group28/cse110-sp23-group28?include_prereleases)
-![website status](https://img.shields.io/website?url=https%3A%2F%2Fcse110-sp23-group28.github.io%2Fcse110-sp23-group28%2Fsource%2F)
+![website status](https://img.shields.io/website?url=http%3A%2F%2Fbaeometer.com%2F)
 ![jest status](https://img.shields.io/github/actions/workflow/status/cse110-sp23-group28/cse110-sp23-group28/jest.yml)
 
 [Link to Project Site](baeometer.com)
