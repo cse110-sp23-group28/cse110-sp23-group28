@@ -337,6 +337,9 @@ h1{
     transition: ease 0.2s;
     backdrop-filter: blur(var(--back-blur));
     -webkit-backdrop-filter: blur(var(--back-blur));
+
+    border: 2px solid;
+    border-color: #727272 #323232 #323232 #727272;
 }
 #testBtn:hover{
     box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, 0.1);
@@ -766,6 +769,7 @@ screen and (max-height: 640px) {
 /* Portrait mode */
 @media (orientation: portrait) {
     h1{
+        padding-top: 5px;
         margin-left: 0;  
         left: 50%; 
         transform: translate(-50%, -50%); 
