@@ -3,7 +3,7 @@
 ![website status](https://img.shields.io/website?url=http%3A%2F%2Fbaeometer.com%2F)
 ![jest status](https://img.shields.io/github/actions/workflow/status/cse110-sp23-group28/cse110-sp23-group28/jest.yml)
 
-[Link to Project Site](baeometer.com)
+[Link to Project Site](http://baeometer.com/)
 
 ## Project Description:
 The Bae-O-Meter™ is a state of the art fortune telling website that can predict the strength of a relationship between any two entities. After entering some basic information about each party, the Bae-O-Meter™ will factor each piece of data into its algorithm, and precisely and mathematically determine exactly how long their hypothetical relationship would last, and how it will end.
