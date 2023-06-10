@@ -9,7 +9,7 @@
  * Returns zodiac sign given date
  * @author Jenny Lam
  * @param {string} dateString The string representation of the given date (YYYY-MM-DD)
- * @returns {string} zo`diac sign
+ * @returns {string} zodiac sign
  */
 function getZodiac(dateString) {
 
