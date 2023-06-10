@@ -30,11 +30,11 @@ When the user adds in all inputs, the algorithm takes the names, birthdays, and 
 
 Names
 - Each name is converted into a "Destiny number". Each letter in the name is mapped to a number, then all numbers are summed up. If the sum is not a single digit, it gets reduced to a single digit by repeatedly summing up the digits.
-- Each combination of Destiny numbers is mapped to a value between 0 and 1 using a 2D matrix. 
+- Each combination of Destiny numbers is mapped to a value between 0 and 1 using a 2D matrix. These values are compatibility values taken from the compatibility chart from [this site](https://www.lovetoknow.com/life/astrology/numerology-compatibility), where "Natural Fit" maps to 1, "Compatible/Get Along Well" maps to 0.75, "Neutral" maps to 0.5, and "Challenging or in Need of Compromise" mapes to 0.25.
 
 Birthdays
 - Each birthday is converted into its corresponding Zodiac sign.
-- Each combination of Zodiac signs is mapped to a value between 0 and 1 using a 2D matrix.
+- Each combination of Zodiac signs is mapped to a value between 0 and 1 using a 2D matrix. These values are compatibility values taken from [this site](https://www.zodiacsign.com/compatibility/). 
 
 Drawing
 - The number of pixels that the user draws on the canvas is also passed into the algorithm.
