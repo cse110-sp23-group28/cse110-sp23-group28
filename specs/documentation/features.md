@@ -36,4 +36,11 @@ Description here
 ## Continuous Integration/Continuous Deployment (CI/CD) Pipeline
 ### Authors: @codyprupp @breponte
 
-Description here
+Lint
+- Uses ESLint to test file conventions, which are defined in ./source/.eslintrc.js
+- Supports JSDoc conventions, file headers, file names
+- Check ./linter.md for more in-depth understanding of the linting process
+
+Test
+- Insert
+
