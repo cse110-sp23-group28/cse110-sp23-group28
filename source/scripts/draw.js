@@ -88,14 +88,19 @@ window.addEventListener('load', function () {
         const originalWidth = canvas.width;
         const originalHeight = canvas.height;
         const originalImageData = canvasContext.getImageData(0, 0, originalWidth, originalHeight);
+        const standardLineWidth = 10;
 
+        // Window is small
+        // slicing is used to get rid of 'px'
         if (smallWindow.matches) {
             canvas.width = rootStyles.getPropertyValue('--canvas-width-small').slice(0, - 2);
             canvas.height = rootStyles.getPropertyValue('--canvas-height-small').slice(0, - 2);
+            canvasContext.lineWidth = standardLineWidth / 2;
         }
         else {
             canvas.width = rootStyles.getPropertyValue('--canvas-width-big').slice(0, - 2);
             canvas.height = rootStyles.getPropertyValue('--canvas-height-big').slice(0, - 2);
+            canvasContext.lineWidth = standardLineWidth;
         }
 
         // pen configurations and gradient
@@ -103,7 +108,6 @@ window.addEventListener('load', function () {
         penGradient.addColorStop(0, '#F9B1B1');
         penGradient.addColorStop(1, '#BD00FF');
         canvasContext.strokeStyle = penGradient;
-        canvasContext.lineWidth = 10;
         canvasContext.lineCap = 'round';
 
         // create a temporary canvas to hold the scaled drawing
@@ -112,17 +116,17 @@ window.addEventListener('load', function () {
         tempCanvas.height = originalHeight;
         const tempContext = tempCanvas.getContext('2d');
 
-         // draw the original image data onto the temporary canvas
-         tempContext.putImageData(originalImageData, 0, 0);
+        // draw the original image data onto the temporary canvas
+        tempContext.putImageData(originalImageData, 0, 0);
 
-         // clear the canvas on the original canvas
+        // clear the canvas on the original canvas
         canvasContext.clearRect(0, 0, canvas.width, canvas.height);
 
         // disable image smoothing (to make drawing less blurry)
         canvasContext.imageSmoothingEnabled = false;
 
-         // draw the temporary canvas onto the new canvas
-         canvasContext.drawImage(tempCanvas, 0, 0, originalWidth, originalHeight, 0, 0, canvas.width, canvas.height);
+        // draw the temporary canvas onto the new canvas
+        canvasContext.drawImage(tempCanvas, 0, 0, canvas.width, canvas.height);
     }
 
 
