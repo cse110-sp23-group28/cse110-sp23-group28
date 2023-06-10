@@ -5,12 +5,42 @@
  * Description: System alert when one of the cards is clicked
  */
 
+//local variables
+var cardClicked1 = false;
+var cardClicked2 = false;
+var cardClicked3 = false;
+
 /**
- * Puts a system alert when a card is clicked
- * @author Jackie Piepkorn, Wesley Hu
+ * Changes booleans if card is clicked
+ * @author Jackie Piepkorn
  */
-function testEvent() {
-    window.alert('hi');
+function card1Clicked() {
+    cardClicked1 = true;
+    cardClicked2 = false;
+    cardClicked3 = false;
+    changeStyle();
+}
+
+/**
+ * Changes booleans if card is clicked
+ * @author Jackie Piepkorn
+ */
+function card2Clicked() {
+    cardClicked2 = true;
+    cardClicked1 = false;
+    cardClicked3 = false;
+    changeStyle();
+}
+
+/**
+ * Changes booleans if card is clicked
+ * @author Jackie Piepkorn
+ */
+function card3Clicked() {
+    cardClicked3 = true;
+    cardClicked1 = false;
+    cardClicked2 = false;
+    changeStyle();
 }
 
 /*
@@ -20,12 +50,47 @@ window.addEventListener('DOMContentLoaded', listenForCardClicks);
 
 /**
  * Function to get card elements and add event listeners
+ * @author Wesley Hu
  */
 function listenForCardClicks() {
-    let card1 = document.getElementById('card1Button');
-    let card2 = document.getElementById('card2Button');
-    let card3 = document.getElementById('card3Button');
-    card1.addEventListener('click', testEvent);
-    card2.addEventListener('click', testEvent);
-    card3.addEventListener('click', testEvent);
+    var card1 = document.getElementById('card1Button');
+    var card2 = document.getElementById('card2Button');
+    var card3 = document.getElementById('card3Button');
+    card1.addEventListener('click', card1Clicked);
+    card2.addEventListener('click', card2Clicked);
+    card3.addEventListener('click', card3Clicked);
+}
+
+/**
+ * Function to change the style of the cards when selected
+ * @author Wesley Hu
+ */
+function changeStyle() {
+    var card1 = document.getElementById('card1Button');
+    var card2 = document.getElementById('card2Button');
+    var card3 = document.getElementById('card3Button');
+    if (cardClicked1) {
+        card1.style.transform = 'translateY(-8px)';
+        card1.style.boxShadow = '0px 10px 20px 2px rgba(255, 200, 150, 0.6)';
+        card2.style.transform = '';
+        card2.style.boxShadow = '';
+        card3.style.transform = '';
+        card3.style.boxShadow = '';
+    }
+    if (cardClicked2) {
+        card2.style.transform = 'translateY(-8px)';
+        card2.style.boxShadow = '0px 10px 20px 2px rgba(255, 200, 150, 0.6)';
+        card1.style.transform = '';
+        card1.style.boxShadow = '';
+        card3.style.transform = '';
+        card3.style.boxShadow = '';
+    }
+    if (cardClicked3) {
+        card3.style.transform = 'translateY(-8px)';
+        card3.style.boxShadow = '0px 10px 20px 2px rgba(255, 200, 150, 0.6)';
+        card1.style.transform = '';
+        card1.style.boxShadow = '';
+        card2.style.transform = '';
+        card2.style.boxShadow = '';
+    }
 }

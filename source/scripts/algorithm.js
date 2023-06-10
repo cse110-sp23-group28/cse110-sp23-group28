@@ -1,8 +1,8 @@
 /**
  * CSE 110 SP23 Team 28, UC Sussy Developers
  * Date: 05/19/2023
- * Authors: Jenny Lam
- * Description: Algorithm to compute fortune
+ * Authors: Jenny Lam, Brandon Reponte, Alvaro Ramos, Ishan Banerjee
+ * Description: Algorithms that process user input into a fortune of time
  */
 
 /**
@@ -43,17 +43,60 @@ function getZodiac(dateString) {
 }
 
 /**
- * Returns sum of ascii values from string
- * @author Jenny Lam
- * @param {*} str The string to perform the operation on
- * @returns {number} The total sum of each character's ascii value
+ * Returns number of inputted pixels from canvas by reading the alpha value of each pixel
+ * @author Brandon Reponte, Alvaro Ramos
+ * @param {object} canvasData The data of the entire context of the canvas element
+ * @param {Array<number>} canvasData.data The array holding the RGBA data of canvas element
+ * @returns {number} The number of pixels user inputs into canvas
  */
-function sumAscii(str) {
-    let sum = 0;
-    for (let i = 0; i < str.length; i++) {
-        sum += str.charCodeAt(i);
+function getCanvasPixels(canvasData) {
+    let pixelCount = 0;
+    // iterate over the pixels of the canvas
+    // data is a 1D array in which each pixel is 4 indices (R,G,B,A)
+    for (let i = 0; i < canvasData.data.length; i += 4) {
+        // if pixel is opaque (default black pixel), increment pixelCount
+        if (canvasData.data[i+3]) {
+            pixelCount++;
+        }
     }
-    return sum;
+    return pixelCount;
+}
+
+/**
+ * Calculates Destiny number (1-9) from name
+ * @author Ishan Banerjee
+ * @param {string} name of person
+ * @returns {number} Destiny number from 1 to 9
+ */
+function calculateDestinyNumber(name) {
+  // Convert the name to uppercase and remove any spaces
+  const formattedName = name.toUpperCase().replace(/\s/g, '');
+  // Assign numerical values to each letter
+  const letterValues = {
+    A: 1, B: 2, C: 3, D: 4, E: 5, F: 6, G: 7, H: 8, I: 9,
+    J: 1, K: 2, L: 3, M: 4, N: 5, O: 6, P: 7, Q: 8, R: 9,
+    S: 1, T: 2, U: 3, V: 4, W: 5, X: 6, Y: 7, Z: 8
+  };
+  // Calculate the destiny number
+  let destinyNumber = 0;
+  // Iterate over each character in the formatted name
+  for (let i = 0; i < formattedName.length; i++) {
+    const letter = formattedName[i];
+    // Check if the letter is a valid letter (exists in letterValues)
+    if (letter in letterValues) {
+        // Add the corresponding numerical value of the letter to the destiny number
+      destinyNumber += letterValues[letter];
+    }
+  }
+  // Reduce the destiny number to a single digit (if necessary)
+  while (destinyNumber > 9) {
+    const digits = destinyNumber.toString().split('');
+    // Calculate the new destiny number by summing up all the digits
+    destinyNumber = digits.reduce(function(sum, digit) {
+        return sum + parseInt(digit, 10);
+      }, 0);
+  }
+  return destinyNumber;
 }
 
 /**
@@ -63,9 +106,10 @@ function sumAscii(str) {
  * @param {string} name2 The name of the second person
  * @param {string} bday1 The birthday of the first person (YYYY-MM-DD)
  * @param {string} bday2 The birthday of the second person (YYYY-MM-DD)
+ * @param {number} pixelCount The number of pixels read by the Canvas
  * @returns {number} score
  */  
-function getScore(name1, name2, bday1, bday2) {
+function getScore(name1, name2, bday1, bday2, pixelCount) {
 
     // Map zodiacs to indices to look up compatibility in matrix
     const ZODIAC_INDICES = {
@@ -79,32 +123,73 @@ function getScore(name1, name2, bday1, bday2) {
         'Scorpio': 7,
         'Sagittarius': 8,
         'Capricorn': 9,
-        'Aquarius': 10
+        'Aquarius': 10,
+        'Pisces': 11
     }
 
     // Zodiac compatibility scores
     const ZODIAC_COMPATIBILITIES = [
-        [1.0, 0.7, 0.5, 0.3, 0.9, 0.7, 0.6, 0.4, 0.9, 0.8, 0.5, 0.6],
-        [0.7, 1.0, 0.8, 0.6, 0.7, 0.9, 0.8, 0.3, 0.6, 0.9, 0.8, 0.4],
-        [0.5, 0.8, 1.0, 0.7, 0.5, 0.6, 0.9, 0.7, 0.5, 0.8, 0.9, 0.7],
-        [0.3, 0.6, 0.7, 1.0, 0.4, 0.5, 0.7, 0.8, 0.4, 0.7, 0.8, 0.9],
-        [0.9, 0.7, 0.5, 0.4, 1.0, 0.8, 0.7, 0.5, 0.9, 0.7, 0.6, 0.5],
-        [0.7, 0.9, 0.6, 0.5, 0.8, 1.0, 0.8, 0.4, 0.7, 0.9, 0.8, 0.3],
-        [0.6, 0.8, 0.9, 0.7, 0.7, 0.8, 1.0, 0.6, 0.6, 0.8, 0.9, 0.7],
-        [0.4, 0.3, 0.7, 0.8, 0.5, 0.4, 1.0, 0.9, 0.3, 0.6, 0.7, 0.8],
-        [0.9, 0.6, 0.5, 0.4, 0.9, 0.7, 0.6, 0.3, 1.0, 0.9, 0.6, 0.5],
-        [0.8, 0.9, 0.8, 0.7, 0.7, 0.9, 0.8, 0.6, 0.9, 1.0, 0.8, 0.4],
-        [0.5, 0.8, 0.9, 0.8, 0.6, 0.8, 0.9, 0.7, 0.6, 0.8, 1.0, 0.7],
-        [0.6, 0.4, 0.7, 0.9, 0.5, 0.3, 0.8, 0.8, 0.5, 0.4, 0.7, 1.0]
-    ]
+        [0.75, 0.63, 0.74, 0.47, 0.83, 0.42, 0.62, 0.99, 0.87, 0.38, 0.99, 0.29],
+        [0.63, 0.86, 0.23, 0.91, 0.29, 0.73, 0.33, 0.89, 0.31, 0.89, 0.11, 0.88],
+        [0.74, 0.23, 0.83, 0.21, 0.82, 0.4, 0.78, 0.15, 0.92, 0.15, 0.85, 0.1],
+        [0.47, 0.91, 0.21, 0.85, 0.29, 0.77, 0.28, 0.79, 0.27, 0.84, 0.31, 0.72],
+        [0.83, 0.29, 0.82, 0.29, 0.78, 0.35, 0.75, 0.29, 0.75, 0.27, 0.89, 0.14],
+        [0.42, 0.73, 0.4, 0.77, 0.35, 0.65, 0.3, 0.76, 0.32, 0.77, 0.3, 0.86],
+        [0.62, 0.33, 0.78, 0.28, 0.75, 0.3, 0.68, 0.29, 0.71, 0.34, 0.68, 0.29],
+        [0.99, 0.89, 0.15, 0.79, 0.29, 0.76, 0.29, 0.66, 0.3, 0.64, 0.3, 0.8],
+        [0.87, 0.31, 0.92, 0.27, 0.75, 0.32, 0.71, 0.3, 0.74, 0.38, 0.83, 0.5],
+        [0.38, 0.89, 0.15, 0.84, 0.27, 0.77, 0.34, 0.64, 0.38, 0.62, 0.37, 0.76],
+        [0.99, 0.11, 0.85, 0.31, 0.89, 0.3, 0.68, 0.3, 0.83, 0.37, 0.74, 0.38],
+        [0.29, 0.88, 0.1, 0.72, 0.14, 0.86, 0.29, 0.8, 0.5, 0.76, 0.74, 0.73]
+    ];
+
+     // Destiny number compatibility scores (1-9)
+    const NUMBER_COMPATIBILITIES = [
+        [1, 0.25, 0.75, 0.25, 1, 0.25, 1, 0.5, 0.75],  
+        [0.25, 1, 0.75, 1, 0.25, 0.75, 0.25, 1, 0.5],
+        [0.75, 0.75, 1, 0.25, 0.75, 1, 0.25, 0.25, 1], 
+        [0.25, 1, 0.25, 1, 0.25, 0.75, 0.75, 1, 0.25], 
+        [1, 0.25, 0.75, 0.25, 1, 0.25, 1, 0.5, 0.75], 
+        [0.25, 0.75, 1, 0.75, 0.25, 1, 0.25, 0.75, 1],  
+        [1, 0.25, 0.25, 0.75, 1, 0.25, 1, 0.25, 0.5],  
+        [0.5, 1, 0.25, 1, 0.5, 0.75, 0.25, 1, 0.25],  
+        [0.75, 0.5, 1, 0.25, 0.75, 1, 0.5, 0.25, 1]  
+    ];
+
+    // Mods the pixel count for improved randomization
+    const RANDOM_PIXEL_FACTOR = 101;
 
     // Get zodiacs from birthdays, then convert to zodiac index to map to matrix
     const zodiac1Index = ZODIAC_INDICES[getZodiac(bday1)];
     const zodiac2Index = ZODIAC_INDICES[getZodiac(bday2)];
 
-    const score = ZODIAC_COMPATIBILITIES[zodiac1Index][zodiac2Index];
+    // Get destiny numbers
+    const name1Index = calculateDestinyNumber(name1)-1
+    const name2Index = calculateDestinyNumber(name2)-1
 
-    return score;
+    // Get individual compatibility scores
+    // If the name indices are less than 0, then user didn't enter
+    // English letters -> give default value
+    const DEFAULT_NAME_SCORE = 0.6
+
+    const nameScore = (name1Index < 0 || name2Index < 0) ? 
+                        (DEFAULT_NAME_SCORE) : 
+                        (NUMBER_COMPATIBILITIES[name1Index][name2Index]);
+    const zodiacScore = ZODIAC_COMPATIBILITIES[zodiac1Index][zodiac2Index];
+    const canvasScore = (pixelCount % RANDOM_PIXEL_FACTOR) / RANDOM_PIXEL_FACTOR;
+
+    // Compute weighted average of the 3 scores
+    const ZODIAC_WEIGHT = 0.6;
+    const NAME_WEIGHT = 0.3;
+    const CANVAS_WEIGHT = 0.1;
+
+    const weightedScore = 
+        (ZODIAC_WEIGHT * zodiacScore) + 
+        (NAME_WEIGHT * nameScore) + 
+        (CANVAS_WEIGHT * canvasScore)
+        ;
+
+    return weightedScore;
 }
 
 /**
@@ -116,15 +201,14 @@ function getScore(name1, name2, bday1, bday2) {
 function convertScoreToTime(score) {
 
     const TIME_RANGES = [
-        { scoreRange: [0, 0.2], timeRange: '1 month' },
-        { scoreRange: [0.2, 0.4], timeRange: '6 months' },
-        { scoreRange: [0.4, 0.5], timeRange: '1 year' },
-        { scoreRange: [0.5, 0.6], timeRange: '1.5 years' },
-        { scoreRange: [0.6, 0.7], timeRange: '2 years' },
-        { scoreRange: [0.7, 0.8], timeRange: '3 years' },
-        { scoreRange: [0.8, 0.9], timeRange: '5 years' },
+        { scoreRange: [0, 0.4], timeRange: '1 month' },
+        { scoreRange: [0.4, 0.5], timeRange: '6 months' },
+        { scoreRange: [0.5, 0.57], timeRange: '1 year' },
+        { scoreRange: [0.57, 0.64], timeRange: '3 years' },
+        { scoreRange: [0.64, 0.72], timeRange: '5 years' },
+        { scoreRange: [0.72, 0.83], timeRange: '10 years' },
         // Score can be 1 but it's not possible for a score to be above 1
-        { scoreRange: [0.9, 1.01], timeRange: 'Forever' }
+        { scoreRange: [0.83, 1.01], timeRange: 'Forever' },
     ];
 
     // Return the corresponding time range for the given score by checking all time ranges
@@ -141,8 +225,10 @@ function convertScoreToTime(score) {
 
 // Export for Jest unit testing
 if (typeof module !== 'undefined') {
-    module.exports.sumAscii = sumAscii;
+    module.exports.getCanvasPixels = getCanvasPixels;
     module.exports.getScore = getScore;
+    module.exports.getCanvasPixels = getCanvasPixels;
     module.exports.getZodiac = getZodiac;
+    module.exports.calculateDestinyNumber = calculateDestinyNumber;
     module.exports.convertScoreToTime = convertScoreToTime;
 }
