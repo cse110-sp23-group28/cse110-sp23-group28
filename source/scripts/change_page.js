@@ -51,6 +51,10 @@ window.addEventListener('load', function(){
     const card1Button = this.document.getElementById('card1Button');
     const card2Button = this.document.getElementById('card2Button');
     const card3Button = this.document.getElementById('card3Button');
+    const cardClick1 = document.getElementById('card1Button');
+    const cardClick2 = document.getElementById('card2Button');
+    const cardClick3 = document.getElementById('card3Button');
+    let cardClicked = false;
     // Result section
     const result = document.getElementById('result');
 
@@ -196,13 +200,18 @@ window.addEventListener('load', function(){
         // card3Button.classList.toggle('fade');
         btnClicked = true;
         backOrNext = true;
+        if (cardClicked === false) {
+            cardsNextBtn.style.backgroundColor = 'var(--grey)';
+            cardsNextBtn.style.border = '1px solid var(--grey-border)';
+            //cardsBackBtn.style.borderRadius = '10px';
+        }
     });
     drawCanvas.addEventListener('transitionend', function(){
         if(btnClicked && backOrNext){
             drawCanvas.style.display='none';
             chooseCards.style.display='block';
             setTimeout(function(){chooseCards.classList.toggle('fadeIn')}, 0);   
-            btnClicked = false; 
+            btnClicked = false;
         }       
     });
 
@@ -221,22 +230,43 @@ window.addEventListener('load', function(){
             chooseCards.style.display='none';
             drawCanvas.style.display='block';
             setTimeout(function(){drawCanvas.classList.toggle('fadeIn')}, 0);   
-            btnClicked = false; 
+            btnClicked = false;
         }       
     });
 
-    // Next Button (Cards page)
+    // Next Button (Cards section)
     // On clicked, fade-out cards page
     // fade in result section (slower than the previous ones)
+    cardClick1.addEventListener('click', function(){
+        cardClicked = true;
+        //can add code to make button style clickable
+        cardsNextBtn.style.backgroundColor = '';
+        cardsNextBtn.style.border = '';
+    })
+    cardClick2.addEventListener('click', function(){
+        cardClicked = true;
+        //can add code to make button style clickable
+        cardsNextBtn.style.backgroundColor = '';
+        cardsNextBtn.style.border = '';
+    })
+    cardClick3.addEventListener('click', function(){
+        cardClicked = true;
+        //can add code to make button style clickable
+        cardsNextBtn.style.backgroundColor = '';
+        cardsNextBtn.style.border = '';
+    })
     cardsNextBtn.addEventListener('click', function(){
-        // root.style.setProperty("--section-transition", 'ease 5s');
-        chooseCards.classList.toggle('fadeIn');
-        thermometerProgress.classList.toggle('result');
-        thermometer.classList.toggle('fadeIn');
-        btnClicked = true;
-        backOrNext = true;
+        //Checks a card has been selected first
+        if (cardClicked === true){
+            // root.style.setProperty("--section-transition", 'ease 5s');
+            chooseCards.classList.toggle('fadeIn');
+            thermometerProgress.classList.toggle('result');
+            thermometer.classList.toggle('fadeIn');
+            btnClicked = true;
+            backOrNext = true;
 
-        body.style.overflowY = 'scroll';
+            body.style.overflowY = 'scroll';
+        }
     });
     chooseCards.addEventListener('transitionend', function(){
         if(btnClicked && backOrNext){
