@@ -1,11 +1,9 @@
 # Bae-O-Meter | _Team 28_
-![Coverage Status](https://coveralls.io/repos/github/cse110-sp23-group28/cse110-sp23-group28/badge.svg?branch=main)
-![main branch status](https://img.shields.io/github/checks-status/cse110-sp23-group28/cse110-sp23-group28/main)
 ![version](https://img.shields.io/github/v/release/cse110-sp23-group28/cse110-sp23-group28?include_prereleases)
 ![website status](https://img.shields.io/website?url=https%3A%2F%2Fcse110-sp23-group28.github.io%2Fcse110-sp23-group28%2Fsource%2F)
 ![jest status](https://img.shields.io/github/actions/workflow/status/cse110-sp23-group28/cse110-sp23-group28/jest.yml)
 
-[Link to Project Site (currently in Alpha)](https://cse110-sp23-group28.github.io/cse110-sp23-group28/source/)
+[Link to Project Site](baeometer.com)
 
 ## Project Description:
 The Bae-O-Meter™ is a state of the art fortune telling website that can predict the strength of a relationship between any two entities. After entering some basic information about each party, the Bae-O-Meter™ will factor each piece of data into its algorithm, and precisely and mathematically determine exactly how long their hypothetical relationship would last, and how it will end.
@@ -26,4 +24,4 @@ The Bae-O-Meter™ is a state of the art fortune telling website that can predic
 
 [Link to team page (credits)](https://github.com/cse110-sp23-group28/cse110-sp23-group28/blob/main/admin/team.md)
 
-_Copyright UC Sussy Developers, 2023_
+_© UC Sussy Developers (Team 28)_
