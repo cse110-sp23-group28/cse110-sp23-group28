@@ -313,7 +313,7 @@ function runStory(outputs) {
               }, wait);
         }
       })
-    //   .catch(error => {
-    //     console.error('Error:', error);
-    //   });
+      .catch(error => {
+        console.error('Error:', error);
+      });
 }
