@@ -348,6 +348,9 @@ h1{
 #testBtn svg{
     margin-top: 10px;
 }
+#testBtn.disableBtn{
+    background: #4444446e;
+}
 
 /* drawing canvas section*/
 canvas{

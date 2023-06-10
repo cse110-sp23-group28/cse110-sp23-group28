@@ -18,7 +18,11 @@ window.addEventListener('load', function(){
     // Input bae's name and birthday section
     const baeNameForm = this.document.getElementById('baeNameForm');
     const baeNameBirthdayNextBtn = this.document.querySelector('#baeNameBirthdayBtns .nextBtn');
-
+    // Name and birthday input section
+    const testBtn = document.getElementById('testBtn');
+    const yourName = this.document.getElementById('yourName');
+    const baeName = this.document.getElementById('baeName');
+    const heartColor= this.document.getElementById('heartColor');
 
     // Next button (your name birthday input section)
     yourNameForm.addEventListener('keyup', function(){
@@ -38,6 +42,26 @@ window.addEventListener('load', function(){
         }else{
             // baeNameBirthdayNextBtn.setAttribute('disabled', true);
             baeNameBirthdayNextBtn.classList.add('disable');
+        }
+    })
+
+    // Test button
+    yourName.addEventListener('keyup', function(){
+        if(yourName.value != '' && baeName.value != ''){
+            heartColor.setAttribute('fill', 'url(#paint0_linear_264_120)');
+            testBtn.classList.remove('disableBtn');            
+        }else{
+            heartColor.setAttribute('fill', '#dddddd40');
+            testBtn.classList.add('disableBtn');
+        }
+    })
+    baeName.addEventListener('keyup', function(){
+        if(baeName.value != '' && yourName.value != ''){
+            heartColor.setAttribute('fill', 'url(#paint0_linear_264_120)');
+            testBtn.classList.remove('disableBtn');            
+        }else{
+            heartColor.setAttribute('fill', '#dddddd40');
+            testBtn.classList.add('disableBtn');
         }
     })
 });
