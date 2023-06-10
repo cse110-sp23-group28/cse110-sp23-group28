@@ -49,9 +49,9 @@ function runAlgorithm() {
  */
 function typeWriter(text, i, duration) {
     if (i < text.length) {
-      document.getElementById("outputPC2").innerHTML += text.charAt(i);
+      document.getElementById('outputPC2').innerHTML += text.charAt(i);
       i++;
-      setTimeout(function() {
+      setTimeout(function () {
         typeWriter(text, i, duration);
       }, duration);
     }
