@@ -40,6 +40,7 @@ function runAlgorithm() {
     console.log(outputs[0].value);
     runStory(outputs);
 }
+
 /**
  * Simulates a typing effect.
  * @param {string} text - The text to be typed.
@@ -51,11 +52,13 @@ function typeWriter(text, i, duration) {
     if (i < text.length) {
       document.getElementById('outputPC2').innerHTML += text.charAt(i);
       i++;
+  
       setTimeout(function () {
         typeWriter(text, i, duration);
       }, duration);
     }
   }
+  
   
 /**
  * Function that runs the story-choosing algorithm and displays output when
