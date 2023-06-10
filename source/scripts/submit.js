@@ -43,7 +43,7 @@ function runAlgorithm() {
 
 /**
  * Applies a typing effect to an HTML element.
- * @param {HTMLCollectionOf<Element>} element - The HTML element to apply the typing effect to.
+ * @param {any} element - The HTML element to apply the typing effect to.
  * @param {string} text - The text to be typed out.
  * @param {number} duration - The duration between each character in milliseconds.
  */
