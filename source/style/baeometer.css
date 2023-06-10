@@ -27,8 +27,8 @@ body.auto{
     height: auto;
     width: auto;
 }
-/* back and next Buttons */
 
+/* back and next Buttons */
 .btns{
     color: white;
     width: var(--canvas-width-big);
