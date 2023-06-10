@@ -108,13 +108,18 @@ window.addEventListener('load', function(){
         // card3Button.classList.toggle('fade');
         btnClicked = true;
         backOrNext = true;
+        if (cardClicked === false) {
+            cardsNextBtn.style.backgroundColor = 'rgba(255, 255, 255, 0)';
+            cardsNextBtn.style.border = '1px solid var(--pink-border)';
+            //cardsBackBtn.style.borderRadius = '10px';
+        }
     });
     drawCanvas.addEventListener('transitionend', function(){
         if(btnClicked && backOrNext){
             drawCanvas.style.display='none';
             chooseCards.style.display='block';
             setTimeout(function(){chooseCards.classList.toggle('fadeIn')}, 0);   
-            btnClicked = false; 
+            btnClicked = false;
         }       
     });
 
@@ -133,7 +138,7 @@ window.addEventListener('load', function(){
             chooseCards.style.display='none';
             drawCanvas.style.display='block';
             setTimeout(function(){drawCanvas.classList.toggle('fadeIn')}, 0);   
-            btnClicked = false; 
+            btnClicked = false;
         }       
     });
 
@@ -143,14 +148,20 @@ window.addEventListener('load', function(){
     cardClick1.addEventListener('click', function(){
         cardClicked = true;
         //can add code to make button style clickable
+        cardsNextBtn.style.backgroundColor = '';
+        cardsNextBtn.style.border = '';
     })
     cardClick2.addEventListener('click', function(){
         cardClicked = true;
         //can add code to make button style clickable
+        cardsNextBtn.style.backgroundColor = '';
+        cardsNextBtn.style.border = '';
     })
     cardClick3.addEventListener('click', function(){
         cardClicked = true;
         //can add code to make button style clickable
+        cardsNextBtn.style.backgroundColor = '';
+        cardsNextBtn.style.border = '';
     })
     cardsNextBtn.addEventListener('click', function(){
         //Checks a card has been selected first

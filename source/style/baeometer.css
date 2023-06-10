@@ -79,7 +79,6 @@ body.auto{
 .nextBtn:hover{
     background-color: var(--purple-trans);
     border: 1px solid var(--purple-border);
-
 }
 .nextBtn svg{    
     margin-left: 10px;
