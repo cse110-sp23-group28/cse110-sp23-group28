@@ -194,8 +194,8 @@ window.addEventListener('load', function(){
         btnClicked = true;
         backOrNext = true;
         if (cardClicked === false) {
-            cardsNextBtn.style.backgroundColor = 'rgba(255, 255, 255, 0)';
-            cardsNextBtn.style.border = '1px solid var(--pink-border)';
+            cardsNextBtn.style.backgroundColor = 'var(--grey)';
+            cardsNextBtn.style.border = '1px solid var(--grey-border)';
             //cardsBackBtn.style.borderRadius = '10px';
         }
     });
