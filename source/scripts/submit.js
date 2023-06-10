@@ -62,8 +62,8 @@ function typeWriter(text, i, duration) {
 /**
  * Function that runs the story-choosing algorithm and displays output when
  * Button is pressed
- * @author Jackie Piepkorn
- * @update Ka Wing Yan(Terry) 6/9/2023
+ * @author Jackie Piepkorn ,Ka Wing Yan(Terry)
+ * Update: Ka Wing Yan(Terry) 6/9/2023
  * change the output and add type effect function into runstory
  * @param {Array} outputs
  * No return values
