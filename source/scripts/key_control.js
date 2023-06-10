@@ -20,6 +20,11 @@ window.addEventListener('load', function(){
     const baeNameForm = this.document.getElementById('baeNameForm');
     const baeBirthdayForm = this.document.getElementById('baeBirthdayForm');
     const baeNameBirthdayNextBtn = this.document.querySelector('#baeNameBirthdayBtns .nextBtn');
+    // Card selection section
+    const cardsNextBtn = document.querySelector('#cardsBtns .nextBtn');
+    const card1Button = this.document.getElementById('card1Button');
+    const card2Button = this.document.getElementById('card2Button');
+    const card3Button = this.document.getElementById('card3Button');
 
     // Your input section
     // From yourNameForm to yourBirthdayForm
@@ -60,5 +65,24 @@ window.addEventListener('load', function(){
             baeNameBirthdayNextBtn.click();
         }
     });
+
+
+    // card selection card buttons
+    card1Button.addEventListener('keyup', function(event){
+        if (event.key === 'Enter' && cardClicked1){
+            cardsNextBtn.focus();
+        }
+    });
+    card2Button.addEventListener('keyup', function(event){
+        if (event.key === 'Enter' && cardClicked2){
+            cardsNextBtn.focus();
+        }
+    });
+    card3Button.addEventListener('keyup', function(event){
+        if (event.key === 'Enter' && cardClicked3){
+            cardsNextBtn.focus();
+        }
+    });
+
       
 });

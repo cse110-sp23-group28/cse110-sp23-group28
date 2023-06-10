@@ -57,6 +57,7 @@ window.addEventListener('load', function(){
     let cardClicked = false;
     // Result section
     const result = document.getElementById('result');
+    const testAgainBtn = this.document.querySelector('#textResultPC a');
 
     //ThermometerProgress
     const thermometerProgress = document.getElementById('progressFill');
@@ -156,6 +157,7 @@ window.addEventListener('load', function(){
         if(btnClicked){
             inputNameBirthday.style.display='none';
             drawCanvas.style.display='block';
+            canvasNextBtn.focus();
             setTimeout(function(){drawCanvas.classList.toggle('fadeIn')}, 0);
             btnClicked = false;
             // inputNameBirthday section has absolute positioning
@@ -195,9 +197,6 @@ window.addEventListener('load', function(){
     canvasNextBtn.addEventListener('click', function(){
         drawCanvas.classList.toggle('fadeIn');
         thermometerProgress.classList.toggle('cards');
-        // card1Button.classList.toggle('fade');
-        // card2Button.classList.toggle('fade');
-        // card3Button.classList.toggle('fade');
         btnClicked = true;
         backOrNext = true;
         if (cardClicked === false) {
@@ -210,6 +209,7 @@ window.addEventListener('load', function(){
         if(btnClicked && backOrNext){
             drawCanvas.style.display='none';
             chooseCards.style.display='block';
+            card1Button.focus();
             setTimeout(function(){chooseCards.classList.toggle('fadeIn')}, 0);   
             btnClicked = false;
         }       
@@ -237,24 +237,24 @@ window.addEventListener('load', function(){
     // Next Button (Cards section)
     // On clicked, fade-out cards page
     // fade in result section (slower than the previous ones)
-    cardClick1.addEventListener('click', function(){
+    card1Button.addEventListener('click', function(){
         cardClicked = true;
         //can add code to make button style clickable
         cardsNextBtn.style.backgroundColor = '';
         cardsNextBtn.style.border = '';
-    })
-    cardClick2.addEventListener('click', function(){
+    });
+    card2Button.addEventListener('click', function(){
         cardClicked = true;
         //can add code to make button style clickable
         cardsNextBtn.style.backgroundColor = '';
         cardsNextBtn.style.border = '';
-    })
-    cardClick3.addEventListener('click', function(){
+    });
+    card3Button.addEventListener('click', function(){
         cardClicked = true;
         //can add code to make button style clickable
         cardsNextBtn.style.backgroundColor = '';
         cardsNextBtn.style.border = '';
-    })
+    });
     cardsNextBtn.addEventListener('click', function(){
         //Checks a card has been selected first
         if (cardClicked === true){
@@ -272,6 +272,7 @@ window.addEventListener('load', function(){
         if(btnClicked && backOrNext){
             chooseCards.style.display='none';
             result.style.display='block';
+            testAgainBtn.focus();
             setTimeout(function(){result.classList.toggle('fadeIn')}, 0);   
             btnClicked = false; 
         }       
