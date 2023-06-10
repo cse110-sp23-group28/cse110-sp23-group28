@@ -42,11 +42,10 @@ function runAlgorithm() {
 }
 
 /**
- * Simulates a typing effect.
- * @param {string} text - The text to be typed.
- * @param {number} i - The index indicating the current position in the text.
- * @param {number} duration - The duration (in milliseconds) between each character being typed.
- * @returns {void}
+ * Applies a typing effect to an HTML element.
+ * @param {HTMLElement} element - The HTML element to apply the typing effect to.
+ * @param {string} text - The text to be typed out.
+ * @param {number} duration - The duration between each character in milliseconds.
  */
 function typeWriter(element, text, duration) {
     let i = 0;
