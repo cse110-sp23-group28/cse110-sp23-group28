@@ -44,7 +44,6 @@ function runAlgorithm() {
     let outputs = document.getElementsByClassName('outputs');
     outputs[0].value = result;
     outputs[1].value = result;
-    console.log(outputs[0].value);
     runStory(outputs);
 }
 
