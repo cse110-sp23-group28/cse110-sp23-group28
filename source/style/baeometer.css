@@ -85,6 +85,17 @@ body.auto{
     margin-left: 10px;
 }
 
+h1{
+    position: fixed;
+    font-size: 20px;
+    margin: 10px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #ffe3e3 0%, rgb(223, 135, 255) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+}
 
 /* input section for you and bae */
 .nameBirthdayInput{
@@ -736,6 +747,11 @@ screen and (max-height: 640px) {
 
 /* Portrait mode */
 @media (orientation: portrait) {
+    h1{
+        margin-left: 0;  
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+    }
     /* input sections for you and bae */
     #yourNameBirthdayContainer, #baeNameBirthdayContainer {
         flex-direction: column;
