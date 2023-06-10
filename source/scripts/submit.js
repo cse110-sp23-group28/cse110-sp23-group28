@@ -43,6 +43,10 @@ function runAlgorithm() {
 /**
  * Function that is type effect 
  * @author Ka Wing Yan,Terry
+ * @param {text} outputs
+ * @param {i} textbegining
+ * @param {duration} speed
+ * 
  * No parameters and No return values
  */
 function typeWriter(text, i, duration) {
