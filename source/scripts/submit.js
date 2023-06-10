@@ -41,12 +41,11 @@ function runAlgorithm() {
     runStory(outputs);
 }
 /**
- * Function that is type effect 
- * @author Ka Wing Yan,Terry
- * @param {text} outputs
- * @param {i} textbegining
- * @param {duration} speed
- * No parameters and No return values
+ * Simulates a typing effect.
+ * @param {string} text - The text to be typed.
+ * @param {number} i - The index indicating the current position in the text.
+ * @param {number} duration - The duration (in milliseconds) between each character being typed.
+ * @returns {void}
  */
 function typeWriter(text, i, duration) {
     if (i < text.length) {
@@ -57,6 +56,7 @@ function typeWriter(text, i, duration) {
       }, duration);
     }
   }
+  
 /**
  * Function that runs the story-choosing algorithm and displays output when
  * Button is pressed
