@@ -26,7 +26,23 @@ clear the canvas.
 ## Algorithm
 ### Authors: @jenetic @IshanBanerjee2003
 
-Description here
+When the user adds in all inputs, the algorithm takes the names, birthdays, and canvas pixels, and outputs a time range of how long the relationship will last.
+
+Names
+- Each name is converted into a "Destiny number". Each letter in the name is mapped to a number, then all numbers are summed up. If the sum is not a single digit, it gets reduced to a single digit by repeatedly summing up the digits.
+- Each combination of Destiny numbers is mapped to a value between 0 and 1 using a 2D matrix. 
+
+Birthdays
+- Each birthday is converted into its corresponding Zodiac sign.
+- Each combination of Zodiac signs is mapped to a value between 0 and 1 using a 2D matrix.
+
+Drawing
+- The number of pixels that the user draws on the canvas is also passed into the algorithm.
+- The number of pixels gets modded by 101, the the result is divided by 101 to get a value between 0 and 1.
+
+Algorithm Result
+- Each of the 3 scores (name, birthday, drawing) gets computed into a weighted average, where name has a weight of 0.3, birthday has a weight of 0.6, and the drawing has a weight of 0.1. The output of this is a number between 0 and 1.
+- This number between 0 and 1 is then converted to a time range (e.g. 1 month, 6 months, 1 year, 3 years, 5, years, 10 years, Forever). The time range is returned and paired up with a corresponding story based on the card the user picked.
 
 ## User Interface/Design
 ### Authors: @JasonARong @TerryYan26
