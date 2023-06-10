@@ -43,7 +43,7 @@ function runAlgorithm() {
 
 /**
  * Applies a typing effect to an HTML element.
- * @param {HTMLElement} element - The HTML element to apply the typing effect to.
+ * @param {HTMLDivElement} element - The HTML element to apply the typing effect to.
  * @param {string} text - The text to be typed out.
  * @param {number} duration - The duration between each character in milliseconds.
  */
@@ -82,8 +82,8 @@ function runStory(outputs) {
       .then(response => response.json())
       .then(data => {
         var outputsStory = document.getElementsByClassName('outputsStory');
-        outputsStory[0].innerHTML = "";
-        outputsStory[1].innerHTML = "";
+        outputsStory[0].innerHTML = '';
+        outputsStory[1].innerHTML = '';
         
         //one month
         if(outputs[0].value == '1 month' && card == 1){
