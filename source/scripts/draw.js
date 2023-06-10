@@ -16,7 +16,7 @@ window.addEventListener('load', function () {
     const clearButton = document.getElementById('clearScreen');
 
     let isDrawing = false;
-    
+
 
     /**
      * Interpret a click/touch and convert into drawing mode
@@ -39,7 +39,11 @@ window.addEventListener('load', function () {
             return;
         }
 
-        // pen configurations
+        // pen configurations and gradient
+        const penGradient = canvasContext.createLinearGradient(0, 0, 0, 575);
+        penGradient.addColorStop(0, '#F9B1B1');
+        penGradient.addColorStop(1, '#BD00FF');
+        canvasContext.strokeStyle = penGradient;
         canvasContext.lineWidth = 10;
         canvasContext.lineCap = 'round';
 
@@ -86,13 +90,13 @@ window.addEventListener('load', function () {
     function handleWindowChange(smallWindow) {
         // if document matches media query list in smallWindow change the canvas size
         const rootStyles = window.getComputedStyle(document.documentElement);
-        if (smallWindow.matches){
-            canvas.width = rootStyles.getPropertyValue('--canvas-width-small').slice(0,- 2);
-            canvas.height = rootStyles.getPropertyValue('--canvas-height-small').slice(0,- 2);
+        if (smallWindow.matches) {
+            canvas.width = rootStyles.getPropertyValue('--canvas-width-small').slice(0, - 2);
+            canvas.height = rootStyles.getPropertyValue('--canvas-height-small').slice(0, - 2);
         }
         else {
-            canvas.width = rootStyles.getPropertyValue('--canvas-width-big').slice(0,- 2);
-            canvas.height = rootStyles.getPropertyValue('--canvas-height-big').slice(0,- 2);
+            canvas.width = rootStyles.getPropertyValue('--canvas-width-big').slice(0, - 2);
+            canvas.height = rootStyles.getPropertyValue('--canvas-height-big').slice(0, - 2);
         }
     }
 
