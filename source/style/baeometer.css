@@ -82,6 +82,170 @@ body.auto{
     margin-left: 10px;
 }
 
+h1{
+    position: fixed;
+    font-size: 20px;
+    margin: 10px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #ffe3e3 0%, rgb(223, 135, 255) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+}
+
+/* input section for you and bae */
+.nameBirthdayInput{
+    display: flex;
+    color-scheme: dark;
+    color: white;
+    width: 100%;
+    background: #ffffff2b;
+    border: 0.8px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(var(--back-blur));
+    -webkit-backdrop-filter: blur(var(--back-blur));
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 18px;
+
+    margin-top:10px
+}
+.nameBirthdayInput::placeholder{
+    color: #ffffff;
+}
+#yourNameBirthday,
+#baeNameBirthday{
+    display: flex;
+    height: 100vh;
+    height: 100svh;
+    height: 100dvh;
+    align-items: center;
+    justify-content: center;
+}
+#yourNameBirthdayContainer, 
+#baeNameBirthdayContainer{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap:4.5rem;
+
+    width: 767px;
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+
+#yourNameBirthdayText,
+#baeNameBirthdayText{
+    margin-left: 15px;
+}
+#yourNameBirthdayText h2,
+#baeNameBirthdayText h2{    
+    font-size: 45px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+#yourNameBirthdayTips,
+#baeNameBirthdayTips{
+    display: flex;
+    gap: 15px;
+}
+#yourNameBirthdayTips p,
+#baeNameBirthdayTips p{
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 7px;
+    width: 240px;
+}
+
+#yourNameBirthdayForm,
+#baeNameBirthdayForm{
+    background: #d9d9d90d;
+    border: 0.8px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(var(--back-blur));
+    -webkit-backdrop-filter: blur(var(--back-blur));
+    border-radius: 20px;
+    padding: 33px;
+
+    width:400px;
+}
+#yourNameBirthdayForm label,
+#baeNameBirthdayForm label{
+    font-size: 22px;
+    font-weight: 600;
+}
+#yourNameBirthdayBtns,
+#baeNameBirthdayBtns{
+    margin-top:50px;
+    
+}
+
+.inputHeart{
+    position: fixed;
+    z-index: -1;
+    transform: scale(0.9) translate(230px, -80px);
+}
+
+
+/* Input your name and birthday section */
+#yourNameBirthday{
+    opacity: 1;
+    transition: var(--section-transition);
+}
+#yourNameBirthday.fadeOut{
+    opacity: 0;
+}
+
+#yourNameBirthdayBtns .nextBtn{
+    justify-content: center;
+    width: 100%;
+    font-size: 18px;
+    padding: 15px;
+}
+#yourNameBirthdayBtns .nextBtn.disable{
+    background-color: var(--grey);
+    border: 1px solid var(--grey-border);
+}
+#yourBirthdayForm{
+    -webkit-appearance: none;
+}
+#yourBirthdayForm::-webkit-date-and-time-value {
+    text-align: start;
+}
+/* Input bae's name and birthday section */
+#baeNameBirthday{
+    opacity: 0;
+    transition: var(--section-transition);
+    display: none;
+}
+#baeNameBirthday.fadeIn{
+    opacity: 1;
+}
+
+#baeNameBirthdayBtns{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#baeNameBirthdayBtns .nextBtn,
+#baeNameBirthdayBtns .backBtn{
+    font-size: 18px;
+    padding:15px 25px 15px 25px;
+}
+#baeNameBirthdayBtns .nextBtn.disable{
+    background-color: var(--grey);
+    border: 1px solid var(--grey-border);
+}
+#baeBirthdayForm{
+    -webkit-appearance: none;
+    align-items: flex-start;
+}
+#baeBirthdayForm::-webkit-date-and-time-value {
+    text-align: start;
+}
+
+
 /* Name and Birthday section*/
 #inputNameBirthday{
     /* centering */
@@ -90,15 +254,16 @@ body.auto{
     left: 50%; 
     transform: translate(-50%, -50%); 
 
-    display: flex;
+    display: none;
+    /* display will be set to flex by JS */
     gap:10rem;
     align-items: center;
 
-    opacity: 1;
+    opacity: 0;
     transition: var(--section-transition);
 }
-#inputNameBirthday.fadeOut{
-    opacity: 0;
+#inputNameBirthday.fadeIn{
+    opacity: 1;
 }
 
 .nameBirthday{
@@ -111,7 +276,6 @@ body.auto{
     font-size: 68px;
     margin-bottom: 0;
     margin-top: 0;
-    cursor: pointer;
     color: white;
     font-family: 'IBM_Plex_Mono', sans-serif;
     letter-spacing: .75rem;
@@ -173,6 +337,9 @@ body.auto{
     transition: ease 0.2s;
     backdrop-filter: blur(var(--back-blur));
     -webkit-backdrop-filter: blur(var(--back-blur));
+
+    border: 2px solid;
+    border-color: #727272 #323232 #323232 #727272;
 }
 #testBtn:hover{
     box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, 0.1);
@@ -457,6 +624,46 @@ canvas{
 /* Small Screen */
 @media only screen and (max-width: 767px), 
 screen and (max-height: 480px) {
+    /* input section for you and bae */
+    #yourNameBirthdayContainer, 
+    #baeNameBirthdayContainer {
+        gap:0px;
+    }
+    #yourNameBirthdayText h2{
+        font-size: 35px;
+
+    }
+    #yourNameBirthdayTips p, 
+    #baeNameBirthdayTips p {
+        font-size: 20px;
+        margin-top: 7px;
+        width: auto;
+    }
+    #yourNameBirthdayForm, 
+    #baeNameBirthdayForm{
+        padding:15px;
+        margin-right: 15px;
+    }
+    #yourNameBirthdayForm label, 
+    #baeNameBirthdayForm label{
+        font-size: 15px;
+        /* color: #d9d9d9; */
+        font-weight: 500;
+    }
+    .nameBirthdayInput {
+        padding: 10px;
+    }
+    #yourNameBirthdayBtns, 
+    #baeNameBirthdayBtns{
+        margin-top: 45px;
+    }
+    #yourNameBirthdayBtns .nextBtn, 
+    #baeNameBirthdayBtns .nextBtn, 
+    #baeNameBirthdayBtns .backBtn{
+        padding:8px 25px 8px 25px;
+    }
+
+
     /* Buttons  */
     .btns{
         width: var(--canvas-width-small);
@@ -561,6 +768,38 @@ screen and (max-height: 640px) {
 
 /* Portrait mode */
 @media (orientation: portrait) {
+    h1{
+        padding-top: 5px;
+        margin-left: 0;  
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+    }
+    /* input sections for you and bae */
+    #yourNameBirthdayContainer, #baeNameBirthdayContainer {
+        flex-direction: column;
+        width: 100%;
+        max-width: var(--canvas-width-big);
+    }
+    .inputHeartContainer{
+        width: 100%;
+    }
+    .inputHeart {
+        position: fixed;
+        z-index: -1;
+        transform: scale(0.9) translate(375px, -77px);
+    }
+
+    #yourNameBirthdayContainer, 
+    #baeNameBirthdayContainer {
+        gap: 8vh;
+    }
+    #yourNameBirthdayForm, 
+    #baeNameBirthdayForm {
+        width: calc(100% - 30px);
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    /* result section */
     #resultPC{
         display: none;
     }
@@ -613,6 +852,12 @@ screen and (max-height: 640px) {
     }
     
     @media only screen and (max-width: 767px) {
+        .inputHeart {
+            position: fixed;
+            z-index: -1;
+            transform: scale(0.9) translate(185px, -77px);
+        }
+
         /* drawing canvas section*/
         #canvasTips p {
             margin-right: 0;
