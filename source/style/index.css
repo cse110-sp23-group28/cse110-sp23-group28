@@ -1,6 +1,7 @@
 @import url("./global.css");
 
 * {
+  
   box-sizing: border-box;
 }
 
@@ -12,7 +13,10 @@
   grid-auto-flow: row;
   
 }
-
+body{
+   background: rgba(108, 51, 230, 0.49);
+backdrop-filter: blur(14.5px);
+}
 body::before {
   content: "";
   position: absolute;
@@ -20,7 +24,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  /* background: rgba(108, 51, 230, 0.49); */
+  background: rgba(108, 51, 230, 0.49);
 backdrop-filter: blur(14.5px);
   opacity: 0.6; /* Adjust opacity as desired */
   z-index: -1; /* Place behind other elements */
