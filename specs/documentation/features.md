@@ -14,7 +14,13 @@ and look like clickable envelopes.
 ## Canvas
 ### Authors: @spadmanaban25 @breponte @AlvaroRamos44
 
-Description here
+Canvas allows for simple pen drawing with the ability to,
+clear the canvas.
+- Used built in HTML canvas and its tools in order to minimize dependencies
+- Clear button removes the canvas' image data when clicked/pressed to allow for user's mistakes
+  - No erase tool yet, only clearing entire canvas
+- Canvas size adjusts according to the size of the screen in order to support mobile capabilities
+- Passes in the pixel count to the score algorithm
 
 ## Algorithm
 ### Authors: @jenetic @IshanBanerjee2003
