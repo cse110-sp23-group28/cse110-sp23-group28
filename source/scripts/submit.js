@@ -59,7 +59,6 @@ function typeWriter(text, i, duration) {
     }
   }
   
-  
 /**
  * Function that runs the story-choosing algorithm and displays output when
  * Button is pressed
