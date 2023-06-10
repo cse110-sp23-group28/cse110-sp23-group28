@@ -250,18 +250,15 @@ window.addEventListener('load', function(){
     })
     cardsNextBtn.addEventListener('click', function(){
         //Checks a card has been selected first
-        if (cardClicked === false){
-            //do nothing if card is clicked
-        }
-        else {
+        if (cardClicked === true){
             // root.style.setProperty("--section-transition", 'ease 5s');
-        chooseCards.classList.toggle('fadeIn');
-        thermometerProgress.classList.toggle('result');
-        thermometer.classList.toggle('fadeIn');
-        btnClicked = true;
-        backOrNext = true;
+            chooseCards.classList.toggle('fadeIn');
+            thermometerProgress.classList.toggle('result');
+            thermometer.classList.toggle('fadeIn');
+            btnClicked = true;
+            backOrNext = true;
 
-        body.style.overflowY = 'scroll';
+            body.style.overflowY = 'scroll';
         }
     });
     chooseCards.addEventListener('transitionend', function(){
