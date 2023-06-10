@@ -16,6 +16,7 @@ window.addEventListener('load', function () {
     const clearButton = document.getElementById('clearScreen');
 
     let isDrawing = false;
+    
 
     /**
      * Interpret a click/touch and convert into drawing mode
