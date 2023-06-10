@@ -39,13 +39,6 @@ window.addEventListener('load', function () {
             return;
         }
 
-        // pen configurations and gradient
-        const penGradient = canvasContext.createLinearGradient(0, 0, 0, 575);
-        penGradient.addColorStop(0, '#F9B1B1');
-        penGradient.addColorStop(1, '#BD00FF');
-        canvasContext.strokeStyle = penGradient;
-        canvasContext.lineWidth = 10;
-        canvasContext.lineCap = 'round';
 
         // get mouse/touch position
         const boundary = canvas.getBoundingClientRect();
@@ -90,6 +83,7 @@ window.addEventListener('load', function () {
     function handleWindowChange(smallWindow) {
         // if document matches media query list in smallWindow change the canvas size
         const rootStyles = window.getComputedStyle(document.documentElement);
+
         if (smallWindow.matches) {
             canvas.width = rootStyles.getPropertyValue('--canvas-width-small').slice(0, - 2);
             canvas.height = rootStyles.getPropertyValue('--canvas-height-small').slice(0, - 2);
@@ -98,6 +92,15 @@ window.addEventListener('load', function () {
             canvas.width = rootStyles.getPropertyValue('--canvas-width-big').slice(0, - 2);
             canvas.height = rootStyles.getPropertyValue('--canvas-height-big').slice(0, - 2);
         }
+
+        // pen configurations and gradient
+        const penGradient = canvasContext.createLinearGradient(0, 0, 0, canvas.height);
+        penGradient.addColorStop(0, '#F9B1B1');
+        penGradient.addColorStop(1, '#BD00FF');
+        canvasContext.strokeStyle = penGradient;
+        canvasContext.lineWidth = 10;
+        canvasContext.lineCap = 'round';
+        
     }
 
     // object storing information about media query for small window
