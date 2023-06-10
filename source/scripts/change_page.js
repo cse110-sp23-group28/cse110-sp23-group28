@@ -70,10 +70,13 @@ window.addEventListener('load', function(){
 
     // Next button (your name birthday input section)
     yourNameBirthdayNextBtn.addEventListener('click', function(){
+        if(yourNameBirthdayNextBtn.classList.contains('disable')){
+            return;
+        }
         yourNameBirthday.classList.toggle('fadeOut');
         // set your name and birthday value on inputNameBirthday section
         yourName.value = yourNameForm.value;
-        yourBirthday.value = yourBirthdayForm.value
+        yourBirthday.value = yourBirthdayForm.value;
         btnClicked = true;
     });
     yourNameBirthday.addEventListener('transitionend', function(){
@@ -103,12 +106,16 @@ window.addEventListener('load', function(){
     });
     // Next button (bae's name birthday input section)
     baeNameBirthdayNextBtn.addEventListener('click', function(){
+        if(baeNameBirthdayNextBtn.classList.contains('disable')){
+            return;
+        }
         baeNameBirthday.classList.toggle('fadeIn');
         btnClicked = true;
         backOrNext = true;
         // set your name and birthday value on inputNameBirthday section
         baeName.value = baeNameForm.value;
-        baeBirthday.value = baeBirthdayForm.value
+        baeBirthday.value = baeBirthdayForm.value;    
+        
     });
     baeNameBirthday.addEventListener('transitionend', function(){
         if(btnClicked && backOrNext){
