@@ -42,7 +42,6 @@ function runAlgorithm() {
 }
 /**
  * Function that is type effect 
- * d 
  * @author Ka Wing Yan,Terry
  * No parameters and No return values
  */
