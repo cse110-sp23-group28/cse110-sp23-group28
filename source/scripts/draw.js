@@ -84,6 +84,11 @@ window.addEventListener('load', function () {
         // if document matches media query list in smallWindow change the canvas size
         const rootStyles = window.getComputedStyle(document.documentElement);
 
+        // Get the original canvas dimensions and image data
+        const originalWidth = canvas.width;
+        const originalHeight = canvas.height;
+        const originalImageData = canvasContext.getImageData(0, 0, originalWidth, originalHeight);
+
         if (smallWindow.matches) {
             canvas.width = rootStyles.getPropertyValue('--canvas-width-small').slice(0, - 2);
             canvas.height = rootStyles.getPropertyValue('--canvas-height-small').slice(0, - 2);
@@ -100,8 +105,26 @@ window.addEventListener('load', function () {
         canvasContext.strokeStyle = penGradient;
         canvasContext.lineWidth = 10;
         canvasContext.lineCap = 'round';
-        
+
+        // create a temporary canvas to hold the scaled drawing
+        const tempCanvas = document.createElement('canvas');
+        tempCanvas.width = originalWidth;
+        tempCanvas.height = originalHeight;
+        const tempContext = tempCanvas.getContext('2d');
+
+         // draw the original image data onto the temporary canvas
+         tempContext.putImageData(originalImageData, 0, 0);
+
+         // clear the canvas on the original canvas
+        canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+
+        // disable image smoothing (to make drawing less blurry)
+        canvasContext.imageSmoothingEnabled = false;
+
+         // draw the temporary canvas onto the new canvas
+         canvasContext.drawImage(tempCanvas, 0, 0, originalWidth, originalHeight, 0, 0, canvas.width, canvas.height);
     }
+
 
     // object storing information about media query for small window
     const smlWn = window.matchMedia('screen and (max-width: 767px),screen and (max-height: 480px)');
