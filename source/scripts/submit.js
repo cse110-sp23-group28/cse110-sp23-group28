@@ -84,7 +84,8 @@ function runStory(outputs) {
         var outputsStory = document.getElementsByClassName('outputsStory');
         outputsStory[0].innerHTML = '';
         outputsStory[1].innerHTML = '';
-        
+        const typetime = 3;
+        const wait =3000;
         //one month
         if(outputs[0].value == '1 month' && card == 1){
             let outputsStory = document.getElementsByClassName('outputsStory');
@@ -92,9 +93,9 @@ function runStory(outputs) {
             // outputsStory[1].innerHTML = data.stories[0].description;
             storyText = data.stories[0].description;
             setTimeout(() => {
-                typeWriter(outputsStory[0], storyText, 3);
-                typeWriter(outputsStory[1], storyText, 3);
-              }, 3000);
+                typeWriter(outputsStory[0], storyText, typetime);
+                typeWriter(outputsStory[1], storyText, typetime);
+              }, wait);
         }
         else if(outputs[0].value == '1 month' && card == 2){
             let outputsStory = document.getElementsByClassName('outputsStory');
@@ -102,9 +103,9 @@ function runStory(outputs) {
             // outputsStory[1].innerHTML = data.stories[1].description;
             storyText = data.stories[1].description;
             setTimeout(() => {
-                typeWriter(outputsStory[0], storyText, 3);
-                typeWriter(outputsStory[1], storyText, 3);
-              }, 3000);
+                typeWriter(outputsStory[0], storyText, typetime);
+                typeWriter(outputsStory[1], storyText, typetime);
+              }, wait);
         }
         else if(outputs[0].value == '1 month' && card == 3){
             let outputsStory = document.getElementsByClassName('outputsStory');
@@ -112,9 +113,9 @@ function runStory(outputs) {
             // outputsStory[1].innerHTML = data.stories[2].description;
             storyText = data.stories[2].description;
             setTimeout(() => {
-                typeWriter(outputsStory[0], storyText, 3);
-                typeWriter(outputsStory[1], storyText, 3);
-              }, 3000);
+                typeWriter(outputsStory[0], storyText, typetime);
+                typeWriter(outputsStory[1], storyText, typetime);
+              }, wait);
         }
         //six months
         else if(outputs[0].value == '6 months' && card == 1){
@@ -123,9 +124,9 @@ function runStory(outputs) {
             // outputsStory[1].innerHTML = data.stories[3].description;
             storyText = data.stories[3].description;
             setTimeout(() => {
-                typeWriter(outputsStory[0], storyText, 3);
-                typeWriter(outputsStory[1], storyText, 3);
-              }, 3000);
+                typeWriter(outputsStory[0], storyText, typetime);
+                typeWriter(outputsStory[1], storyText, typetime);
+              }, wait);
         }
         else if(outputs[0].value == '6 months' && card == 3){
             // let outputsStory = document.getElementsByClassName('outputsStory');
@@ -133,9 +134,9 @@ function runStory(outputs) {
             // outputsStory[1].innerHTML = data.stories[4].description;
             storyText = data.stories[4].description;
             setTimeout(() => {
-                typeWriter(outputsStory[0], storyText, 3);
-                typeWriter(outputsStory[1], storyText, 3);
-              }, 3000);
+                typeWriter(outputsStory[0], storyText, typetime);
+                typeWriter(outputsStory[1], storyText, typetime);
+              }, wait);
         }
         else if(outputs[0].value == '6 months' && card == 2){
             // let outputsStory = document.getElementsByClassName('outputsStory');
@@ -143,9 +144,9 @@ function runStory(outputs) {
             // outputsStory[1].innerHTML = data.stories[5].description;
             storyText = data.stories[5].description;
             setTimeout(() => {
-                typeWriter(outputsStory[0], storyText, 3);
-                typeWriter(outputsStory[1], storyText, 3);
-              }, 3000);
+                typeWriter(outputsStory[0], storyText, typetime);
+                typeWriter(outputsStory[1], storyText, typetime);
+              }, wait);
         }
         //1 year
         else if(outputs[0].value == '1 year' && card == 2){
@@ -154,9 +155,9 @@ function runStory(outputs) {
             // outputsStory[1].innerHTML = data.stories[6].description;
             storyText = data.stories[6].description;
             setTimeout(() => {
-                typeWriter(outputsStory[0], storyText, 3);
-                typeWriter(outputsStory[1], storyText, 3);
-              }, 3000);
+                typeWriter(outputsStory[0], storyText, typetime);
+                typeWriter(outputsStory[1], storyText, typetime);
+              }, wait);
         }
         else if(outputs[0].value == '1 year' && card == 3){
             // let outputsStory = document.getElementsByClassName('outputsStory');
@@ -164,9 +165,9 @@ function runStory(outputs) {
             // outputsStory[1].innerHTML = data.stories[7].description;
             storyText = data.stories[7].description;
             setTimeout(() => {
-                typeWriter(outputsStory[0], storyText, 3);
-                typeWriter(outputsStory[1], storyText, 3);
-              }, 3000);
+                typeWriter(outputsStory[0], storyText, typetime);
+                typeWriter(outputsStory[1], storyText, typetime);
+              }, wait);
         }
         else if(outputs[0].value == '1 year' && card == 1){
             // let outputsStory = document.getElementsByClassName('outputsStory');
@@ -174,9 +175,9 @@ function runStory(outputs) {
             // outputsStory[1].innerHTML = data.stories[8].description;
             storyText = data.stories[8].description;
             setTimeout(() => {
-                typeWriter(outputsStory[0], storyText, 3);
-                typeWriter(outputsStory[1], storyText, 3);
-              }, 3000);
+                typeWriter(outputsStory[0], storyText, typetime);
+                typeWriter(outputsStory[1], storyText, typetime);
+              }, wait);
         }
         //3 years
         else if(outputs[0].value == '3 years' && card == 3){
@@ -185,9 +186,9 @@ function runStory(outputs) {
             // outputsStory[1].innerHTML = data.stories[9].description;
             storyText = data.stories[9].description;
             setTimeout(() => {
-                typeWriter(outputsStory[0], storyText, 3);
-                typeWriter(outputsStory[1], storyText, 3);
-              }, 3000);
+                typeWriter(outputsStory[0], storyText, typetime);
+                typeWriter(outputsStory[1], storyText, typetime);
+              }, wait);
         }
         else if(outputs[0].value == '3 years' && card == 2){
             let outputsStory = document.getElementsByClassName('outputsStory');
@@ -196,9 +197,9 @@ function runStory(outputs) {
             // outputsStory[1].innerHTML = data.stories[10].description;
             storyText = data.stories[10].description;
             setTimeout(() => {
-                typeWriter(outputsStory[0], storyText, 3);
-                typeWriter(outputsStory[1], storyText, 3);
-              }, 3000);
+                typeWriter(outputsStory[0], storyText, typetime);
+                typeWriter(outputsStory[1], storyText, typetime);
+              }, wait);
         }
         else if(outputs[0].value == '3 years' && card == 1){
             let outputsStory = document.getElementsByClassName('outputsStory');
@@ -206,9 +207,9 @@ function runStory(outputs) {
             // outputsStory[1].innerHTML = data.stories[11].description;
             storyText = data.stories[11].description;
             setTimeout(() => {
-                typeWriter(outputsStory[0], storyText, 3);
-                typeWriter(outputsStory[1], storyText, 3);
-              }, 3000);
+                typeWriter(outputsStory[0], storyText, typetime);
+                typeWriter(outputsStory[1], storyText, typetime);
+              }, wait);
             
         }
         //5 years
@@ -218,9 +219,9 @@ function runStory(outputs) {
             // outputsStory[1].innerHTML = data.stories[12].description;
             storyText = data.stories[12].description;
             setTimeout(() => {
-                typeWriter(outputsStory[0], storyText, 3);
-                typeWriter(outputsStory[1], storyText, 3);
-              }, 3000);
+                typeWriter(outputsStory[0], storyText, typetime);
+                typeWriter(outputsStory[1], storyText, typetime);
+              }, wait);
         }
         else if(outputs[0].value == '5 years' && card == 2){
             // let outputsStory = document.getElementsByClassName('outputsStory');
@@ -228,9 +229,9 @@ function runStory(outputs) {
             // outputsStory[1].innerHTML = data.stories[13].description;
             storyText = data.stories[13].description;
             setTimeout(() => {
-                typeWriter(outputsStory[0], storyText, 3);
-                typeWriter(outputsStory[1], storyText, 3);
-              }, 3000);
+                typeWriter(outputsStory[0], storyText, typetime);
+                typeWriter(outputsStory[1], storyText, typetime);
+              }, wait);
         }
         else if(outputs[0].value == '5 years' && card == 3){
              let outputsStory = document.getElementsByClassName('outputsStory');
@@ -238,9 +239,9 @@ function runStory(outputs) {
         //     outputsStory[1].innerHTML = data.stories[14].description;
         storyText = data.stories[14].description;
         setTimeout(() => {
-            typeWriter(outputsStory[0], storyText, 3);
-            typeWriter(outputsStory[1], storyText, 3);
-          }, 3000);
+            typeWriter(outputsStory[0], storyText, typetime);
+            typeWriter(outputsStory[1], storyText, typetime);
+          }, wait);
          }
         //10 years
         else if(outputs[0].value == '10 years' && card == 2){
@@ -249,9 +250,9 @@ function runStory(outputs) {
             // outputsStory[1].innerHTML = data.stories[15].description;
             storyText = data.stories[15].description;
             setTimeout(() => {
-                typeWriter(outputsStory[0], storyText, 3);
-                typeWriter(outputsStory[1], storyText, 3);
-              }, 3000);
+                typeWriter(outputsStory[0], storyText, typetime);
+                typeWriter(outputsStory[1], storyText, typetime);
+              }, wait);
         }
         else if(outputs[0].value == '10 years' && card == 1){
             let outputsStory = document.getElementsByClassName('outputsStory');
@@ -259,9 +260,9 @@ function runStory(outputs) {
             // outputsStory[1].innerHTML = data.stories[16].description;
             storyText = data.stories[16].description;
             setTimeout(() => {
-                typeWriter(outputsStory[0], storyText, 3);
-                typeWriter(outputsStory[1], storyText, 3);
-              }, 3000);
+                typeWriter(outputsStory[0], storyText, typetime);
+                typeWriter(outputsStory[1], storyText, typetime);
+              }, wait);
         }
         else if(outputs[0].value == '10 years' && card == 3){
             let outputsStory = document.getElementsByClassName('outputsStory');
@@ -269,9 +270,9 @@ function runStory(outputs) {
             // outputsStory[1].innerHTML = data.stories[17].description;
             storyText = data.stories[17].description;
             setTimeout(() => {
-                typeWriter(outputsStory[0], storyText, 3);
-                typeWriter(outputsStory[1], storyText, 3);
-              }, 3000);
+                typeWriter(outputsStory[0], storyText, typetime);
+                typeWriter(outputsStory[1], storyText, typetime);
+              }, wait);
         }
         //forever
         else if(outputs[0].value == 'Forever' && card == 3){
@@ -280,9 +281,9 @@ function runStory(outputs) {
             // outputsStory[1].innerHTML = data.stories[18].description;
             storyText = data.stories[18].description;
             setTimeout(() => {
-                typeWriter(outputsStory[0], storyText, 3);
-                typeWriter(outputsStory[1], storyText, 3);
-              }, 3000);
+                typeWriter(outputsStory[0], storyText, typetime);
+                typeWriter(outputsStory[1], storyText, typetime);
+              }, wait);
         }
         else if(outputs[0].value == 'Forever' && card == 1){
             let outputsStory = document.getElementsByClassName('outputsStory');
@@ -290,9 +291,9 @@ function runStory(outputs) {
             // outputsStory[1].innerHTML = data.stories[19].description;
             storyText = data.stories[19].description;
             setTimeout(() => {
-                typeWriter(outputsStory[0], storyText, 3);
-                typeWriter(outputsStory[1], storyText, 3);
-              }, 3000);
+                typeWriter(outputsStory[0], storyText, typetime);
+                typeWriter(outputsStory[1], storyText, typetime);
+              }, wait);
         }
         else if(outputs[0].value == 'Forever' && card == 2){
             let outputsStory = document.getElementsByClassName('outputsStory');
@@ -300,16 +301,16 @@ function runStory(outputs) {
             // outputsStory[1].innerHTML = data.stories[20].description;
             storyText = data.stories[20].description;
             setTimeout(() => {
-                typeWriter(outputsStory[0], storyText, 3);
-                typeWriter(outputsStory[1], storyText, 3);
-              }, 3000);
+                typeWriter(outputsStory[0], storyText, typetime);
+                typeWriter(outputsStory[1], storyText, typetime);
+              }, wait);
         }
         else if (card==null){
             storyText = data.stories[21].description;
             setTimeout(() => {
-                typeWriter(outputsStory[0], storyText, 3);
-                typeWriter(outputsStory[1], storyText, 3);
-              }, 3000);
+                typeWriter(outputsStory[0], storyText, typetime);
+                typeWriter(outputsStory[1], storyText, typetime);
+              }, wait);
         }
       })
     //   .catch(error => {
