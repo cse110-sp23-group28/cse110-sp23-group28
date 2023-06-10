@@ -21,22 +21,22 @@ window.addEventListener('load', function(){
 
 
     // Next button (your name birthday input section)
-    yourNameForm.addEventListener('change', function(){
+    yourNameForm.addEventListener('keyup', function(){
         if(yourNameForm.value != ''){
-            yourNameBirthdayNextBtn.removeAttribute('disabled');
+            // yourNameBirthdayNextBtn.removeAttribute('disabled');
             yourNameBirthdayNextBtn.classList.remove('disable');
         }else{
-            yourNameBirthdayNextBtn.setAttribute('disabled', true);
+            // yourNameBirthdayNextBtn.setAttribute('disabled', true);
             yourNameBirthdayNextBtn.classList.add('disable');
         }
     })
     // Next button (Bae name birthday input section)
-    baeNameForm.addEventListener('change', function(){
+    baeNameForm.addEventListener('keyup', function(){
         if(baeNameForm.value != ''){
-            baeNameBirthdayNextBtn.removeAttribute('disabled');
+            // baeNameBirthdayNextBtn.removeAttribute('disabled');
             baeNameBirthdayNextBtn.classList.remove('disable');
         }else{
-            baeNameBirthdayNextBtn.setAttribute('disabled', true);
+            // baeNameBirthdayNextBtn.setAttribute('disabled', true);
             baeNameBirthdayNextBtn.classList.add('disable');
         }
     })
