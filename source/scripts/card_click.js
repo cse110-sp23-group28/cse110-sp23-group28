@@ -5,7 +5,7 @@
  * Description: System alert when one of the cards is clicked
  */
 
-//local variables
+//global variables
 var cardClicked1 = false;
 var cardClicked2 = false;
 var cardClicked3 = false;
