@@ -20,6 +20,15 @@ window.addEventListener('load', function(){
     const baeNameForm = this.document.getElementById('baeNameForm');
     const baeBirthdayForm = this.document.getElementById('baeBirthdayForm');
     const baeNameBirthdayNextBtn = this.document.querySelector('#baeNameBirthdayBtns .nextBtn');
+    // Name and birthday input section
+    const testBtn = document.getElementById('testBtn');
+    const yourName = this.document.getElementById('yourName');
+    const yourBirthday = this.document.getElementById('yourBirthday');
+    const baeName = this.document.getElementById('baeName');
+    const baeBirthday = this.document.getElementById('baeBirthday');
+    // Drawing canvas section
+    const drawCanvas = this.document.getElementById('drawCanvas');
+    const canvasNextBtn = document.querySelector('#canvasBtns .nextBtn');
     // Card selection section
     const cardsNextBtn = document.querySelector('#cardsBtns .nextBtn');
     const card1Button = this.document.getElementById('card1Button');
@@ -66,6 +75,35 @@ window.addEventListener('load', function(){
         }
     });
 
+    // Name and birthday input section
+    yourName.addEventListener('keyup', function(event){
+        if (event.key === 'Enter') {
+            yourBirthday.focus();
+        }
+    });
+    yourBirthday.addEventListener('keyup', function(event){
+        if (event.key === 'Enter') {
+            baeName.focus();
+        }
+    });
+    baeName.addEventListener('keyup', function(event){
+        if (event.key === 'Enter') {
+            baeBirthday.focus();
+        }
+    });
+    baeBirthday.addEventListener('keyup', function(event){
+        if (event.key === 'Enter') {
+            testBtn.focus();
+        }
+    });
+
+    // Drawing canvas section
+    document.addEventListener('keypress', function(event){
+        if (event.key === 'Enter' 
+        && drawCanvas.style.display === 'block') {
+            canvasNextBtn.focus();
+        }
+    });
 
     // card selection card buttons
     card1Button.addEventListener('keyup', function(event){
