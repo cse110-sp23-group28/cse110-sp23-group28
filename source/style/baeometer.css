@@ -744,6 +744,12 @@ screen and (max-height: 480px) {
 /* Small Screen for Result Section */
 @media only screen and (max-width: 767px), 
 screen and (max-height: 640px) {
+    @media (orientation: landscape) {
+        h1{
+            display: none;
+        }    
+    }
+    
     /* result */
     /* work with thermometer.css */
     #textResultPC{
