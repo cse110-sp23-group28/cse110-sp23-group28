@@ -24,8 +24,6 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(108, 51, 230, 0.49);
-backdrop-filter: blur(14.5px);
   opacity: 0.6; /* Adjust opacity as desired */
   z-index: -1; /* Place behind other elements */
 }
@@ -107,9 +105,8 @@ body {
   color: #fff;
 }
 
-.Bae h1:nth-child(1) {
+.Bae h1:nth-child(1) span {
   color: transparent;
-  -webkit-text-stroke: 2px #ffffff;
   background: linear-gradient(90deg, #f9b1b1 49.86%, #db8fff 100%), linear-gradient(0deg, #ffffff, #ffffff);
   background-clip: text;
   -webkit-background-clip: text;
