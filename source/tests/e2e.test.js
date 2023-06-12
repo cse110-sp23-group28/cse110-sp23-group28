@@ -13,7 +13,7 @@ describe('Basic user flow for Website', function () {
         try {
             await page.goto('http://127.0.0.1:5500/source/');
         } catch {
-            await page.goto('baeometer.com');
+            await page.goto('http://baeometer.com/');
         }
     });
   
