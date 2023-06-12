@@ -8,16 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
     <meta name="theme-color" content="#AE50B0" />
     <title>Bae-o-meter</title>
-    
     <!-- <link href="styles/main.css" rel="stylesheet"  type="text/css"/> -->
     <link href="img/favicon.ico" rel="icon">
     <link href="style/cards.css" rel="stylesheet" />
     <link href="style/baeometer.css" rel="stylesheet" />
     <link href="style/thermometer.css" rel="stylesheet" />
+    <script src="scripts/draw.js"></script>
     <script src="scripts/algorithm.js"></script>
     <script src="scripts/submit.js"></script>
     <script src="scripts/card_click.js"></script>
     <script src="scripts/change_page.js"></script>
+    <script src="scripts/disable_buttons.js"></script>
+    <script src="scripts/key_control.js"></script>
 </head>
 
 <body>
@@ -256,7 +258,7 @@
                         <!-- calculated result will be shown in the output element -->
                         <output id="outputPC" class="outputs">...</output>
                         <p class="resultStory">
-                            <output id="outputPC" class="outputsStory">...</output>
+                            <output class="outputsStory">...</output>
                         </p>
                         <a href="./index.html">Test Again</a>  
                     </div>
@@ -288,7 +290,7 @@
                 </defs>
             </svg>
             <p class="resultStory">
-                <output id="outputPC" class="outputsStory">...</output>
+                <output class="outputsStory">...</output>
                 <br><br>
                 <a href="./index.html">Test Again</a> 
             </p>            
