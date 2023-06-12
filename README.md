@@ -10,10 +10,11 @@ The Bae-O-Meter™ is a state of the art fortune telling website that can predic
 
 ## How to use the Bae-O-Meter:
 1. Click the "start" button on the home page
-2. Enter the names and birthdays of you and your potential bae, and press the "test" button to move on
-3. Draw something on the envelope using your mouse (or finger if you are on mobile), and press the "next" button
-4. Finally, choose one of the three love letters on screen, and press the "next" button
-5. The results should be displayed on the screen. If you would like to explore another potential relationship, press the "test again" button to start over.
+2. Enter the names and birthdays of you and your potential bae, pressing "next" to continue
+3. Ensure the above information is correct, and then press the "test" button to move on
+4. Draw something on the envelope using your mouse (or finger if you are on mobile), and press the "next" button
+5. Finally, choose one of the three love letters on screen, and press the "next" button
+6. The results should be displayed on the screen. If you would like to explore another potential relationship, press the "test again" button to start over.
 
 ## First-time development setup
 1. Clone the repo using `git clone https://github.com/cse110-sp23-group28/cse110-sp23-group28.git`
