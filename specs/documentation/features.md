@@ -47,7 +47,29 @@ Algorithm Result
 ## User Interface/Design
 ### Authors: @JasonARong @TerryYan26
 
-Description here
+Baeometer.html Page Transition
+- All the 'pages' are hosted on a single html file.
+- Each 'page' of the application will be organized into a `<section>` element.
+- change_page.js will, by default, set the display of all the page section elements to none and the opacity to 0, except the landing page section.
+- As the user clicks the button (back, next, test) it will trigger a 'onclick' JS event listener that does the following.
+- Change the current visible section's opacity from 1 to 0. With CSS rule `transition` it will create a smooth fade out.
+- Set the display of the current section to none to prevent the user from interacting with the hidden section.
+- Set the next section's display to block or flex, but the opacity of this section so it is still not visible.
+- Set the next section's opacity to 1. So with CSS `transition` the next section will be faded in smoothly.
+
+Use Enter key to navigate
+- When the baeometer.html page is first loaded, the input field for the user's name will be automatically focused by key_control.js.
+- The input fields and the next buttons will listen to keypress/keyup events of `key === Enter` which will trigger the function that focuses on the next interactable elements (other input fields and buttons).
+- Hitting enter on a focused next/test button will by default click the next button, which will trigger the page transition functions, as well as the command to focus on the intractable element on the next page.
+
+Disable the next/test button when inputs are empty
+- Next button is by default disabled.
+- Add keyup event listener to each of the necessary input fields. 
+- The keyup event will trigger every time the user uses the keyboard when focused on an input field.
+- After the event is triggered, it will get the value of the input field
+- If the value is an empty string, the code will proceed to disable the code by adding a class name `disable` to it.
+  - baeometer.css applies a greyish style to all the next buttons with the class name `disable`.
+  - change_page.js use if-statement to make sure a next-button will not trigger page change when it has the class name `disable`
 
 ## Continuous Integration/Continuous Deployment (CI/CD) Pipeline
 ### Authors: @codyprupp @breponte
