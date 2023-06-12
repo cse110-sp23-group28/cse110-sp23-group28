@@ -5,7 +5,11 @@
  * Description: Unit tests for canvas functions
  */
 
+// JSDOM setup
 const functions = require('../scripts/algorithm.js');
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+const { document } = (new JSDOM(`...`)).window;
 
 let canvas, ctx;
 
