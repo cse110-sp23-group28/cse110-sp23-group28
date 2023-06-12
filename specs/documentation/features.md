@@ -59,17 +59,20 @@ Baeometer.html Page Transition
 
 Use Enter key to navigate
 - When the baeometer.html page is first loaded, the input field for the user's name will be automatically focused by key_control.js.
-- The input fields and the next buttons will listen to keypress/keyup events of `key === Enter` which will trigger the function that focuses on the next interactable elements (other input fields and buttons).
+- The input fields and the next buttons will listen to keypress/keyup events of `key === Enter` which will make the page focuses on the next interactable elements (other input fields and buttons) or click the next button of this page.
 - Hitting enter on a focused next/test button will by default click the next button, which will trigger the page transition functions, as well as the command to focus on the intractable element on the next page.
 
-Disable the next/test button when inputs are empty
-- Next button is by default disabled.
+Disable next/test buttons when inputs are empty
+- Next buttons are by default disabled.
 - Add keyup event listener to each of the necessary input fields. 
 - The keyup event will trigger every time the user uses the keyboard when focused on an input field.
 - After the event is triggered, it will get the value of the input field
-- If the value is an empty string, the code will proceed to disable the code by adding a class name `disable` to it.
+- If the value is an empty string, the code will proceed to disable the next button by adding a class name `disable` to it.
   - baeometer.css applies a greyish style to all the next buttons with the class name `disable`.
   - change_page.js use if-statement to make sure a next-button will not trigger page change when it has the class name `disable`
+- If the value is not an empty string, the code will proceed to disable the next button by removing the class name `disable`.
+  - The style of the button will return to normal.
+  - change_page.js will allow the button to trigger the transition to the next page.
 
 ## Continuous Integration/Continuous Deployment (CI/CD) Pipeline
 ### Authors: @codyprupp @breponte
