@@ -17,6 +17,7 @@ window.addEventListener('load', function () {
 
     let isDrawing = false;
 
+
     /**
      * Interpret a click/touch and convert into drawing mode
      * @author Steve Padmanaban
@@ -38,9 +39,6 @@ window.addEventListener('load', function () {
             return;
         }
 
-        // pen configurations
-        canvasContext.lineWidth = 10;
-        canvasContext.lineCap = 'round';
 
         // get mouse/touch position
         const boundary = canvas.getBoundingClientRect();
@@ -85,15 +83,52 @@ window.addEventListener('load', function () {
     function handleWindowChange(smallWindow) {
         // if document matches media query list in smallWindow change the canvas size
         const rootStyles = window.getComputedStyle(document.documentElement);
-        if (smallWindow.matches){
-            canvas.width = rootStyles.getPropertyValue('--canvas-width-small').slice(0,- 2);
-            canvas.height = rootStyles.getPropertyValue('--canvas-height-small').slice(0,- 2);
+
+        // Get the original canvas dimensions and image data
+        const originalWidth = canvas.width;
+        const originalHeight = canvas.height;
+        const originalImageData = canvasContext.getImageData(0, 0, originalWidth, originalHeight);
+        const standardLineWidth = 10;
+
+        // Window is small
+        // slicing is used to get rid of 'px'
+        if (smallWindow.matches) {
+            canvas.width = rootStyles.getPropertyValue('--canvas-width-small').slice(0, - 2);
+            canvas.height = rootStyles.getPropertyValue('--canvas-height-small').slice(0, - 2);
+            canvasContext.lineWidth = standardLineWidth / 2;
         }
         else {
-            canvas.width = rootStyles.getPropertyValue('--canvas-width-big').slice(0,- 2);
-            canvas.height = rootStyles.getPropertyValue('--canvas-height-big').slice(0,- 2);
+            canvas.width = rootStyles.getPropertyValue('--canvas-width-big').slice(0, - 2);
+            canvas.height = rootStyles.getPropertyValue('--canvas-height-big').slice(0, - 2);
+            canvasContext.lineWidth = standardLineWidth;
         }
+
+        // pen configurations and gradient
+        const penGradient = canvasContext.createLinearGradient(0, 0, 0, canvas.height);
+        penGradient.addColorStop(0, '#F9B1B1');
+        penGradient.addColorStop(1, '#BD00FF');
+        canvasContext.strokeStyle = penGradient;
+        canvasContext.lineCap = 'round';
+
+        // create a temporary canvas to hold the scaled drawing
+        const tempCanvas = document.createElement('canvas');
+        tempCanvas.width = originalWidth;
+        tempCanvas.height = originalHeight;
+        const tempContext = tempCanvas.getContext('2d');
+
+        // draw the original image data onto the temporary canvas
+        tempContext.putImageData(originalImageData, 0, 0);
+
+        // clear the canvas on the original canvas
+        canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+
+        // disable image smoothing (to make drawing less blurry)
+        canvasContext.imageSmoothingEnabled = false;
+
+        // draw the temporary canvas onto the new canvas
+        canvasContext.drawImage(tempCanvas, 0, 0, canvas.width, canvas.height);
     }
+
 
     // object storing information about media query for small window
     const smlWn = window.matchMedia('screen and (max-width: 767px),screen and (max-height: 480px)');

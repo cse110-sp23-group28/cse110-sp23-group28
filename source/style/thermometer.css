@@ -19,8 +19,8 @@
   background: rgba(255, 255, 255, 0.28);
   border-radius: 25px;
   border: 6px solid rgba(255, 255, 255, 0.77);
-  /*  background-color: blue); */
-  /* box-shadow: 0 0 32px blue; */
+
+  opacity: 0;
   transition: 1s;
 }
 #progressFill {
@@ -42,8 +42,8 @@
 #progressFill.result{
   height: 100%;
 }
-#progressThermometer.result{
-  opacity: 0;
+#progressThermometer.fadeIn{
+  opacity: 1;
 }
 
 /* Portrait Mode */
@@ -107,6 +107,7 @@
   animation-delay: 1.2s;
   transition: 1s;
 }
+
 
 @keyframes progress-forward {
   0% {
