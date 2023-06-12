@@ -46,9 +46,14 @@ Algorithm Result
 
 ## User Interface/Design
 ### Authors: @JasonARong @TerryYan26
+Developed wireframes in Figma for both the desktop and mobile versions, ensuring a comprehensive design approach and applied sophisticated CSS and JavaScript techniques to create captivating transitions and animations throughout the website.
 
-Description here
 
+ pages:
+- Implemented advanced animations to elevate the visual appeal of the index page.
+- Ensured a responsive design for optimal user experience, although continuous refinements are being made.
+- Crafted an enticing animated button on the initial page.
+- desgin a HTML Favicon
 ## Continuous Integration/Continuous Deployment (CI/CD) Pipeline
 ### Authors: @codyprupp @breponte
 
