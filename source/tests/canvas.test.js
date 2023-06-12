@@ -31,6 +31,16 @@ test('getCanvasPixels on drawn rectangle', () => {
     ).toBe(200*200);
 });
 
+test('getCanvasPixels on filled canvas overflow', () => {
+    // draw rectangle
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, canvas.width+100, canvas.height+100);
+
+    expect(functions.getCanvasPixels(
+        ctx.getImageData(0, 0, canvas.width, canvas.height))
+    ).toBe(500*500);
+});
+
 test('getCanvasPixels on 5 pixel long horizontal line', () => {
     // pen configurations
     ctx.lineWidth = 10;
@@ -80,3 +90,5 @@ test('getCanvasPixels on 5 pixel long vertical line', () => {
         ctx.getImageData(0, 0, canvas.width, canvas.height))
     ).toBe(50);
 });
+
+// It is extremely difficult or impossible to test diagonal lines as they are inconsistent
