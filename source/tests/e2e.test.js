@@ -82,7 +82,7 @@ describe('Basic user flow for Website', function () {
         });
 
         // check if canvas is visible to user (i.e. not display: "none")
-        // await expect(canvasVisible).toBe("block");
+        await expect(canvasVisible).toBe("block");
     });
 
     // 
