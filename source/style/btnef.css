@@ -1,0 +1,130 @@
+/* body {
+    background: black;
+    text-align: center;
+    padding: 50px;
+    box-sizing: border-box;
+} */
+
+.btn {
+    font-size: 1em;
+    line-height: 1em;
+    letter-spacing: 0.04em;
+    display: inline-block;
+}
+
+.btn--svg {
+    position: relative;
+    height: 42px;
+    width: 190px;
+    overflow: hidden;
+    border-radius: 21px;
+}
+
+.btn--svg:hover .btn--svg__circle circle {
+    transform: scale(0);
+}
+
+.btn--svg:hover .btn--svg__label {
+    color: #fff;
+}
+
+.btn--svg:hover .btn--svg__border--left path,
+.btn--svg:hover .btn--svg__border--right path {
+    stroke-dasharray: 61.8204345703125 61.8204345703125;
+    stroke-dashoffset: 0;
+}
+
+.btn--svg__label {
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    z-index: 3;
+    width: 100%;
+    transition: color 0.5s ease-in-out;
+}
+
+.btn--svg__circle circle {
+    transition: transform 0.5s ease-in-out;
+    transform: scale(1.1);
+    transform-origin: 50% 50%;
+}
+
+.btn--svg__border--left path,
+.btn--svg__border--right path {
+    stroke-dasharray: 61.8204345703125 61.8204345703125;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+    transition-property: stroke-dashoffset;
+    transition-delay: 0.5s;
+}
+
+.btn--svg__border--left path {
+    stroke-dashoffset: -61.8204345703125;
+}
+
+.btn--svg__border--right path {
+    stroke-dashoffset: 61.8204345703125;
+}
+
+svg,
+.btn--svg__label {
+    color:white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: 50% 50%;
+}
+
+.c-white {
+    color: white;
+}
+
+.trailer {
+    margin-bottom: 40px;
+}
+
+.trailer--nano {
+    margin-bottom: 10px;
+}
+
+a {
+    position: relative;
+    text-decoration: none;
+    color: red;
+}
+
+a:after {
+    content: '';
+    height: 1px;
+    bottom: -4px;
+    position: absolute;
+    left: 5%;
+    right: 95%;
+    background: red;
+    transition: right 0.25s ease-in-out;
+}
+
+a:hover:after {
+    right: 5%;
+}
+
+.teasing-1,
+.heading-2 {
+    font-family: sans-serif;
+    letter-spacing: 0.04em;
+    -webkit-font-smoothing: antialiased;
+}
+
+.teasing-1 {
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.heading-2 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 20px;
+    text-transform: uppercase;
+}

@@ -1,36 +1,64 @@
+@import url("./global.css");
+
 * {
-  box-sizing: border-box;
   
+  box-sizing: border-box;
 }
-.container {  display: grid;
+
+.container {
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
+  
+}
+body{
+  background: rgba(108, 51, 230, 0.49);
+  backdrop-filter: blur(14.5px);
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6; /* Adjust opacity as desired */
+  z-index: -1; /* Place behind other elements */
 }
 
-.Main { 
-  grid-area: 2 / 2 / 5 / 5; 
+/* Rest of the CSS code remains the same */
+
+.Main {
+  grid-area: 2 / 2 / 5 / 5;
   margin-left: 20%;
 }
 
-.content { 
-  grid-area: 3 / 4 / 4 / 5; 
+.content {
+  grid-area: 3 / 4 / 4 / 5;
 }
 
-.Btn { 
-  grid-area: 4 / 3 / 5 / 4; 
+.Btn {
+  grid-area: 4 / 3 / 5 / 4;
   margin-top: 20%;
 }
 
-.menu { 
-  grid-area: 1 / 5 / 2 / 6; 
+.menu {
+  grid-area: 1 / 5 / 2 / 6;
+  visibility: hidden;
 }
 
-
-html, body , .container {
+html,
+body,
+.container {
   height: 100%;
   margin: 0;
+}
+
+.bg {
+  background: rgba(108, 51, 230, 0.49);
+  backdrop-filter: blur(14.5px);
 }
 
 body {
@@ -40,11 +68,14 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-position: center center;
+  
 }
-.menu-con { grid-area: 1 / 5 / 2 / 6; }
+
+.menu-con {
+  grid-area: 1 / 5 / 2 / 6;
+}
 
 .menu {
-
   margin: 20px;
   padding: 20px;
   display: flex;
@@ -57,105 +88,177 @@ body {
   margin-left: 50px;
 }
 
-.Bae { 
-  grid-area: 2 / 3 / 4 / 5; 
+.Bae {
+  grid-area: 2 / 3 / 4 / 5;
   margin-top: 13%;
   margin-left: -8%;
 }
+
 .BAE-O-METER {
-  
+  position: absolute;
+  margin-top: 2%;
+  margin-left: 11.5%;
+  transform: translate(-50%, -50%);
+  display: block;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 50px;
-  background: linear-gradient(90deg, white 0%, #F9B1B1 50%, #DB8FFF 100%),
-              linear-gradient(0deg, #FFFFFF, #FFFFFF);
+  color: #fff;
+}
+
+.Bae h1:nth-child(1) span {
+  color: transparent;
+  background: linear-gradient(90deg, #f9b1b1 49.86%, #db8fff 100%), linear-gradient(0deg, #ffffff, #ffffff);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+.Bae h1:nth-child(2) {
+  color: #ffffff;
+  animation: animate 4s ease-in-out infinite;
+}
 
+@keyframes animate {
+  0%,
+  100% {
+    clip-path: polygon(0% 45%, 16% 44%, 33% 50%, 54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%);
+  }
+  50% {
+    clip-path: polygon(0% 60%, 15% 65%, 34% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
+  }
+}
 
-
- .Predicts {
+.Predicts {
   font-family: 'Inter';
   font-style: normal;
   font-size: 25px;
   line-height: 10px;
-  color: #FFFFFF;
-}
-.startbtn {
-  box-sizing: border-box;
-  width: 163px;
-  background: rgba(230, 1, 250, 0.43);
-  border: 1px solid #CC77E0;
-  border-radius: 12px;
-}
-.start{
-  font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-line-height: 30px;
-color: #FFFFFF;
-}
-.name {
-  color: #fff;
+  color: #ffffff;
+  display: block;
 }
 
 .content1 {
-
-position: absolute;
-width: 147px;
-font-family: 'Inter';
-font-style: italic;
-font-weight: 400;
-font-size: 10px;
-line-height: 12px;
-
-color: #FFFFFF;
-
+  position: absolute;
+  width: 147px;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #ffffff;
 }
-   /* responsive design */
-   @media screen and (max-width: 900px) {
-    .heart{
-      margin-left: -55%;
-      margin-top: -10%;
-    }
-    .menu{
-      display: none;
-    }
-    .Bae{
-      grid-area: 2 / 3 / 4 / 6; 
-      margin-left: -23%;
-      margin-top: 30%;
-      
-    }
-    .BAE-O-METER{
-      
-    
-      font-weight: 700;
-    font-size: 40px;
+
+/* responsive design */
+@media screen and (max-width: 900px) {
+  .heart {
+    margin-left: -55%;
+    margin-top: -10%;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .Bae {
+    grid-area: 2 / 3 / 4 / 6;
+    margin-left: -23%;
+    margin-top: 30%;
+  }
+
+  .BAE-O-METER {
+    position: absolute;
+    right: -33%;
+    top: 30%;
+    font-weight: 700;
+    font-size: 37px;
     line-height: 48px;
-    }
-    .Predicts{
-      font-size: 20px;
-      line-height: 10px;
-      text-align: center;
-      margin-top:0%;
-      margin-left: -10%;
-    }
-    .content{
-      margin-top: 135%;
-      margin-left:-40% ;
-    }
-    
-    
-    .Btn{
-      grid-area: 4 / 1 / 6 / 6;
-      margin-left: 20%;
-      margin-top: 40%;
-    }
-    
-    
-    }
+  }
+
+  .Predicts {
+    font-size: 20px;
+    line-height: 10px;
+    text-align: center;
+    margin-top: 0%;
+    margin-left: -10%;
+  }
+
+  .content {
+    margin-top: 135%;
+    margin-left: -40%;
+  }
+
+  .Btn {
+    grid-area: 4 / 1 / 6 / 6;
+    margin-left: 20%;
+    margin-top: 40%;
+  }
+}
+
+
+@media screen and (max-width: 1344px) and (min-width: 937px) {
+  .BAE-O-METER {
+    position: absolute;
+    left: 50%;
+    font-weight: 700;
+    font-size: 37px;
+    line-height: 48px;
+  }
+
+  .heart {
+    margin-top: -10%;
+  }
+}
+
+@media screen and (max-width: 900px) and (min-width: 425px) {
+  .BAE-O-METER {
+    position: absolute;
+    left: 50%;
+    font-weight: 700;
+    font-size: 37px;
+    line-height: 48px;
+  }
+}
+
+/* responsive design for landscape mode on smaller screens */
+@media screen and (orientation: landscape) and (max-width: 900px) {
+  .Main {
+    margin-left: 10%;
+  }
+
+  .Bae {
+    margin-left: -3%;
+  }
+
+  .BAE-O-METER {
+    font-size: 37px;
+  }
+
+  .Predicts {
+    font-size: 20px;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .content {
+    margin-top: 120%;
+    margin-left: -20%;
+  }
+
+  .Btn {
+    margin-top: 22%;
+    margin-left: 0%;
+  }
+}
+@media screen and (min-width: 947px) and (max-width: 1245px) {
+  .BAE-O-METER{
+    left: 350px;
+  }
+}
+@media screen and (min-height: 278px) and (max-height:560px) {
+ .Bae{
+  margin-top: 10%;
+  margin-left: -98%
+ }
+}
