@@ -13,7 +13,7 @@ describe('Basic user flow for Website', function () {
         try {
             await page.goto('http://127.0.0.1:5500/source/');
         } catch {
-            await page.goto('baeometer.com');
+            await page.goto('http://baeometer.com/');
         }
     });
   
@@ -24,99 +24,65 @@ describe('Basic user flow for Website', function () {
             startButton.click();
         });
         // match to either local host or hosted page
-        await expect(page.url()).toMatch
+        expect(page.url()).toMatch
             (/^((http:\/\/127\.0\.0\.1:5500\/source.*)|baeometer\.com)\/baeometer\.html$/);
     });
 
     // User fills out their name and birthday
     it('Baeometer Name and Birthday - YOU', async function () {
-        // // get reference to name input field and type in it
-        // const nameField = await page.$(
-        //     '#yourNameBirthday #yourNameBirthdayContainer #yourNameBirthdayForm #yourNameForm'
-        // );
-        // await nameField.type('Sussy Gus');
+        // user enters name and date input
+        await page.type('#yourNameForm', 'Sussy Gus');
+        await page.type('#yourBirthdayForm', '12-31-2022');
+        await page.keyboard.press('Enter');
 
-        // // get reference to date input field and input a date
-        // const dateField = await page.$(
-        //     '#yourNameBirthday #yourNameBirthdayContainer #yourNameBirthdayForm #yourBirthdayForm'
-        // );
-        // await dateField.click();
-        // await page.keyboard.type('12-31-2022');
-        // await page.keyboard.press('Enter');
+        // get updated name and date input
+        const nameBirthdayValues = await page.$eval('#yourNameBirthdayForm',
+            function (form) {
+                return [form.querySelector('#yourNameForm').value,
+                    form.querySelector('#yourBirthdayForm').value];
+            }
+        );
 
-        // // get updated name input
-        // const nameValue = await page.$eval(
-        //     '#yourNameBirthday #yourNameBirthdayContainer #yourNameBirthdayForm #yourNameForm',
-        //     function (nameField) {
-        //         return nameField.value;
-        //     }
-        // );
-
-        // // get updated birthday input
-        // const dateValue = await page.$eval(
-        //     '#yourNameBirthday #yourNameBirthdayContainer #yourNameBirthdayForm #yourBirthdayForm',
-        //     function (dateField) {
-        //         return dateField.value;
-        //     }
-        // );
-
-        // // verify that the information is stored
-        // expect(nameValue).toBe('Sussy Gus');
-        // expect(dateValue).toBe('2022-12-31');
+        // verify that the information is stored
+        expect(nameBirthdayValues[0]).toBe('Sussy Gus');
+        expect(nameBirthdayValues[1]).toBe('2022-12-31');
     });
 
     // User fills out their bae's name and birthday
     it('Baeometer Name and Birthday - BAE', async function () {
-        // // get reference to name input field and type in it
-        // const nameField = await page.$(
-        //     '#baeNameBirthday #baeNameBirthdayContainer #baeNameBirthdayForm #baeNameForm'
-        // );
-        // await nameField.type('Thomas Powell');
+        // user enters name and date input
+        await page.type('#baeNameForm', 'Thomas Powell');
+        await page.type('#baeBirthdayForm', '01-01-1930');
+        await page.keyboard.press('Enter');
 
-        // // get reference to date input field and input a date
-        // const dateField = await page.$(
-        //     '#baeNameBirthday #baeNameBirthdayContainer #baeNameBirthdayForm #baeBirthdayForm'
-        // );
-        // await dateField.click();
-        // await page.keyboard.type('01-01-1930');
-        // await page.keyboard.press('Enter');
+        // get updated name and date input
+        const nameBirthdayValues = await page.$eval('#baeNameBirthdayForm',
+            function (form) {
+                return [
+                    form.querySelector('#baeNameForm').value,
+                    form.querySelector('#baeBirthdayForm').value
+                ];
+            }
+        );
 
-        // // get updated name input
-        // const nameValue = await page.$eval(
-        //     '#baeNameBirthday #baeNameBirthdayContainer #baeNameBirthdayForm #baeNameForm',
-        //     function (nameField) {
-        //         return nameField.value;
-        //     }
-        // );
+        // verify that the information is stored
+        await expect(nameBirthdayValues[0]).toBe('Thomas Powell');
+        await expect(nameBirthdayValues[1]).toBe('1930-01-01');
 
-        // // get updated birthday input
-        // const dateValue = await page.$eval(
-        //     '#baeNameBirthday #baeNameBirthdayContainer #baeNameBirthdayForm #baeBirthdayForm',
-        //     function (dateField) {
-        //         return dateField.value;
-        //     }
-        // );
-
-        // // verify that the information is stored
-        // expect(nameValue).toBe('Thomas Powell');
-        // expect(dateValue).toBe('1930-01-01');
+        // click the test button
+        const testButton = await page.$('#inputNameBirthday #testBtn');
+        await testButton.click();
     });
 
-    // User clicks the test button to test the inputted couple
+    // User clicks the test button to test the inputted couple NOT WORKING YET
     it('Baeometer Name and Birthday - Test couple', async function () {
-        // // click the test button
-        // const testButton = await page.$eval('#inputNameBirthday #testBtn', function () {
-        //     testButton.click();
-        // });
-        
-        // // get display of canvas
-        // const canvasVisible = await page.$eval('#drawCanvas', function (canvas) {
-        //     return window.getComputedStyle(canvas).display;
-        // });
+        // get display of canvas
+        const canvasVisible = await page.$eval('#drawCanvas', function (canvas) {
+            return window.getComputedStyle(canvas).display;
+        });
 
         // check if canvas is visible to user (i.e. not display: "none")
-        // this does not work?
-        //expect(canvasVisible).toBe("block");
+        // await expect(canvasVisible).toBe("block");
     });
 
     // 
@@ -130,8 +96,13 @@ describe('Basic user flow for Website', function () {
         // expect(functions.getCanvasPixels(canvas.getContext('2d').getImageData())).toBe(200);
     });
 
-    // 
-    it('Baeometer Card - Test couple', async function () {
+    // Yet to implement
+    it('Baeometer Card - Select card for story', async function () {
+        return;
+    });
+
+    // Yet to implement
+    it('Baeometer Result - Generate story', async function () {
         return;
     });
 });
