@@ -44,6 +44,15 @@ Algorithm Result
 - Each of the 3 scores (name, birthday, drawing) gets computed into a weighted average, where name has a weight of 0.3, birthday has a weight of 0.6, and the drawing has a weight of 0.1. The output of this is a number between 0 and 1.
 - This number between 0 and 1 is then converted to a time range (e.g. 1 month, 6 months, 1 year, 3 years, 5, years, 10 years, Forever). The time range is returned and paired up with a corresponding story based on the card the user picked.
 
+Converting to Time Ranges
+- The number between 0 and 1 from the algorithm's score is then converted to a time range (e.g. 1 month, 6 months, 1 year, 3 years, 5, years, 10 years, Forever). The time range is returned and paired up with a corresponding story based on the card the user picked.
+- We wanted to make each time range have around a 15% chance of getting chosen (10% for "Forever"). 
+- To do this, we ran 100,000 simulations in R that chose random values from the possible compatibilities of the Destiny numbers and Zodiac signs. Then to simulate the Canvas pixel values, we chose a random number between 0 and 1. Afterwards, we computed a weighted average on the results that matched the weighted average used in the algorithm. 
+- This assumes that there is an equal chance of getting every compatibility value from the Zodiac signs and Destiny numbers, as well as assuming that the formula for computing the score for the drawing portion follows a uniform distribution from 0 to 1. 
+- Here is the distribution of the results from the simulation:
+![Algorithm score distribution](algorithm_score_dist.png)
+- We used R to fit a normal probability distribution on these results and we used that distribution to determine the cut-off scores for the time range results to make sure each result has around a 15% chance (10% for "Forever") of getting picked based on the assumptions we made above. 
+
 ## User Interface/Design
 ### Authors: @JasonARong @TerryYan26
 
