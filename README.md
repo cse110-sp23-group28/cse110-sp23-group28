@@ -4,7 +4,9 @@
 ![jest status](https://img.shields.io/github/actions/workflow/status/cse110-sp23-group28/cse110-sp23-group28/jest.yml)
 
 [Link to Project Site](http://baeometer.com/)
+
 [Link to Public Project Video](https://www.youtube.com/watch?v=Mk5UDK28VeA)
+
 [Link to Private Project Video](https://youtu.be/hyIOlS1RTag)
 
 ## Project Description:
