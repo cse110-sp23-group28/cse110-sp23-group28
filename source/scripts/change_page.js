@@ -12,8 +12,6 @@
  * No parameters and No return values 
  */
 window.addEventListener('load', function(){   
-    // root of document
-    const root = this.document.querySelector(':root');
     // Body section
     const body = document.querySelector('body');
     // Input your name and birthday section 
@@ -51,9 +49,6 @@ window.addEventListener('load', function(){
     const card1Button = this.document.getElementById('card1Button');
     const card2Button = this.document.getElementById('card2Button');
     const card3Button = this.document.getElementById('card3Button');
-    const cardClick1 = document.getElementById('card1Button');
-    const cardClick2 = document.getElementById('card2Button');
-    const cardClick3 = document.getElementById('card3Button');
     let cardClicked = false;
     // Result section
     const result = document.getElementById('result');
@@ -258,7 +253,6 @@ window.addEventListener('load', function(){
     cardsNextBtn.addEventListener('click', function(){
         //Checks a card has been selected first
         if (cardClicked === true){
-            // root.style.setProperty("--section-transition", 'ease 5s');
             chooseCards.classList.toggle('fadeIn');
             thermometerProgress.classList.toggle('result');
             thermometer.classList.toggle('fadeIn');
